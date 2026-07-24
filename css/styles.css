@@ -240,119 +240,147 @@ body {
 /* Notion Database Cards Gallery Grid */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.5rem;
   text-align: left;
 }
 
-/* Student Profile Card - Clean Notion Gallery Card Style */
+/* Minimalist High-Hierarchy Student Card */
 .student-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
-  box-shadow: var(--shadow-notion);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03), 0 1px 2px rgba(15, 23, 42, 0.02);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.15s ease;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.student-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--card-accent-color, var(--primary));
+  opacity: 0.85;
 }
 
 .student-card:hover {
-  border-color: var(--border-hover);
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(79, 70, 229, 0.15);
+  transform: translateY(-4px);
 }
 
+/* Level 1: Primary Header - Avatar & Name */
 .card-header {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  margin-bottom: 0.85rem;
+  gap: 0.95rem;
+  margin-bottom: 1rem;
 }
 
 .avatar-circle {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: #f8fafc;
+  border: 2px solid var(--card-accent-color, #e2e8f0);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   flex-shrink: 0;
 }
 
-.student-meta h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--text-main);
-  line-height: 1.25;
+.student-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
 }
 
+.student-meta h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+/* Level 2: Student Role & Bio */
 .student-role {
   font-size: 0.775rem;
-  color: var(--text-muted);
-  font-weight: 400;
-  margin-top: 0.1rem;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .student-bio {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #334155;
+  margin-bottom: 1.15rem;
   flex-grow: 1;
-  line-height: 1.5;
+  line-height: 1.55;
+  font-weight: 400;
 }
 
+/* Level 3: Tech Stack Tags */
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-bottom: 1rem;
+  gap: 0.4rem;
+  margin-bottom: 1.15rem;
 }
 
 .tag {
-  background: var(--bg-chip);
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.725rem;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
   font-family: var(--font-mono);
-  color: var(--text-main);
+  font-weight: 500;
+  color: #334155;
 }
 
+/* Level 4: Card Footer & Action Link */
 .card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--border-color);
+  padding-top: 0.85rem;
+  border-top: 1px solid #f1f5f9;
 }
 
 .quote {
   font-size: 0.775rem;
   font-style: italic;
-  color: var(--text-dim);
-  max-width: 70%;
+  color: #94a3b8;
+  max-width: 65%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .github-link {
-  color: var(--text-muted);
+  color: #0f172a;
   text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.825rem;
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.35rem;
   transition: color 0.15s ease;
 }
 
 .github-link:hover {
-  color: var(--text-main);
+  color: var(--primary);
 }
 
 /* Modal Overlay Cheat Sheet */
