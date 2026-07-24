@@ -39,13 +39,13 @@
       <svg width="36" height="36" fill="none" stroke="#F05032" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
     </div>
 
-    <!-- Notion Title & Description -->
+    <!-- Notion Page Title & Header -->
     <h1 class="notion-title">Student Wall of Fame</h1>
     <p class="notion-description">
       Learn Git by doing! Together, we'll collaborate live and see everyone's contributions come to life on a shared website.
     </p>
 
-    <!-- Notion Quick Action Buttons -->
+    <!-- Notion Quick Links Bar -->
     <div class="notion-actions-bar">
       <a href="slides.html" class="btn btn-primary" target="_blank">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
@@ -60,43 +60,12 @@
       </a>
     </div>
 
-    <!-- Notion Callout Box (Quick Start Terminal Commands) -->
-    <div class="notion-callout">
-      <div class="notion-callout-header">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        <span>Quick Terminal Setup Commands</span>
-      </div>
-      <div class="notion-code-block">
-        <div><span class="prompt">$</span><span class="command">git clone https://github.com/your-username/git-ready.git</span></div>
-        <div><span class="prompt">$</span><span class="command">cd git-ready</span></div>
-        <div><span class="prompt">$</span><span class="command">git checkout -b student/your-name</span></div>
-        <div><span class="comment"># Create data/students/your-name.json and then:</span></div>
-        <div><span class="prompt">$</span><span class="command">git add . && git commit -m "feat: add my profile card"</span></div>
-        <div><span class="prompt">$</span><span class="command">git push origin student/your-name</span></div>
-      </div>
-    </div>
-
-    <!-- Notion Database Stats Grid -->
-    <div class="notion-stats-grid">
-      <div class="notion-stat-card">
-        <div class="notion-stat-val" id="participant-count">0</div>
-        <div class="notion-stat-lbl">Student Contributors</div>
-      </div>
-      <div class="notion-stat-card">
-        <div class="notion-stat-val" id="tech-count">0</div>
-        <div class="notion-stat-lbl">Unique Tech Stacks</div>
-      </div>
-      <div class="notion-stat-card">
-        <div class="notion-stat-val" style="color: #10b981;">100%</div>
-        <div class="notion-stat-lbl">Hands-On Practice</div>
-      </div>
-    </div>
-
-    <!-- Notion Database Gallery Section -->
+    <!-- Notion Gallery Database View Controls Header -->
     <div class="notion-db-controls">
       <div class="notion-db-title">
         <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
         <span>Student Contributors Gallery</span>
+        <span class="db-count-badge" id="participant-count">0</span>
       </div>
 
       <div class="search-box">
@@ -110,15 +79,14 @@
       <!-- Dynamically rendered by JS -->
     </div>
 
-    <!-- Student Cards Database Gallery Grid -->
+    <!-- Main Student Cards Database Gallery Grid -->
     <div class="cards-grid" id="cards-grid">
-      <!-- Cards rendered dynamically by app.js -->
+      <!-- Student profile cards rendered dynamically by app.js -->
     </div>
 
     <!-- Footer -->
     <footer>
       <p>Getting Started With Git • Peer-to-Peer Workshop</p>
-      <p style="font-size: 0.775rem; margin-top: 0.35rem; color: var(--text-dim);">Designed for live projector presentations and hands-on collaboration.</p>
     </footer>
   </div>
 
