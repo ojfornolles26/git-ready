@@ -155,6 +155,23 @@ document.addEventListener('DOMContentLoaded', () => {
   if (prevBtn) prevBtn.addEventListener('click', prevSlide);
   if (nextBtn) nextBtn.addEventListener('click', nextSlide);
 
+  const fullscreenBtn = document.getElementById('btn-fullscreen');
+  function updateFullscreenIcon() {
+    if (!fullscreenBtn) return;
+    if (document.fullscreenElement) {
+      fullscreenBtn.title = "Exit Fullscreen (F)";
+      fullscreenBtn.innerHTML = `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 14h6v6m10-10h-6V4m0 16v-6h6M10 4v6H4"/></svg>`;
+    } else {
+      fullscreenBtn.title = "Toggle Fullscreen Presentation Mode (F)";
+      fullscreenBtn.innerHTML = `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg>`;
+    }
+  }
+
+  if (fullscreenBtn) {
+    fullscreenBtn.addEventListener('click', toggleFullscreen);
+    document.addEventListener('fullscreenchange', updateFullscreenIcon);
+  }
+
   // PREVENT COPY/PASTE ON COMMANDS TO ENFORCE HANDS-ON TYPING PRACTICE, BUT ALLOW COPYING REPO URL
   document.querySelectorAll('.code-wrapper, code').forEach(el => {
     el.addEventListener('copy', (e) => {
