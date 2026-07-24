@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slideCounter.textContent = `${num} / ${total}`;
   }
 
-  // Jump to slide by index
+  // Jump to slide by index with perfect center snap
   function jumpToSlide(idx) {
     if (idx < 0) idx = 0;
     if (idx >= slideCards.length) idx = slideCards.length - 1;
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const targetEl = slideCards[currentIdx];
     if (targetEl) {
-      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
 
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'f' || e.key === 'F') {
       e.preventDefault();
       toggleFullscreen();
-    } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') {
+    } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
       e.preventDefault();
       jumpToSlide(currentIdx + 1);
     } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
@@ -74,8 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (slideCards.length > 0) {
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -60% 0px',
-      threshold: 0
+      rootMargin: '-30% 0px -30% 0px',
+      threshold: 0.4
     };
 
     const observer = new IntersectionObserver((entries) => {

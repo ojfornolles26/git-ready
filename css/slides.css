@@ -2,7 +2,7 @@
 
 :root {
   --bg-page: #f8fafc;
-  --bg-card: rgba(255, 255, 255, 0.72);
+  --bg-card: rgba(255, 255, 255, 0.78);
   --border-color: rgba(229, 231, 235, 0.85);
   --border-subtle: #f3f4f6;
 
@@ -31,6 +31,8 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  height: 100%;
 }
 
 body {
@@ -38,7 +40,6 @@ body {
   background-color: var(--bg-page);
   color: var(--text-primary);
   line-height: 1.65;
-  padding-bottom: 9rem;
   -webkit-font-smoothing: antialiased;
   letter-spacing: -0.01em;
   position: relative;
@@ -209,31 +210,38 @@ body::before {
 
 /* Main Container */
 .slides-container {
-  max-width: 820px;
-  margin: 3.5rem auto 0;
+  max-width: 860px;
+  margin: 0 auto;
   padding: 0 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
   position: relative;
   z-index: 1;
 }
 
-/* Translucent Glassmorphism Slide Card */
+/* Full Viewport Scroll-Snapping Slide Card - FOCUS 1 SLIDE AT A TIME */
 .slide-card {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   background: var(--bg-card);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
   padding: 3rem 3.5rem;
-  scroll-margin-top: 2.5rem;
+  margin: 1rem 0;
   box-shadow: var(--shadow-premium);
   word-wrap: break-word;
+  box-sizing: border-box;
 }
 
 .slide-meta {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 /* Clean Text Badge - No Tinted Background */
@@ -249,18 +257,18 @@ body::before {
 }
 
 .slide-heading {
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.025em;
   margin-bottom: 0.85rem;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .slide-lead {
   font-size: 1.05rem;
   color: var(--text-secondary);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
   line-height: 1.6;
   font-weight: 400;
 }
@@ -271,7 +279,7 @@ body::before {
   grid-template-columns: 1fr 1fr;
   gap: 1.75rem;
   align-items: start;
-  margin: 1.5rem 0;
+  margin: 1.25rem 0;
 }
 
 .bullet-list {
@@ -358,16 +366,6 @@ body::before {
   color: var(--text-primary);
 }
 
-/* Footer & Link Navigation */
-.slides-footer {
-  text-align: center;
-  padding: 3.5rem 0 1.5rem;
-  color: var(--text-muted);
-  font-size: 0.825rem;
-  border-top: 1px solid var(--border-color);
-  margin-top: 5rem;
-}
-
 .btn-link {
   display: inline-flex;
   align-items: center;
@@ -389,13 +387,12 @@ body::before {
 /* Responsive */
 @media (max-width: 768px) {
   .slides-container {
-    padding: 0 1rem;
-    gap: 2rem;
+    padding: 0 0.75rem;
   }
 
   .slide-card {
-    padding: 2rem 1.5rem;
-    border-radius: var(--radius-lg);
+    padding: 2rem 1.25rem;
+    min-height: 100vh;
   }
 
   .slide-heading {
