@@ -1,6 +1,6 @@
-# 🎓 GitReady Student Hands-On Guide
+# 🎓 Getting Started With Git — Student Hands-On Guide
 
-Welcome to the **Git & GitHub Peer-to-Peer Workshop**! Follow this step-by-step guide during our hands-on live session.
+Welcome to the **Getting Started With Git** peer-to-peer workshop! Follow this step-by-step guide during our hands-on live session.
 
 ---
 
