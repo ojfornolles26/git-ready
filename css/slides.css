@@ -218,7 +218,7 @@ body {
   margin-top: 0.25rem;
 }
 
-/* Clean Dark Code Block */
+/* Clean Dark Code Block - COPYING DISABLED FOR HANDS-ON LEARNING */
 .code-wrapper {
   background: #0f172a;
   border-radius: var(--radius-lg);
@@ -229,12 +229,24 @@ body {
   position: relative;
   margin: 1.25rem 0;
   overflow-x: auto;
+  
+  /* Disable text selection */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .code-wrapper code {
   display: block;
   line-height: 1.65;
   color: #e2e8f0;
+  
+  /* Disable text selection on code elements */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .cmd-kw { color: #38bdf8; font-weight: 500; }
@@ -242,28 +254,7 @@ body {
 .cmd-str { color: #34d399; }
 .cmd-cmt { color: #94a3b8; font-style: italic; }
 
-.btn-copy {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #94a3b8;
-  padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.725rem;
-  font-family: var(--font-sans);
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.btn-copy:hover {
-  background: rgba(255, 255, 255, 0.18);
-  color: #ffffff;
-}
-
-/* Clean Callout Cards - No Tinted Fills */
+/* Minimal Callout Cards - No Tinted Fills */
 .callout {
   padding: 1.15rem 1.35rem;
   border-radius: var(--radius-lg);

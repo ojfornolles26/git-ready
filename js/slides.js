@@ -65,23 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
     slideCards.forEach(card => observer.observe(card));
   }
 
-  // Code Copy Buttons
-  document.querySelectorAll('.btn-copy').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const codeBlock = btn.parentElement.querySelector('code');
-      if (codeBlock) {
-        navigator.clipboard.writeText(codeBlock.innerText).then(() => {
-          const originalText = btn.textContent;
-          btn.textContent = 'Copied!';
-          btn.style.background = '#10b981';
-          btn.style.color = '#ffffff';
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '';
-            btn.style.color = '';
-          }, 1800);
-        });
-      }
+  // PREVENT COPY/PASTE TO ENFORCE HANDS-ON TYPING PRACTICE
+  document.querySelectorAll('.code-wrapper, code').forEach(el => {
+    el.addEventListener('copy', (e) => {
+      e.preventDefault();
+      return false;
+    });
+    el.addEventListener('cut', (e) => {
+      e.preventDefault();
+      return false;
+    });
+    el.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      return false;
     });
   });
 
