@@ -2,7 +2,7 @@
 
 :root {
   --bg-page: #f8fafc;
-  --bg-card: rgba(255, 255, 255, 0.78);
+  --bg-card: rgba(255, 255, 255, 0.82);
   --border-color: rgba(229, 231, 235, 0.85);
   --border-subtle: #f3f4f6;
 
@@ -20,7 +20,7 @@
   --radius-sm: 4px;
 
   --shadow-premium: 0 8px 32px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-floating: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  --shadow-floating: 0 12px 28px -4px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
 }
 
 * {
@@ -44,8 +44,10 @@ body {
   letter-spacing: -0.01em;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 2rem;
 }
 
 /* SwuDevs Organization Logo Background Backdrop */
@@ -70,7 +72,7 @@ body::before {
 /* Floating Bottom Left Organization Logo - Transparent & Large */
 .floating-logo-fab {
   position: fixed;
-  bottom: 2rem;
+  bottom: 1.5rem;
   left: 2rem;
   z-index: 1000;
   background: transparent;
@@ -82,7 +84,7 @@ body::before {
 }
 
 .floating-logo-img {
-  height: 140px;
+  height: 130px;
   width: auto;
   display: block;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
@@ -96,7 +98,7 @@ body::before {
 /* Floating Bottom Right Git & GitHub Logos */
 .floating-tech-logos {
   position: fixed;
-  bottom: 2rem;
+  bottom: 1.75rem;
   right: 2rem;
   z-index: 1000;
   background: transparent;
@@ -106,7 +108,7 @@ body::before {
 }
 
 .floating-tech-icon {
-  height: 52px;
+  height: 48px;
   width: auto;
   display: block;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
@@ -117,18 +119,18 @@ body::before {
   transform: scale(1.08);
 }
 
-/* Floating Bottom Navigation Bar */
+/* Floating Bottom Navigation Bar - PERFECTLY BALANCED PLACEMENT */
 .bottom-nav {
   position: fixed;
   bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-color);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.15rem;
   border-radius: 9999px;
   box-shadow: var(--shadow-floating);
   display: flex;
@@ -213,8 +215,8 @@ body::before {
 .slides-container {
   width: 90vw;
   max-width: 860px;
-  height: 82vh;
-  max-height: 700px;
+  height: 76vh;
+  max-height: 650px;
   position: relative;
   z-index: 1;
   display: flex;
@@ -222,7 +224,7 @@ body::before {
   justify-content: center;
 }
 
-/* Presentation Slide Card - DISCREET ACTIVE SLIDE ONLY (NO SCROLLING) */
+/* Presentation Slide Card - DISCREET ACTIVE SLIDE ONLY */
 .slide-card {
   position: absolute;
   width: 100%;
@@ -392,9 +394,13 @@ body::before {
 
 /* Responsive */
 @media (max-width: 768px) {
+  body {
+    padding-top: 1rem;
+  }
+
   .slides-container {
     width: 95vw;
-    height: 85vh;
+    height: 78vh;
   }
 
   .slide-card {
@@ -425,7 +431,7 @@ body::before {
   }
 
   .floating-logo-img {
-    height: 70px;
+    height: 60px;
   }
 
   .floating-tech-logos {
