@@ -18,9 +18,9 @@ git checkout -b student/your-github-username
 
 ---
 
-### Step 2: Add Your Profile Card to `index.html`
+### Step 2: Add Your Profile Card to `gallery.html`
 
-Open `index.html` in your code editor. Copy the snippet below and paste it inside `<div class="cards-grid">`:
+Open `gallery.html` in your code editor. Copy the snippet below and paste it inside `<div class="cards-grid">`:
 
 ```html
 <div class="student-card">
@@ -65,7 +65,7 @@ Open `index.html` in your code editor. Copy the snippet below and paste it insid
 In your terminal, run:
 
 ```bash
-git add index.html
+git add gallery.html
 git commit -m "feat: add profile card for your-github-username"
 git push origin student/your-github-username
 ```

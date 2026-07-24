@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started With Git | Student Attendance Gallery</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="description" content="Learn Git & GitHub hands-on by contributing your profile card to our live class showcase wall.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Floating Bottom-Left Organization Logo FAB -->
+  <div class="floating-logo-fab">
+    <img src="SwuDevs%20Logo%20Variations%201.png" alt="SwuDevs Logo" class="floating-logo-img">
+  </div>
+
+  <!-- Notion Cover Photo Banner with Title Overlay -->
+  <div class="notion-cover-wrapper">
+    <img src="images/notion_cover.jpg" alt="Notion Workshop Cover Banner" class="notion-cover-img">
+    <div class="notion-cover-overlay">
+      <div class="notion-cover-content">
+        <h1 class="notion-cover-title">Getting Started With Git</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notion Page Container -->
+  <div class="notion-page-container">
+    <!-- Notion Page Profile Badges (Git & GitHub Official Logos) -->
+    <div class="notion-icon-group">
+      <div class="notion-page-icon" title="Git Version Control">
+        <svg width="42" height="42" viewBox="0 0 128 128" fill="none">
+          <path d="M124.6 57.6L70.4 3.4c-4.5-4.5-11.8-4.5-16.3 0L39.8 17.7l20.6 20.6c3.2-1.1 6.9-.3 9.4 2.2 2.5 2.5 3.3 6.2 2.2 9.4l19.8 19.8c3.2-1.1 6.9-.3 9.4 2.2 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-2.6-2.6-3.3-6.4-2.2-9.6L67.6 56.6v23.2c.8.4 1.6 1 2.3 1.7 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-3.6-3.6-3.6-9.4 0-13 .7-.7 1.3-1.3 2.1-1.7V55.6c-.8-.4-1.4-1-2.1-1.7-2.6-2.6-3.3-6.4-2.2-9.6L34.1 23.5 3.4 54.2c-4.5 4.5-4.5 11.8 0 16.3l54.2 54.2c4.5 4.5 11.8 4.5 16.3 0l50.7-50.7c4.5-4.5 4.5-11.8 0-16.4z" fill="#F05032"/>
+        </svg>
+      </div>
+      <div class="notion-page-icon" title="GitHub Platform">
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="#0f172a">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Notion Gallery Database View Controls Header -->
+    <div class="notion-db-controls">
+      <div class="notion-db-title">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+        <span>Student Attendance Gallery</span>
+        <span class="db-count-badge" id="participant-count">0</span>
+      </div>
+
+      <div class="notion-db-actions">
+        <div class="search-box">
+          <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" id="search-input" class="search-input" placeholder="Search student name, role, or tech stack...">
+        </div>
+
+        <a href="index.html" class="btn-slides-link" title="Open Workshop Presentation Slides">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12H4z"/></svg>
+          <span>Presentation Slides</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Student Cards Database Gallery Grid -->
+    <div class="cards-grid" id="cards-grid">
+      <!-- ==================== WORKSHOP LEAD HOST CARD ==================== -->
+      <div class="student-card" data-id="host-profile" data-initial="true" onclick="window.openBottomSheetModal(this)">
+        <div class="card-header">
+          <div class="avatar-circle">
+            <svg width="20" height="20" fill="none" stroke="#787774" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="student-meta" style="flex-grow: 1;">
+            <h3>Workshop Lead</h3>
+            <span class="student-role">Peer Tutor & Facilitator</span>
+          </div>
+          <span class="card-expand-hint" title="Click to view full card details">Expand ↗</span>
+        </div>
+
+        <p class="student-bio">Welcome to GitReady! Copy the HTML card snippet from README.md, paste it into index.html, replace the placeholders with your info, and submit a Pull Request!</p>
+
+        <div class="tech-tags">
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Open Source</span>
+        </div>
+
+        <div class="card-footer">
+          <span class="quote">"git commit -m 'Building future software together!'"</span>
+          <a href="https://github.com/octocat" target="_blank" class="github-link">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            @octocat
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Git Cheatsheet Modal -->
+  <div class="modal-overlay" id="cheatsheet-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close-btn">✕</button>
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main);">
+        Interactive Git Command Cheat Sheet
+      </h2>
+      <p style="color: var(--text-muted); margin-bottom: 1.25rem; font-size: 0.9rem;">
+        Essential commands you will use during today's workshop:
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+          <h4 style="color: var(--text-main); font-weight: 600; margin-bottom: 0.25rem;">1. Clone Repository</h4>
+          <code style="font-family: var(--font-mono); color: #d4d4d4; display: block; background: #1e1e1e; padding: 0.5rem 0.75rem; border-radius: 4px; user-select: none;">git clone &lt;repo-url&gt;</code>
+          <p style="font-size: 0.825rem; color: var(--text-muted); margin-top: 0.35rem;">Downloads a full copy of the remote repository to your laptop.</p>
+        </div>
+
+        <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+          <h4 style="color: var(--text-main); font-weight: 600; margin-bottom: 0.25rem;">2. Create Feature Branch</h4>
+          <code style="font-family: var(--font-mono); color: #d4d4d4; display: block; background: #1e1e1e; padding: 0.5rem 0.75rem; border-radius: 4px; user-select: none;">git checkout -b student/your-name</code>
+          <p style="font-size: 0.825rem; color: var(--text-muted); margin-top: 0.35rem;">Creates a brand new isolated branch so your work doesn't affect main.</p>
+        </div>
+
+        <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+          <h4 style="color: var(--text-main); font-weight: 600; margin-bottom: 0.25rem;">3. Stage & Commit Changes</h4>
+          <code style="font-family: var(--font-mono); color: #d4d4d4; display: block; background: #1e1e1e; padding: 0.5rem 0.75rem; border-radius: 4px; user-select: none;">git add .<br>git commit -m "feat: add my student profile"</code>
+          <p style="font-size: 0.825rem; color: var(--text-muted); margin-top: 0.35rem;">Stages changed files and saves a snapshot into Git history.</p>
+        </div>
+
+        <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+          <h4 style="color: var(--text-main); font-weight: 600; margin-bottom: 0.25rem;">4. Push to GitHub & Sync</h4>
+          <code style="font-family: var(--font-mono); color: #d4d4d4; display: block; background: #1e1e1e; padding: 0.5rem 0.75rem; border-radius: 4px; user-select: none;">git push origin student/your-name<br>git pull origin main</code>
+          <p style="font-size: 0.825rem; color: var(--text-muted); margin-top: 0.35rem;">Pushes your branch to GitHub for PR review, and pulls merged changes from others.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Sheet Detail Drawer Modal -->
+  <div class="bottom-sheet-overlay" id="bottom-sheet-overlay">
+    <div class="bottom-sheet" id="bottom-sheet">
+      <div class="sheet-handle-bar">
+        <div class="sheet-handle"></div>
+        <button class="sheet-close-btn" id="sheet-close-btn" title="Close Details">✕</button>
+      </div>
+      <div class="sheet-content" id="sheet-content">
+        <!-- Dynamically rendered full card details -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/git-cheat-sheet.js"></script>
+</body>
+</html>

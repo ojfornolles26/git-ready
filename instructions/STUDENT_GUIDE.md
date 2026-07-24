@@ -9,7 +9,7 @@ Welcome to the **Getting Started With Git** hands-on activity! Follow these step
 You will:
 1. Clone this repository to your laptop.
 2. Create a new branch named `student/your-github-username`.
-3. Copy the HTML card code snippet from `README.md` into `index.html`.
+3. Copy the HTML card code snippet from `README.md` into `gallery.html`.
 4. Replace the placeholder details (Name, Role, Bio, Tech Stack, Quote, GitHub Link) with your own information.
 5. Stage, commit, push your branch to GitHub, and submit a Pull Request!
 
@@ -27,9 +27,9 @@ git checkout -b student/your-github-username
 
 ---
 
-## 📄 Step 2: Add Your Profile Card to `index.html`
+## 📄 Step 2: Add Your Profile Card to `gallery.html`
 
-1. Open `index.html` in VS Code or your code editor.
+1. Open `gallery.html` in VS Code or your code editor.
 2. Locate `<div class="cards-grid" id="cards-grid">`.
 3. Paste the following HTML card code snippet inside `<div class="cards-grid">`:
 
@@ -72,7 +72,7 @@ git checkout -b student/your-github-username
 ## 🚀 Step 3: Commit and Push
 
 ```bash
-git add index.html
+git add gallery.html
 git commit -m "feat: add profile card for your-github-username"
 git push origin student/your-github-username
 ```
