@@ -124,23 +124,24 @@ body {
   text-align: left;
 }
 
-/* Notion Page Icon Badge - LEFT ALIGNED */
+/* Notion Page Profile Photo Icon Badge */
 .notion-page-icon {
-  width: 72px;
-  height: 72px;
+  width: 80px;
+  height: 80px;
   border-radius: var(--radius-lg);
   background: #ffffff;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-notion);
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 16px rgba(15, 15, 15, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -36px;
+  margin-top: -40px;
   margin-bottom: 1.25rem;
+  transition: transform 0.2s ease;
 }
 
-.notion-page-icon svg {
-  stroke: var(--git-orange);
+.notion-page-icon:hover {
+  transform: scale(1.05);
 }
 
 /* Notion Page Title - LEFT ALIGNED */
