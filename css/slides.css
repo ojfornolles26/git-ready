@@ -252,11 +252,16 @@ body {
   background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
-  padding: 3.25rem 3.75rem;
+  padding: 2.25rem 2.75rem;
   box-shadow: var(--shadow-premium);
   word-wrap: break-word;
   box-sizing: border-box;
-  overflow-y: auto; /* Prevents vertical content clipping on smaller laptops and lower resolutions */
+  overflow-y: auto;
+  scrollbar-width: none; /* Hide scrollbars in non-fullscreen desktop mode */
+}
+
+.slide-card::-webkit-scrollbar {
+  display: none; /* Hide scrollbars in non-fullscreen desktop mode */
 }
 
 .slide-card.active {
@@ -369,28 +374,28 @@ body {
 }
 
 .slide-heading {
-  font-size: 2.35rem;
+  font-size: 2.2rem;
   font-weight: 800;
   color: #0f172a;
   letter-spacing: -0.03em;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
   line-height: 1.2;
 }
 
 /* Static 3D Heading Effect for Title Slide */
 .slide-heading.title-3d {
-  font-size: 3.15rem;
+  font-size: 3rem;
   font-weight: 800;
   color: #0f172a;
   letter-spacing: -0.035em;
   text-shadow: 0 1px 0 #cbd5e1, 0 2px 0 #cbd5e1, 0 3px 0 #cbd5e1, 0 4px 0 #94a3b8;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
 }
 
 .slide-lead {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: #334155;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
   line-height: 1.6;
   font-weight: 450;
 }
@@ -399,26 +404,26 @@ body {
 .content-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.85rem;
+  gap: 1.35rem;
   align-items: start;
-  margin: 1.25rem 0;
+  margin: 1rem 0;
 }
 
 .bullet-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
-  margin: 1rem 0;
+  gap: 0.9rem;
+  margin: 0.85rem 0;
 }
 
 .bullet-item {
   display: flex;
   align-items: flex-start;
   gap: 0.85rem;
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: #1e293b;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .icon-bullet {
@@ -434,13 +439,13 @@ body {
   background: #0f172a;
   border: 1px solid #1e293b;
   border-radius: var(--radius-lg);
-  padding: 1.35rem 1.65rem;
+  padding: 1.15rem 1.45rem;
   font-family: var(--font-mono);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #f8fafc;
   position: relative;
-  margin: 1.25rem 0;
+  margin: 1rem 0;
   overflow-x: auto;
   box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
   
