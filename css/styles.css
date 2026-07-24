@@ -818,10 +818,56 @@ footer {
   }
 
   .bottom-sheet {
-    max-height: 88dvh;
-    padding: 1.25rem 1rem 2rem;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+    max-height: 88dvh !important;
+    padding: 1.25rem 1.15rem 2.25rem !important;
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    width: 100% !important;
+  }
+
+  .sheet-full-header {
+    gap: 0.85rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .sheet-avatar {
+    width: 52px;
+    height: 52px;
+    font-size: 1.45rem;
+  }
+
+  .sheet-title-meta h2 {
+    font-size: 1.2rem;
+    line-height: 1.25;
+  }
+
+  .sheet-title-meta .sheet-role {
+    font-size: 0.825rem;
+  }
+
+  .sheet-section {
+    margin-bottom: 1.15rem;
+  }
+
+  .sheet-bio-text {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .sheet-quote-box {
+    padding: 0.75rem 0.95rem;
+    font-size: 0.875rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .sheet-github-button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
   }
 
   .floating-logo-fab {
