@@ -1,60 +1,103 @@
-# ⚡ Getting Started With Git: Interactive Peer-to-Peer Workshop
+# Getting Started With Git 🚀
 
-> **Learn Git by doing! Together, we'll collaborate live and see everyone's contributions come to life on a shared website.**
+> Learn Git by doing! Together, we'll collaborate live and see everyone's contributions come to life on a shared web application.
 
-[![Web Presentation Slides](https://img.shields.io/badge/Slides-Live%20Projector-4f46e5?style=for-the-badge&logo=google-slides)](slides.html)
-[![Wall of Fame](https://img.shields.io/badge/App-Wall%20of%20Fame-059669?style=for-the-badge&logo=github)](index.html)
-
-**Getting Started With Git** is an open-source, hands-on workshop repository and web application designed for peer-to-peer tutoring sessions. It empowers students to learn essential Git commands (`clone`, `checkout -b`, `add`, `commit`, `push`, `pull`, and `pull request`) by actively contributing their own student card to a live collaborative web app!
+Welcome to the **"Getting Started With Git"** live hands-on workshop repository!
 
 ---
 
-## 🌟 What's Included
+## 🛠️ Workshop Quick Start Guide
 
-1. **`slides.html` (Web-Based Presentation Deck)**:
-   - Minimalist, light-theme single-page scrollable slides.
-   - Floating bottom navigation bar with live slide counter (`01 / 18`) and section jump selector.
-   - Copyable code blocks for students following along live.
-2. **`index.html` (Interactive Student Wall of Fame)**:
-   - Modern Glassmorphism dashboard rendering student JSON cards.
-   - Live tech stack filtering, search, and participant stats counter.
-   - Built-in Git cheatsheet modal.
-3. **`instructions/STUDENT_GUIDE.md`**:
-   - Copy-paste terminal guide for students during the hands-on session.
+### Step 1: Clone the Repository & Create Your Branch
+Open your terminal (Terminal on Mac/Linux, Git Bash or Command Prompt on Windows) and run:
 
----
+```bash
+# 1. Clone this repository
+git clone https://github.com/your-org/git-ready.git
 
-## 📋 Facilitator Checklist (Before Workshop)
+# 2. Navigate into the repository directory
+cd git-ready
 
-1. **Fork or Push to GitHub**:
-   - Push this repository to your GitHub account:
-     ```bash
-     git remote add origin https://github.com/your-username/git-ready.git
-     git branch -M main
-     git push -u origin main
-     ```
-2. **Enable GitHub Pages**:
-   - Go to **Repository Settings** ➔ **Pages**.
-   - Under **Source**, select `Deploy from a branch` ➔ Branch: `main` ➔ Folder: `/ (root)`.
-   - Save! GitHub Pages will provide a live URL (e.g. `https://your-username.github.io/git-ready/slides.html`).
-3. **Share the Links**:
-   - Open `slides.html` on your projector and project it on screen.
-   - Share live links with students so they can open `slides.html` on their phones/laptops!
+# 3. Create your own feature branch
+git checkout -b student/your-github-username
+```
 
 ---
 
-## ⏱️ Recommended Workshop Agenda (60-75 Mins)
+### Step 2: Add Your Profile Card to `index.html`
 
-| Time | Activity | Facilitator Script / Slide Focus |
-| --- | --- | --- |
-| **00-10m** | **Icebreaker & Why Git?** | Slides 1-3. Explain `.zip` file chaos vs Git version control. |
-| **10-20m** | **Setup & Clone** | Slides 4-6. Guide students through `git config` and `git clone <url>`. |
-| **20-35m** | **Branching & Student Card** | Slides 7-8. Students run `git checkout -b student/name` and create `data/students/name.json`. |
-| **35-45m** | **Stage, Commit & Push** | Slides 9-11. Students run `git add`, `git commit -m "..."`, and `git push`. |
-| **45-55m** | **Live PR Merge Party!** | Slides 12-13. Project your screen, review Pull Requests, and merge them live on GitHub! |
-| **55-65m** | **Sync & Wall Reveal** | Slide 14. Students run `git pull origin main` and refresh `index.html` to see everyone's card! |
-| **65-75m** | **Merge Conflicts & Wrap Up** | Slides 15-18. Quick demo resolving `<<<<<<< HEAD` markers & Q&A. |
+1. Open **`index.html`** in your code editor (e.g. VS Code, Sublime Text, or Notepad).
+2. Find the `<div class="cards-grid" id="cards-grid">` section.
+3. **Copy the HTML Card Code Snippet below** and paste it at the top of `<div class="cards-grid">`:
+
+```html
+<!-- ==================== STUDENT CARD SNIPPET ==================== -->
+<div class="student-card">
+  <div class="card-header">
+    <div class="avatar-circle">
+      <svg width="20" height="20" fill="none" stroke="#787774" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+    </div>
+    <div class="student-meta">
+      <h3>Your Full Name</h3>
+      <span class="student-role">Computer Science Student</span>
+    </div>
+  </div>
+
+  <p class="student-bio">Write a short 1-2 sentence bio about yourself, your goals, or your favorite coding topic!</p>
+
+  <div class="tech-tags">
+    <span class="tag">Git</span>
+    <span class="tag">GitHub</span>
+    <span class="tag">HTML/CSS</span>
+    <span class="tag">JavaScript</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="quote">"git push origin main and watch it glow!"</span>
+    <a href="https://github.com/your-github-username" target="_blank" class="github-link">
+      <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      @your-github-username
+    </a>
+  </div>
+</div>
+<!-- ============================================================== -->
+```
+
+4. Replace the placeholders with your own details:
+   - **`Your Full Name`**: Replace with your real name.
+   - **`Computer Science Student`**: Replace with your role, major, or title.
+   - **Bio**: Write a 1-2 sentence introduction about yourself.
+   - **Tech Tags**: Edit `<span class="tag">...</span>` with technologies you like or are learning.
+   - **Quote**: Add your favorite developer quote or tagline.
+   - **GitHub Handle**: Replace `your-github-username` in the `href` link and `@your-github-username` text.
 
 ---
 
-Have fun teaching **Getting Started With Git**! 🚀
+### Step 3: Stage, Commit, and Push Your Branch
+
+Return to your terminal and run:
+
+```bash
+# 1. Stage your changes
+git add index.html
+
+# 2. Commit your snapshot
+git commit -m "feat: add profile card for your-github-username"
+
+# 3. Push your branch to GitHub
+git push origin student/your-github-username
+```
+
+---
+
+### Step 4: Submit a Pull Request
+
+1. Go to the repository on GitHub in your web browser.
+2. Click **"Compare & pull request"**.
+3. Title your PR: `feat: add profile card for [Your Name]`.
+4. Click **"Create pull request"**!
+
+Once the workshop facilitator merges your PR, refresh the **Student Attendance Gallery** webpage to see your profile card live at the top of the gallery! 🎉

@@ -85,10 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCards(allStudents);
   }
 
-  // Calculate and render statistics
+  // Calculate and render statistics dynamically
   function renderStats() {
-    if (participantCountEl) participantCountEl.textContent = allStudents.length;
+    const totalCards = cardsGrid ? cardsGrid.querySelectorAll('.student-card').length : 0;
+    if (participantCountEl) participantCountEl.textContent = totalCards;
   }
+
+  // Initial stats calculation
+  renderStats();
 
   // Render cards grid HTML
   function renderCards(students) {

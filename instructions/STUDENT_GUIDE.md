@@ -1,135 +1,84 @@
-# 🎓 Getting Started With Git — Student Hands-On Guide
+# Student Workshop Guide — Step-by-Step Instructions
 
-Welcome to **Getting Started With Git**! Learn Git by doing! Together, we'll collaborate live and see everyone's contributions come to life on a shared website.
-
----
-
-## 🚀 Quick Step-by-Step Cheatsheet
-
-### Step 1: Check Git Installation & Setup Identity
-Open your **Terminal** (Mac/Linux) or **Git Bash** (Windows) and type:
-
-```bash
-# Check if Git is installed
-git --version
-
-# Set your name and email (used for your commit signature)
-git config --global user.name "Your Full Name"
-git config --global user.email "your.email@example.com"
-```
+Welcome to the **Getting Started With Git** hands-on activity! Follow these steps to contribute your profile card to the live **Student Attendance Gallery**.
 
 ---
 
-### Step 2: Clone the Workshop Repository
-Get a local copy of the project on your computer:
+## 🎯 Activity Overview
+
+You will:
+1. Clone this repository to your laptop.
+2. Create a new branch named `student/your-github-username`.
+3. Copy the HTML card code snippet from `README.md` into `index.html`.
+4. Replace the placeholder details (Name, Role, Bio, Tech Stack, Quote, GitHub Link) with your own information.
+5. Stage, commit, push your branch to GitHub, and submit a Pull Request!
+
+---
+
+## 📋 Step 1: Terminal Setup
+
+Open your terminal or Git Bash and run:
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/git-ready.git
-
-# Enter the project folder
+git clone https://github.com/your-org/git-ready.git
 cd git-ready
-```
-
-> 💡 **Tip**: Open the `index.html` file in your browser to view the Wall of Fame!
-
----
-
-### Step 3: Create Your Personal Feature Branch
-Never code directly on the `main` branch. Create your own isolated branch:
-
-```bash
 git checkout -b student/your-github-username
 ```
 
-To double check which branch you are on:
-```bash
-git branch
+---
+
+## 📄 Step 2: Add Your Profile Card to `index.html`
+
+1. Open `index.html` in VS Code or your code editor.
+2. Locate `<div class="cards-grid" id="cards-grid">`.
+3. Paste the following HTML card code snippet inside `<div class="cards-grid">`:
+
+```html
+<div class="student-card">
+  <div class="card-header">
+    <div class="avatar-circle">
+      <svg width="20" height="20" fill="none" stroke="#787774" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+    </div>
+    <div class="student-meta">
+      <h3>Your Full Name</h3>
+      <span class="student-role">Computer Science Student</span>
+    </div>
+  </div>
+
+  <p class="student-bio">Write a short 1-2 sentence bio about yourself, your goals, or your favorite coding topic!</p>
+
+  <div class="tech-tags">
+    <span class="tag">Git</span>
+    <span class="tag">GitHub</span>
+    <span class="tag">HTML/CSS</span>
+    <span class="tag">JavaScript</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="quote">"git push origin main and make it happen!"</span>
+    <a href="https://github.com/your-github-username" target="_blank" class="github-link">
+      <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      @your-github-username
+    </a>
+  </div>
+</div>
 ```
 
 ---
 
-### Step 4: Add Your Student Profile Card
-1. Open the project folder in **VS Code** (or your favorite text editor).
-2. Look inside the `data/students/` directory.
-3. Create a new file named: `data/students/your-github-username.json`.
-4. Copy and fill in the following template:
-
-```json
-{
-  "id": "your-github-username",
-  "name": "Alex Rivera",
-  "role": "CS Student / Developer Learner",
-  "bio": "Excited to learn Git and collaborate on web projects!",
-  "techStack": ["JavaScript", "HTML", "CSS", "Python"],
-  "github": "your-github-username",
-  "cardColor": "#6366f1",
-  "emoji": "🚀",
-  "quote": "git push origin main and watch it glow!"
-}
-```
-
----
-
-### Step 5: Check Status, Stage, and Commit
+## 🚀 Step 3: Commit and Push
 
 ```bash
-# Check modified files (your file will show in red as untracked)
-git status
-
-# Stage your new profile JSON file
-git add data/students/your-github-username.json
-
-# Check status again (your file should now be green!)
-git status
-
-# Save your snapshot with a commit message
-git commit -m "feat: add student profile for [Your Name]"
-```
-
----
-
-### Step 6: Push to GitHub & Open a Pull Request (PR)
-
-```bash
-# Push your feature branch up to GitHub
+git add index.html
+git commit -m "feat: add profile card for your-github-username"
 git push origin student/your-github-username
 ```
 
-1. Open the repository page on **GitHub** in your web browser.
-2. Click the green **"Compare & pull request"** button.
-3. Add a clear title: `feat: add student profile for [Your Name]`.
-4. Click **Create pull request**!
-
 ---
 
-### Step 7: Live Merge & Sync (`git pull`)
-Once the workshop lead reviews and merges your Pull Request live on screen:
+## 🎉 Step 4: Open a Pull Request
 
-```bash
-# Switch back to the main branch
-git checkout main
-
-# Fetch and merge all your classmates' cards onto your computer!
-git pull origin main
-```
-
-Refresh `index.html` in your browser to see all your classmates' cards render live! 🎉
-
----
-
-## 🛠️ Common Troubleshooting
-
-### 1. "Permission Denied (publickey)" or Password Prompt
-If GitHub asks for credentials, ensure you use a **Personal Access Token (PAT)** or HTTPS URL:
-```bash
-git remote set-url origin https://github.com/your-username/git-ready.git
-```
-
-### 2. Made a Typo in Your Last Commit Message?
-```bash
-git commit --amend -m "feat: correct commit message"
-```
-
-### 3. Stuck in Vim / Editor?
-If your terminal opens a full-screen text editor, type `:wq` and press `Enter` to save and exit.
+Go to GitHub, click **"Compare & pull request"**, and submit your PR!
