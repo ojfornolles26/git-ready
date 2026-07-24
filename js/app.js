@@ -192,13 +192,20 @@ document.addEventListener('DOMContentLoaded', () => {
   async function loadStudentProfiles() {
     const domParsedCards = parseDOMCards();
 
+    // Set initial window profile store and stats without waiting for fetches
+    const initialMap = new Map();
+    seedProfiles.forEach(p => initialMap.set(p.id, p));
+    domParsedCards.forEach(p => initialMap.set(p.id, p));
+    allStudents = Array.from(initialMap.values());
+    window._allStudentProfiles = allStudents;
+    renderStats();
+
     try {
-      const profileFiles = ['host-profile.json', '_template.json'];
+      const profileFiles = ['host-profile.json'];
       
-      for (let i = 1; i <= 60; i++) {
+      for (let i = 1; i <= 30; i++) {
         profileFiles.push(`student-${i < 10 ? '0' + i : i}.json`);
         profileFiles.push(`student-${i}.json`);
-        profileFiles.push(`profile-${i}.json`);
       }
 
       const loadedProfiles = [];
@@ -220,37 +227,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      loadedProfiles.reverse();
+      if (loadedProfiles.length > 0) {
+        loadedProfiles.reverse();
 
-      const profileMap = new Map();
-      // First load seed profiles
-      seedProfiles.forEach(p => profileMap.set(p.id, p));
-      // Overwrite with statically authored DOM cards from index.html
-      domParsedCards.forEach(p => profileMap.set(p.id, p));
-      // Overwrite with JSON profile files
-      loadedProfiles.forEach(p => profileMap.set(p.id, p));
+        const profileMap = new Map();
+        seedProfiles.forEach(p => profileMap.set(p.id, p));
+        domParsedCards.forEach(p => profileMap.set(p.id, p));
+        loadedProfiles.forEach(p => profileMap.set(p.id, p));
 
-      allStudents = Array.from(profileMap.values());
+        allStudents = Array.from(profileMap.values());
 
-      allStudents.sort((a, b) => {
-        if (a.id === 'host-profile') return -1; // Host card stays first
-        if (b.id === 'host-profile') return 1;
-        const timeA = typeof a.updatedAt === 'number' ? a.updatedAt : (new Date(a.updatedAt || 0).getTime() || 0);
-        const timeB = typeof b.updatedAt === 'number' ? b.updatedAt : (new Date(b.updatedAt || 0).getTime() || 0);
-        return timeB - timeA;
-      });
+        allStudents.sort((a, b) => {
+          if (a.id === 'host-profile') return -1; // Host card stays first
+          if (b.id === 'host-profile') return 1;
+          const timeA = typeof a.updatedAt === 'number' ? a.updatedAt : (new Date(a.updatedAt || 0).getTime() || 0);
+          const timeB = typeof b.updatedAt === 'number' ? b.updatedAt : (new Date(b.updatedAt || 0).getTime() || 0);
+          return timeB - timeA;
+        });
+
+        window._allStudentProfiles = allStudents;
+        renderStats();
+        renderCards(allStudents);
+      }
 
     } catch (err) {
       console.warn("Using DOM parsed and seed profiles:", err);
-      const profileMap = new Map();
-      seedProfiles.forEach(p => profileMap.set(p.id, p));
-      domParsedCards.forEach(p => profileMap.set(p.id, p));
-      allStudents = Array.from(profileMap.values());
     }
-
-    window._allStudentProfiles = allStudents;
-    renderStats();
-    renderCards(allStudents);
   }
 
   function renderStats() {
