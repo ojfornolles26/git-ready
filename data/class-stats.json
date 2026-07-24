@@ -1,0 +1,6 @@
+{
+  "workshopTitle": "GitReady: Peer-to-Peer Interactive Git Workshop",
+  "version": "1.0.0",
+  "topic": "Mastering Git & GitHub Hands-On",
+  "targetCommands": ["clone", "checkout", "add", "commit", "push", "pull", "pr"]
+}
