@@ -134,27 +134,26 @@ body {
   text-align: left;
 }
 
-/* Notion Page Profile Photo Icon Badges */
+/* Notion Page Circular Profile Photo Avatar Badges (Git & GitHub) */
 .notion-icon-group {
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  margin-top: -42px;
+  margin-top: -38px;
   margin-bottom: 1.5rem;
 }
 
 .notion-page-icon {
-  width: 84px;
-  height: 84px;
-  border-radius: var(--radius-lg);
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
   background: #ffffff;
   border: 3px solid #ffffff;
-  box-shadow: 0 4px 16px rgba(15, 15, 15, 0.12);
+  box-shadow: 0 4px 16px rgba(15, 15, 15, 0.14);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .notion-page-icon-wide {
@@ -164,7 +163,7 @@ body {
 }
 
 .notion-page-icon:hover {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 
