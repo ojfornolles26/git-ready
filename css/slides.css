@@ -33,8 +33,9 @@
 
 html, body {
   height: 100vh;
-  width: 100vw;
-  overflow: hidden; /* REMOVED SCROLLING ENTIRELY */
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -43,13 +44,31 @@ body {
   color: var(--text-primary);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   letter-spacing: -0.01em;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
+}
+
+/* Cross-Platform Sleek Scrollbars for Windows Edge & Chrome */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 
@@ -565,54 +584,57 @@ body {
   }
 }
 
-/* 2. Standard Laptops & Low-Height Laptop Screens (e.g. 1366x768 / MacBooks) */
-@media (max-height: 800px) and (min-width: 769px) {
+/* 2. Standard Laptops & Low-Height Laptop Screens (e.g. 1366x768 Windows / 1080p @ 125% scaling) */
+@media (max-height: 850px) and (min-width: 769px) {
   body {
-    padding-top: 1.25rem;
+    padding-top: 1rem;
   }
 
   .slides-container {
-    height: 76vh;
-    max-height: 570px;
+    height: 72vh;
+    max-height: 520px;
   }
 
   .slide-card {
-    padding: 2rem 2.75rem;
+    padding: 1.75rem 2.25rem;
+    justify-content: flex-start;
   }
 
   .slide-heading {
-    font-size: 1.85rem;
-    margin-bottom: 0.65rem;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
   }
 
   .slide-1-content .slide-heading.title-3d {
-    font-size: 2.65rem;
-    margin-bottom: 0.85rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .slide-lead {
-    font-size: 1.05rem;
-    margin-bottom: 1.15rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 
   .code-wrapper {
-    padding: 0.95rem 1.25rem;
-    font-size: 0.925rem;
-    margin: 0.85rem 0;
+    padding: 0.85rem 1.1rem;
+    font-size: 0.875rem;
+    margin: 0.75rem 0;
   }
 
   .callout {
-    padding: 0.85rem 1.15rem;
-    font-size: 0.925rem;
-    margin: 0.85rem 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    margin: 0.75rem 0;
   }
 
   .floating-logo-img {
-    height: 100px;
+    height: 80px;
+    pointer-events: none;
   }
 
   .floating-tech-icon {
-    height: 40px;
+    height: 36px;
+    pointer-events: none;
   }
 }
 
