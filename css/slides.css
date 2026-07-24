@@ -73,10 +73,11 @@ body {
   white-space: nowrap;
 }
 
-.nav-tag {
+.nav-counter {
+  font-family: var(--font-mono);
+  font-size: 0.775rem;
   color: var(--text-muted);
-  font-size: 0.75rem;
-  font-weight: 500;
+  white-space: nowrap;
 }
 
 .nav-divider {
@@ -152,10 +153,7 @@ body {
 }
 
 .slide-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 /* Clean Text Badge - No Tinted Background */
@@ -168,12 +166,6 @@ body {
   background: transparent;
   padding: 0;
   border: none;
-}
-
-.slide-number-label {
-  font-family: var(--font-mono);
-  font-size: 0.775rem;
-  color: var(--text-muted);
 }
 
 .slide-heading {

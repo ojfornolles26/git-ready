@@ -3,14 +3,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const slideCards = Array.from(document.querySelectorAll('.slide-card'));
   const prevBtn = document.getElementById('btn-prev-slide');
   const nextBtn = document.getElementById('btn-next-slide');
+  const slideCounter = document.getElementById('slide-counter');
 
   let currentIdx = 0;
+
+  function updateCounter(idx) {
+    if (!slideCounter) return;
+    const num = String(idx + 1).padStart(2, '0');
+    const total = String(slideCards.length).padStart(2, '0');
+    slideCounter.textContent = `${num} / ${total}`;
+  }
 
   // Jump to slide by index
   function jumpToSlide(idx) {
     if (idx < 0) idx = 0;
     if (idx >= slideCards.length) idx = slideCards.length - 1;
     currentIdx = idx;
+
+    updateCounter(currentIdx);
 
     const targetEl = slideCards[currentIdx];
     if (targetEl) {
@@ -30,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (prevBtn) prevBtn.addEventListener('click', () => jumpToSlide(currentIdx - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => jumpToSlide(currentIdx + 1));
 
-  // IntersectionObserver to auto-update TOC select option and currentIdx as student scrolls down
-  if (slideCards.length > 0 && tocSelect) {
+  // IntersectionObserver to auto-update TOC select option & counter as student scrolls down
+  if (slideCards.length > 0) {
     const observerOptions = {
       root: null,
       rootMargin: '-20% 0px -60% 0px',
@@ -42,9 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.id;
-          tocSelect.value = id;
+          if (tocSelect) tocSelect.value = id;
           const idx = slideCards.findIndex(c => c.id === id);
-          if (idx !== -1) currentIdx = idx;
+          if (idx !== -1) {
+            currentIdx = idx;
+            updateCounter(currentIdx);
+          }
         }
       });
     }, observerOptions);
@@ -71,4 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Initial counter state
+  updateCounter(0);
 });
