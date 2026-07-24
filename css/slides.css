@@ -230,6 +230,7 @@ body {
   box-shadow: var(--shadow-premium);
   word-wrap: break-word;
   box-sizing: border-box;
+  overflow-y: auto; /* Prevents vertical content clipping on smaller laptops and lower resolutions */
 }
 
 .slide-card.active {
@@ -538,7 +539,122 @@ body {
   background: #1e293b;
 }
 
-/* Responsive Adjustments for Mobile & Tablet Viewports */
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (Desktops, Laptops, Tablets & Mobile)
+   ========================================================================== */
+
+/* 1. Large Monitors & 4K Displays (1400px+) */
+@media (min-width: 1400px) {
+  .slides-container {
+    width: 85vw;
+    max-width: 1000px;
+    height: 75vh;
+    max-height: 700px;
+  }
+
+  .slide-card {
+    padding: 3.5rem 4.25rem;
+  }
+
+  .slide-heading {
+    font-size: 2.35rem;
+  }
+
+  .slide-1-content .slide-heading.title-3d {
+    font-size: 3.6rem;
+  }
+}
+
+/* 2. Standard Laptops & Low-Height Laptop Screens (e.g. 1366x768 / MacBooks) */
+@media (max-height: 800px) and (min-width: 769px) {
+  body {
+    padding-top: 1.25rem;
+  }
+
+  .slides-container {
+    height: 76vh;
+    max-height: 570px;
+  }
+
+  .slide-card {
+    padding: 2rem 2.75rem;
+  }
+
+  .slide-heading {
+    font-size: 1.85rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .slide-1-content .slide-heading.title-3d {
+    font-size: 2.65rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .slide-lead {
+    font-size: 1.05rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .code-wrapper {
+    padding: 0.95rem 1.25rem;
+    font-size: 0.925rem;
+    margin: 0.85rem 0;
+  }
+
+  .callout {
+    padding: 0.85rem 1.15rem;
+    font-size: 0.925rem;
+    margin: 0.85rem 0;
+  }
+
+  .floating-logo-img {
+    height: 100px;
+  }
+
+  .floating-tech-icon {
+    height: 40px;
+  }
+}
+
+/* 3. Tablets & iPads (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    padding-top: 1.5rem;
+  }
+
+  .slides-container {
+    width: 90vw;
+    max-width: 760px;
+    height: 76vh;
+    max-height: 640px;
+  }
+
+  .slide-card {
+    padding: 2.25rem 2.5rem;
+  }
+
+  .slide-heading {
+    font-size: 1.85rem;
+  }
+
+  .slide-1-content .slide-heading.title-3d {
+    font-size: 2.75rem;
+  }
+
+  .floating-logo-img {
+    height: 90px;
+  }
+
+  .floating-tech-icon {
+    height: 38px;
+  }
+
+  .toc-select {
+    max-width: 180px;
+  }
+}
+
+/* 4. Mobile Phones (320px - 768px) */
 @media (max-width: 768px) {
   html, body {
     height: 100dvh !important;

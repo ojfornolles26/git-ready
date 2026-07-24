@@ -702,7 +702,68 @@ footer {
   font-size: 0.825rem;
 }
 
-/* Responsive Adjustments for Mobile & Tablet Viewports */
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (Desktops, Laptops, Tablets & Mobile)
+   ========================================================================== */
+
+/* 1. Large Monitors (1400px+) */
+@media (min-width: 1400px) {
+  .notion-page-container {
+    max-width: 1080px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .notion-cover-wrapper {
+    height: 280px;
+  }
+}
+
+/* 2. Standard Laptops (1024px - 1399px) */
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .notion-page-container {
+    max-width: 960px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* 3. Tablets & iPads (769px - 1023px) */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .notion-page-container {
+    max-width: 740px;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .notion-cover-wrapper {
+    height: 220px;
+  }
+
+  .notion-cover-title {
+    font-size: 2.2rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.15rem;
+  }
+
+  .floating-logo-img {
+    height: 90px;
+  }
+
+  .bottom-sheet {
+    max-width: 600px !important;
+  }
+}
+
+/* 4. Mobile Phones (320px - 768px) */
 @media (max-width: 768px) {
   .notion-cover-wrapper {
     height: 140px;
