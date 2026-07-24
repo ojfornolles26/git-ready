@@ -49,8 +49,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-
-
 /* Floating Bottom Left Organization Logo */
 .floating-logo-fab {
   position: fixed;
@@ -118,17 +116,18 @@ body {
 
 /* Notion Centered Page Body Container */
 .notion-page-container {
-  max-width: 920px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 2rem 6rem;
   position: relative;
   z-index: 1;
+  text-align: center;
 }
 
-/* Notion Page Icon Badge */
+/* Notion Page Icon Badge - CENTERED */
 .notion-page-icon {
-  width: 72px;
-  height: 72px;
+  width: 76px;
+  height: 76px;
   border-radius: var(--radius-lg);
   background: #ffffff;
   border: 1px solid var(--border-color);
@@ -136,73 +135,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -36px;
-  margin-bottom: 1.25rem;
+  margin: -38px auto 1.25rem;
 }
 
 .notion-page-icon svg {
   stroke: var(--git-orange);
 }
 
-/* Notion Page Title & Header */
+/* Notion Page Title - CENTERED */
 .notion-title {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--text-main);
-  letter-spacing: -0.02em;
-  margin-bottom: 0.4rem;
+  letter-spacing: -0.025em;
+  margin-bottom: 2.25rem;
   line-height: 1.2;
+  text-align: center;
 }
 
-.notion-description {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  margin-bottom: 1.75rem;
-  line-height: 1.6;
-}
-
-/* Notion Buttons Bar */
-.notion-actions-bar {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-bottom: 2.5rem;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.95rem;
-  border-radius: var(--radius-md);
-  font-weight: 500;
-  font-size: 0.85rem;
-  text-decoration: none;
-  cursor: pointer;
-  border: 1px solid var(--border-color);
-  background: #ffffff;
-  color: var(--text-main);
-  box-shadow: var(--shadow-notion);
-  transition: all 0.15s ease;
-}
-
-.btn:hover {
-  background: var(--bg-secondary);
-  border-color: var(--border-hover);
-}
-
-.btn-primary {
-  background: var(--text-main);
-  color: #ffffff;
-  border-color: var(--text-main);
-}
-
-.btn-primary:hover {
-  background: #252420;
-}
-
-/* Notion Database Gallery Controls */
+/* Notion Database Gallery Controls - CENTERED BALANCED */
 .notion-db-controls {
   display: flex;
   align-items: center;
@@ -212,6 +163,7 @@ body {
   margin-bottom: 1.25rem;
   padding-bottom: 0.85rem;
   border-bottom: 1px solid var(--border-color);
+  text-align: left;
 }
 
 .notion-db-title {
@@ -234,7 +186,7 @@ body {
 
 .search-box {
   position: relative;
-  min-width: 250px;
+  min-width: 260px;
 }
 
 .search-input {
@@ -266,13 +218,14 @@ body {
 
 .filter-chips {
   display: flex;
+  justify-content: center;
   gap: 0.4rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
 }
 
 .chip {
-  padding: 0.3rem 0.7rem;
+  padding: 0.3rem 0.75rem;
   background: var(--bg-chip);
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
@@ -291,8 +244,9 @@ body {
 /* Notion Database Cards Gallery Grid */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.35rem;
+  text-align: left;
 }
 
 /* Student Profile Card - Clean Notion Gallery Card Style */
@@ -300,7 +254,7 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 1.25rem;
+  padding: 1.35rem;
   box-shadow: var(--shadow-notion);
   display: flex;
   flex-direction: column;
@@ -405,64 +359,6 @@ body {
   color: var(--text-main);
 }
 
-/* Modal Overlay Cheat Sheet */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(15, 15, 15, 0.4);
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease;
-}
-
-.modal-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal-card {
-  background: #ffffff;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  width: 90%;
-  max-width: 720px;
-  max-height: 85vh;
-  overflow-y: auto;
-  padding: 2rem;
-  box-shadow: 0 15px 35px rgba(15, 15, 15, 0.15);
-  position: relative;
-}
-
-.modal-close {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  color: var(--text-main);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-close:hover {
-  background: var(--text-main);
-  color: #ffffff;
-}
-
 /* Footer */
 footer {
   text-align: center;
@@ -483,7 +379,7 @@ footer {
   }
 
   .notion-title {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
   }
 
   .floating-logo-fab {
