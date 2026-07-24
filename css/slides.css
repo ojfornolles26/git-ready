@@ -64,11 +64,11 @@ body::before {
   z-index: 0;
 }
 
-/* Floating Bottom Left Organization Logo - Pure Transparent & Prominent */
+/* Floating Bottom Left Organization Logo - Transparent & Large */
 .floating-logo-fab {
   position: fixed;
-  bottom: 1.75rem;
-  left: 1.75rem;
+  bottom: 2rem;
+  left: 2rem;
   z-index: 1000;
   background: transparent;
   border: none;
@@ -79,15 +79,15 @@ body::before {
 }
 
 .floating-logo-img {
-  height: 64px;
+  height: 140px;
   width: auto;
   display: block;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.06));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
   transition: transform 0.2s ease;
 }
 
 .floating-logo-img:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 /* Floating Bottom Navigation Bar */
@@ -396,6 +396,6 @@ body::before {
   }
 
   .floating-logo-img {
-    height: 44px;
+    height: 70px;
   }
 }
