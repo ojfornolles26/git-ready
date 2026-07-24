@@ -189,16 +189,19 @@ document.addEventListener('DOMContentLoaded', () => {
   function openBottomSheet(cardEl, data = null) {
     if (!sheetOverlay || !sheetContent) return;
 
-    let name, role, bio, tags, quote, github;
+    let name = '', role = '', bio = '', tags = '', quote = '', github = '';
 
-    if (data) {
-      name = data.name;
-      role = data.role;
-      bio = data.bio;
+    if (data && typeof data === 'object') {
+      name = data.name || '';
+      role = data.role || '';
+      bio = data.bio || '';
       tags = (data.techStack || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('');
       quote = data.quote || '';
       github = (data.github || '').trim().replace(/^@/, '');
-    } else if (cardEl) {
+    }
+
+    // Fallback to DOM extraction if data object is not provided or incomplete
+    if (!name && cardEl) {
       name = cardEl.querySelector('.student-meta h3')?.textContent || 'Student Profile';
       role = cardEl.querySelector('.student-role')?.textContent || '';
       bio = cardEl.querySelector('.student-bio')?.textContent || '';
@@ -277,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = e.target.closest('.student-card');
       if (card) {
         const studentId = card.getAttribute('data-id');
-        const studentData = allStudents.find(s => s.id === studentId);
+        const studentData = (allStudents || []).find(s => s && s.id === studentId) || null;
         openBottomSheet(card, studentData);
       }
     });
