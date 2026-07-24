@@ -3,383 +3,429 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GitReady Workshop Slides | Interactive Presentation</title>
-  <meta name="description" content="Live interactive slide presentation for peer-to-peer Git/GitHub hands-on workshop.">
+  <title>GitReady Workshop Slides | Single Page Presentation</title>
+  <meta name="description" content="Minimalist, light-theme single-page presentation slides for Git & GitHub hands-on peer-to-peer workshop.">
   <link rel="stylesheet" href="css/slides.css">
 </head>
 <body>
 
-  <div class="slides-viewport">
+  <!-- Sticky Header & Table of Contents Jump Selector -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <span>GitReady Workshop</span>
+        <span class="nav-tag">Live Slides</span>
+      </a>
 
-    <!-- Slide 1: Title -->
-    <div class="slide active" id="slide-1">
-      <div class="slide-header">
-        <span class="slide-tag">Peer-to-Peer Workshop</span>
-        <span class="slide-number">01 / 18</span>
-      </div>
-      <div class="slide-content">
-        <h1 class="slide-title">GitReady: <span class="gradient-text">Master Git & GitHub</span> by Doing</h1>
-        <p class="slide-subtitle">A hands-on, live interactive workshop where we build a collaborative web application together from scratch!</p>
-        <div class="code-box">
-          <code><span class="prompt">$</span> <span class="cmd">git</span> clone <span class="str">https://github.com/your-username/git-ready.git</span></code>
-          <button class="copy-btn">Copy</button>
-        </div>
-      </div>
-      <div class="key-hint">Press <span class="kbd">→</span> or <span class="kbd">Space</span> to advance slides</div>
+      <select id="toc-select" class="toc-select" aria-label="Jump to Slide Section">
+        <option value="slide-1">1. Welcome & Introduction</option>
+        <option value="slide-2">2. The Need for Version Control</option>
+        <option value="slide-3">3. The 3 Local Git Areas</option>
+        <option value="slide-4">4. Step 1: Environment Check</option>
+        <option value="slide-5">5. Step 2: Clone Repository</option>
+        <option value="slide-6">6. Step 3: Git Status</option>
+        <option value="slide-7">7. Step 4: Create Feature Branch</option>
+        <option value="slide-8">8. Step 5: Add Student Profile JSON</option>
+        <option value="slide-9">9. Step 6: Stage Changes (git add)</option>
+        <option value="slide-10">10. Step 7: Commit Snapshot (git commit)</option>
+        <option value="slide-11">11. Step 8: Push Branch to GitHub</option>
+        <option value="slide-12">12. Step 9: Create Pull Request</option>
+        <option value="slide-13">13. Step 10: Live PR Review & Merge</option>
+        <option value="slide-14">14. Step 11: Sync Classmate Cards (git pull)</option>
+        <option value="slide-15">15. Handling Merge Conflicts</option>
+        <option value="slide-16">16. Core Git Best Practices</option>
+        <option value="slide-17">17. Real-World Industry Application</option>
+        <option value="slide-18">18. Workshop Wrap Up & Next Steps</option>
+      </select>
     </div>
+  </header>
 
-    <!-- Slide 2: The Problem -->
-    <div class="slide" id="slide-2">
-      <div class="slide-header">
-        <span class="slide-tag">Why Git?</span>
-        <span class="slide-number">02 / 18</span>
+  <!-- Scrollable Slides Container -->
+  <main class="slides-container">
+
+    <!-- Slide 1 -->
+    <section class="slide-card" id="slide-1">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Introduction</span>
+        <span class="slide-number-label">Slide 01 / 18</span>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">The "Chaos" of File Management</h2>
-        <p class="slide-subtitle">Ever collaborated on a group project and ended up with files like this?</p>
+      <h1 class="slide-heading">GitReady: Master Git & GitHub by Doing</h1>
+      <p class="slide-lead">A hands-on, live interactive workshop where we build a collaborative web application together from scratch.</p>
+      
+      <div class="code-wrapper">
+        <code><span class="cmd-kw">git</span> clone <span class="cmd-str">https://github.com/your-username/git-ready.git</span></code>
+        <button class="btn-copy">Copy</button>
+      </div>
+
+      <div class="callout callout-info">
+        <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span><strong>Note for Students:</strong> Scroll down this page at your own pace during the live session to review commands and follow along!</span>
+      </div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide-card" id="slide-2">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Core Problem</span>
+        <span class="slide-number-label">Slide 02 / 18</span>
+      </div>
+      <h2 class="slide-heading">The Need for Version Control</h2>
+      <p class="slide-lead">Without version control, team collaboration quickly degrades into confusing file duplication.</p>
+
+      <ul class="bullet-list">
+        <li class="bullet-item">
+          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+          <span>Manual ZIP file management leads to lost code and overwritten changes (e.g. <code>project_v2_final.zip</code>).</span>
+        </li>
+        <li class="bullet-item">
+          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+          <span>No clear audit trail of who made a change, when it occurred, or why it was done.</span>
+        </li>
+        <li class="bullet-item">
+          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+          <span><strong>Git Solution:</strong> Every modification is tracked as a clean, immutable snapshot in a central timeline.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide-card" id="slide-3">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Mental Model</span>
+        <span class="slide-number-label">Slide 03 / 18</span>
+      </div>
+      <h2 class="slide-heading">The 3 Local Git Areas</h2>
+      <p class="slide-lead">Understanding how Git organizes file states locally before sending them to GitHub.</p>
+
+      <div class="content-grid">
         <ul class="bullet-list">
-          <li class="bullet-item"><span class="bullet-icon">❌</span> project_final.zip</li>
-          <li class="bullet-item"><span class="bullet-icon">❌</span> project_final_v2_EDITED.zip</li>
-          <li class="bullet-item"><span class="bullet-icon">❌</span> project_final_v3_for_real_THIS_ONE.zip</li>
+          <li class="bullet-item">
+            <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span><strong>1. Working Directory:</strong> The actual files on your computer where you write code.</span>
+          </li>
+          <li class="bullet-item">
+            <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span><strong>2. Staging Area:</strong> The staging area (Index) where files are prepared using <code>git add</code>.</span>
+          </li>
+          <li class="bullet-item">
+            <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span><strong>3. Local Repository:</strong> Permanent snapshot history saved via <code>git commit</code>.</span>
+          </li>
         </ul>
-        <p style="margin-top: 1rem; color: #a5b4fc; font-weight: 600;">Git solves this completely: no extra ZIP files, no lost code, total history tracking.</p>
-      </div>
-    </div>
 
-    <!-- Slide 3: Mental Model -->
-    <div class="slide" id="slide-3">
-      <div class="slide-header">
-        <span class="slide-tag">Core Concepts</span>
-        <span class="slide-number">03 / 18</span>
-      </div>
-      <div class="slide-content">
-        <h2 class="slide-title">The <span class="gradient-text">3 Local Areas</span> of Git</h2>
-        <div class="slide-grid-2">
-          <ul class="bullet-list">
-            <li class="bullet-item"><span class="bullet-icon">1</span> <strong>Working Directory:</strong> Your actual files on your laptop.</li>
-            <li class="bullet-item"><span class="bullet-icon">2</span> <strong>Staging Area (Index):</strong> The launchpad where you stage changes with <code>git add</code>.</li>
-            <li class="bullet-item"><span class="bullet-icon">3</span> <strong>Local Repository:</strong> Saved snapshots committed with <code>git commit</code>.</li>
-          </ul>
-          <div class="card-box">
-            <p style="font-family: var(--mono-font); font-size: 0.95rem; color: #a5b4fc;">
-              Working Dir<br>
-              &nbsp;&nbsp;│<br>
-              &nbsp;&nbsp;▼ (git add)<br>
-              Staging Area<br>
-              &nbsp;&nbsp;│<br>
-              &nbsp;&nbsp;▼ (git commit)<br>
-              Local Repo<br>
-              &nbsp;&nbsp;│<br>
-              &nbsp;&nbsp;▼ (git push)<br>
-              GitHub (Remote)
-            </p>
+        <div class="callout">
+          <div>
+            <strong>Execution Flow:</strong><br>
+            <code>Working Directory</code><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;↓ <em>git add</em><br>
+            <code>Staging Area</code><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;↓ <em>git commit</em><br>
+            <code>Local Repository</code><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;↓ <em>git push</em><br>
+            <code>GitHub (Remote)</code>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Slide 4: Environment Check -->
-    <div class="slide" id="slide-4">
-      <div class="slide-header">
-        <span class="slide-tag">Step 1: Setup</span>
-        <span class="slide-number">04 / 18</span>
+    <!-- Slide 4 -->
+    <section class="slide-card" id="slide-4">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Step 1: Setup</span>
+        <span class="slide-number-label">Slide 04 / 18</span>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">Configure Your Identity</h2>
-        <p class="slide-subtitle">Open your Terminal (Mac/Linux) or Git Bash (Windows) and check your settings:</p>
-        <div class="code-box">
-          <code><span class="cmd">git</span> --version<br>
-<span class="cmd">git</span> config --global user.name <span class="str">"Your Name"</span><br>
-<span class="cmd">git</span> config --global user.email <span class="str">"your.email@example.com"</span></code>
-          <button class="copy-btn">Copy</button>
-        </div>
-      </div>
-    </div>
+      <h2 class="slide-heading">Environment Check & User Identity</h2>
+      <p class="slide-lead">Configure your Git name and email to ensure your commits are properly authored.</p>
 
-    <!-- Slide 5: Git Clone -->
-    <div class="slide" id="slide-5">
-      <div class="slide-header">
-        <span class="slide-tag">Step 2: Clone</span>
-        <span class="slide-number">05 / 18</span>
+      <div class="code-wrapper">
+        <code><span class="cmd-kw">git</span> --version<br>
+<span class="cmd-kw">git</span> config --global user.name <span class="cmd-str">"Your Full Name"</span><br>
+<span class="cmd-kw">git</span> config --global user.email <span class="cmd-str">"your.email@example.com"</span></code>
+        <button class="btn-copy">Copy</button>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">Download the Workshop Code</h2>
-        <p class="slide-subtitle">Clone the repository to create your local copy on your laptop:</p>
-        <div class="code-box">
-          <code><span class="cmd">git</span> clone <span class="str">https://github.com/your-username/git-ready.git</span><br>
-<span class="cmd">cd</span> git-ready</code>
-          <button class="copy-btn">Copy</button>
-        </div>
-        <p style="margin-top: 1rem; color: #94a3b8;">Tip: Open <code>index.html</code> in your browser to see the live Wall of Fame!</p>
-      </div>
-    </div>
+    </section>
 
-    <!-- Slide 6: Git Status -->
-    <div class="slide" id="slide-6">
-      <div class="slide-header">
-        <span class="slide-tag">Step 3: Compass</span>
-        <span class="slide-number">06 / 18</span>
+    <!-- Slide 5 -->
+    <section class="slide-card" id="slide-5">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Step 2: Clone</span>
+        <span class="slide-number-label">Slide 05 / 18</span>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">Your Compass: <span class="gradient-text">git status</span></h2>
-        <p class="slide-subtitle">When in doubt, always run <code>git status</code>. It tells you what branch you're on and what files changed.</p>
-        <div class="code-box">
-          <code><span class="cmd">git</span> status<br>
-<span class="cmt"># On branch main</span><br>
-<span class="cmt"># Your branch is up to date with 'origin/main'.</span></code>
-          <button class="copy-btn">Copy</button>
-        </div>
-      </div>
-    </div>
+      <h2 class="slide-heading">Clone the Workshop Repository</h2>
+      <p class="slide-lead">Download a full local copy of the project repository to your laptop.</p>
 
-    <!-- Slide 7: Branching -->
-    <div class="slide" id="slide-7">
-      <div class="slide-header">
-        <span class="slide-tag">Step 4: Branching</span>
-        <span class="slide-number">07 / 18</span>
+      <div class="code-wrapper">
+        <code><span class="cmd-kw">git</span> clone <span class="cmd-str">https://github.com/your-username/git-ready.git</span><br>
+<span class="cmd-kw">cd</span> git-ready</code>
+        <button class="btn-copy">Copy</button>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">Create Your Feature Branch</h2>
-        <p class="slide-subtitle">Never code directly on <code>main</code>! Create a dedicated branch for your student profile:</p>
-        <div class="code-box">
-          <code><span class="cmd">git</span> checkout -b <span class="str">student/your-github-username</span></code>
-          <button class="copy-btn">Copy</button>
-        </div>
-        <p style="margin-top: 1rem; color: #10b981;">The <code>-b</code> flag creates a new branch and switches to it in one command.</p>
-      </div>
-    </div>
 
-    <!-- Slide 8: Hands-On Challenge -->
-    <div class="slide" id="slide-8">
-      <div class="slide-header">
-        <span class="slide-tag">Hands-On Task</span>
-        <span class="slide-number">08 / 18</span>
+      <div class="callout callout-info">
+        <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span>Open <code>index.html</code> in your browser to view the initial Wall of Fame before making changes.</span>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">Create Your Profile JSON Card</h2>
-        <p class="slide-subtitle">Inside your code editor (VS Code), create a new file under <code>data/students/your-username.json</code>:</p>
-        <div class="code-box">
-          <code>{<br>
-&nbsp;&nbsp;<span class="kw">"id"</span>: <span class="str">"alex-rivera"</span>,<br>
-&nbsp;&nbsp;<span class="kw">"name"</span>: <span class="str">"Alex Rivera"</span>,<br>
-&nbsp;&nbsp;<span class="kw">"role"</span>: <span class="str">"CS Student & Web Developer"</span>,<br>
-&nbsp;&nbsp;<span class="kw">"bio"</span>: <span class="str">"Excited to learn Git and build open source projects!"</span>,<br>
-&nbsp;&nbsp;<span class="kw">"techStack"</span>: [<span class="str">"JavaScript"</span>, <span class="str">"HTML"</span>, <span class="str">"Git"</span>],<br>
-&nbsp;&nbsp;<span class="kw">"github"</span>: <span class="str">"alexrivera"</span>,<br>
-&nbsp;&nbsp;<span class="kw">"cardColor"</span>: <span class="str">"#ec4899"</span>,<br>
-&nbsp;&nbsp;<span class="kw">"emoji"</span>: <span class="str">"🚀"</span>,<br>
-&nbsp;&nbsp;<span class="kw">"quote"</span>: <span class="str">"git push origin main!"</span><br>
+    </section>
+
+    <!-- Slide 6 -->
+    <section class="slide-card" id="slide-6">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Step 3: Inspect</span>
+        <span class="slide-number-label">Slide 06 / 18</span>
+      </div>
+      <h2 class="slide-heading">Repository Compass: git status</h2>
+      <p class="slide-lead">Run <code>git status</code> whenever you want to check your active branch and untracked files.</p>
+
+      <div class="code-wrapper">
+        <code><span class="cmd-kw">git</span> status<br>
+<span class="cmd-cmt"># Output: On branch main, your branch is up to date with 'origin/main'.</span></code>
+        <button class="btn-copy">Copy</button>
+      </div>
+    </section>
+
+    <!-- Slide 7 -->
+    <section class="slide-card" id="slide-7">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Step 4: Branching</span>
+        <span class="slide-number-label">Slide 07 / 18</span>
+      </div>
+      <h2 class="slide-heading">Create a Feature Branch</h2>
+      <p class="slide-lead">Isolate your individual work from the primary <code>main</code> branch.</p>
+
+      <div class="code-wrapper">
+        <code><span class="cmd-kw">git</span> checkout -b <span class="cmd-str">student/your-github-username</span></code>
+        <button class="btn-copy">Copy</button>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+        The <code>-b</code> flag tells Git to create a new branch and immediately switch your workspace to it.
+      </p>
+    </section>
+
+    <!-- Slide 8 -->
+    <section class="slide-card" id="slide-8">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Step 5: Hands-On</span>
+        <span class="slide-number-label">Slide 08 / 18</span>
+      </div>
+      <h2 class="slide-heading">Create Your Student Profile JSON</h2>
+      <p class="slide-lead">In your editor, add a new JSON file under <code>data/students/your-github-username.json</code>.</p>
+
+      <div class="code-wrapper">
+        <code>{<br>
+&nbsp;&nbsp;<span class="cmd-kw">"id"</span>: <span class="cmd-str">"your-github-username"</span>,<br>
+&nbsp;&nbsp;<span class="cmd-kw">"name"</span>: <span class="cmd-str">"Your Name"</span>,<br>
+&nbsp;&nbsp;<span class="cmd-kw">"role"</span>: <span class="cmd-str">"Student / Learner"</span>,<br>
+&nbsp;&nbsp;<span class="cmd-kw">"bio"</span>: <span class="cmd-str">"Learning Git and web development hands-on!"</span>,<br>
+&nbsp;&nbsp;<span class="cmd-kw">"techStack"</span>: [<span class="cmd-str">"JavaScript"</span>, <span class="cmd-str">"HTML"</span>, <span class="cmd-str">"Git"</span>],<br>
+&nbsp;&nbsp;<span class="cmd-kw">"github"</span>: <span class="cmd-str">"your-github-username"</span>,<br>
+&nbsp;&nbsp;<span class="cmd-kw">"cardColor"</span>: <span class="cmd-str">"#3b82f6"</span>,<br>
+&nbsp;&nbsp;<span class="cmd-kw">"quote"</span>: <span class="cmd-str">"Building software together."</span><br>
 }</code>
-          <button class="copy-btn">Copy</button>
-        </div>
+        <button class="btn-copy">Copy</button>
       </div>
-    </div>
+    </section>
 
-    <!-- Slide 9: git add -->
-    <div class="slide" id="slide-9">
-      <div class="slide-header">
-        <span class="slide-tag">Step 5: Stage</span>
-        <span class="slide-number">09 / 18</span>
+    <!-- Slide 9 -->
+    <section class="slide-card" id="slide-9">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Step 6: Stage</span>
+        <span class="slide-number-label">Slide 09 / 18</span>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">Stage Your Changes: <span class="gradient-text">git add</span></h2>
-        <p class="slide-subtitle">Tell Git to stage your new file for the next commit:</p>
-        <div class="code-box">
-          <code><span class="cmd">git</span> add data/students/your-username.json<br>
-<span class="cmt"># Or stage all untracked changes:</span><br>
-<span class="cmd">git</span> add .</code>
-          <button class="copy-btn">Copy</button>
-        </div>
-        <p style="margin-top: 1rem; color: #94a3b8;">Run <code>git status</code> to verify your file turned green (staged)!</p>
-      </div>
-    </div>
+      <h2 class="slide-heading">Stage Your Changes: git add</h2>
+      <p class="slide-lead">Move your new JSON profile file into the Staging Area.</p>
 
-    <!-- Slide 10: git commit -->
-    <div class="slide" id="slide-10">
-      <div class="slide-header">
-        <span class="slide-tag">Step 6: Snapshot</span>
-        <span class="slide-number">10 / 18</span>
+      <div class="code-wrapper">
+        <code><span class="cmd-kw">git</span> add data/students/your-github-username.json<br>
+<span class="cmd-cmt"># Or stage all changed files:</span><br>
+<span class="cmd-kw">git</span> add .</code>
+        <button class="btn-copy">Copy</button>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">Commit Your Snapshot: <span class="gradient-text">git commit</span></h2>
-        <p class="slide-subtitle">Save your changes into Git history with a descriptive commit message:</p>
-        <div class="code-box">
-          <code><span class="cmd">git</span> commit -m <span class="str">"feat: add Alex Rivera profile card"</span></code>
-          <button class="copy-btn">Copy</button>
-        </div>
-        <p style="margin-top: 1rem; color: #f59e0b;">Best Practice: Use present-tense imperative messages (e.g., "feat: add...", "fix: resolve...").</p>
-      </div>
-    </div>
 
-    <!-- Slide 11: git push -->
-    <div class="slide" id="slide-11">
-      <div class="slide-header">
-        <span class="slide-tag">Step 7: Upload</span>
-        <span class="slide-number">11 / 18</span>
+      <div class="callout callout-success">
+        <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+        <span>Running <code>git status</code> after staging will show your file listed under <em>"Changes to be committed"</em> in green.</span>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">Push to GitHub: <span class="gradient-text">git push</span></h2>
-        <p class="slide-subtitle">Upload your branch from your local laptop to GitHub:</p>
-        <div class="code-box">
-          <code><span class="cmd">git</span> push origin student/your-github-username</code>
-          <button class="copy-btn">Copy</button>
-        </div>
-        <p style="margin-top: 1rem; color: #a5b4fc;">Your branch is now live on GitHub!</p>
-      </div>
-    </div>
+    </section>
 
-    <!-- Slide 12: Pull Request -->
-    <div class="slide" id="slide-12">
-      <div class="slide-header">
-        <span class="slide-tag">Step 8: Collaborate</span>
-        <span class="slide-number">12 / 18</span>
+    <!-- Slide 10 -->
+    <section class="slide-card" id="slide-10">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Step 7: Commit</span>
+        <span class="slide-number-label">Slide 10 / 18</span>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">Open a Pull Request (PR)</h2>
-        <ul class="bullet-list">
-          <li class="bullet-item"><span class="bullet-icon">1</span> Go to the repository URL on GitHub in your browser.</li>
-          <li class="bullet-item"><span class="bullet-icon">2</span> You will see a banner: <strong>"Compare & pull request"</strong>. Click it!</li>
-          <li class="bullet-item"><span class="bullet-icon">3</span> Add a title: <code>feat: Add [Your Name] profile card</code> and click <strong>Create pull request</strong>.</li>
-        </ul>
-      </div>
-    </div>
+      <h2 class="slide-heading">Create a Commit Snapshot</h2>
+      <p class="slide-lead">Record your staged modifications permanently in your local Git repository.</p>
 
-    <!-- Slide 13: Live Merge Party -->
-    <div class="slide" id="slide-13">
-      <div class="slide-header">
-        <span class="slide-tag">Live Demo</span>
-        <span class="slide-number">13 / 18</span>
+      <div class="code-wrapper">
+        <code><span class="cmd-kw">git</span> commit -m <span class="cmd-str">"feat: add profile card for [Your Name]"</span></code>
+        <button class="btn-copy">Copy</button>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">🎉 Live Merge Party!</h2>
-        <p class="slide-subtitle">Watch the projector screen! The host will review PRs live and merge them into the <code>main</code> branch.</p>
-        <div class="card-box" style="text-align: center; padding: 2rem;">
-          <p style="font-size: 1.3rem; color: #10b981; font-weight: 700; margin-bottom: 0.5rem;">Merging PRs into main...</p>
-          <p style="color: #94a3b8;">Every student's profile card is joining the official class build!</p>
-        </div>
-      </div>
-    </div>
+    </section>
 
-    <!-- Slide 14: git pull -->
-    <div class="slide" id="slide-14">
-      <div class="slide-header">
-        <span class="slide-tag">Step 9: Sync</span>
-        <span class="slide-number">14 / 18</span>
+    <!-- Slide 11 -->
+    <section class="slide-card" id="slide-11">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Step 8: Push</span>
+        <span class="slide-number-label">Slide 11 / 18</span>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">Sync Everyone's Cards: <span class="gradient-text">git pull</span></h2>
-        <p class="slide-subtitle">Switch back to your local <code>main</code> branch and fetch all your classmates' merged cards!</p>
-        <div class="code-box">
-          <code><span class="cmd">git</span> checkout main<br>
-<span class="cmd">git</span> pull origin main</code>
-          <button class="copy-btn">Copy</button>
-        </div>
-        <p style="margin-top: 1rem; color: #10b981;">Refresh <code>index.html</code> in your browser to see all your classmates pop up on your local screen!</p>
-      </div>
-    </div>
+      <h2 class="slide-heading">Push Branch to GitHub</h2>
+      <p class="slide-lead">Upload your feature branch to the remote GitHub server.</p>
 
-    <!-- Slide 15: Merge Conflicts -->
-    <div class="slide" id="slide-15">
-      <div class="slide-header">
-        <span class="slide-tag">Pro Tip</span>
-        <span class="slide-number">15 / 18</span>
+      <div class="code-wrapper">
+        <code><span class="cmd-kw">git</span> push origin student/your-github-username</code>
+        <button class="btn-copy">Copy</button>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">Handling Merge Conflicts Calmly</h2>
-        <p class="slide-subtitle">Conflicts happen when two people edit the exact same line in the same file. Don't panic!</p>
-        <div class="code-box">
-          <code><span class="cmt">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (Your changes)</span><br>
-<span class="str">"role": "Frontend Developer"</span><br>
+    </section>
+
+    <!-- Slide 12 -->
+    <section class="slide-card" id="slide-12">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Step 9: Collaborate</span>
+        <span class="slide-number-label">Slide 12 / 18</span>
+      </div>
+      <h2 class="slide-heading">Create a Pull Request (PR)</h2>
+      <p class="slide-lead">Submit your branch for review so it can be merged into the main codebase.</p>
+
+      <ul class="bullet-list">
+        <li class="bullet-item">
+          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Open the repository on GitHub in your web browser.</span>
+        </li>
+        <li class="bullet-item">
+          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Click the <strong>"Compare & pull request"</strong> button on your newly pushed branch.</span>
+        </li>
+        <li class="bullet-item">
+          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Title your PR <code>feat: add profile card for [Name]</code> and click <strong>Create pull request</strong>.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Slide 13 -->
+    <section class="slide-card" id="slide-13">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Step 10: Review</span>
+        <span class="slide-number-label">Slide 13 / 18</span>
+      </div>
+      <h2 class="slide-heading">Live PR Review & Merge</h2>
+      <p class="slide-lead">The workshop host will review all student Pull Requests on the projector screen and merge them into main.</p>
+
+      <div class="callout callout-info">
+        <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span>Watch the screen as your Pull Request gets merged into the central repository!</span>
+      </div>
+    </section>
+
+    <!-- Slide 14 -->
+    <section class="slide-card" id="slide-14">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Step 11: Sync</span>
+        <span class="slide-number-label">Slide 14 / 18</span>
+      </div>
+      <h2 class="slide-heading">Sync Everyone's Profile Cards: git pull</h2>
+      <p class="slide-lead">Fetch all newly merged classmate profiles onto your computer.</p>
+
+      <div class="code-wrapper">
+        <code><span class="cmd-kw">git</span> checkout main<br>
+<span class="cmd-kw">git</span> pull origin main</code>
+        <button class="btn-copy">Copy</button>
+      </div>
+
+      <div class="callout callout-success">
+        <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+        <span>Refresh <code>index.html</code> in your browser to see all merged student cards render live!</span>
+      </div>
+    </section>
+
+    <!-- Slide 15 -->
+    <section class="slide-card" id="slide-15">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Pro Tip</span>
+        <span class="slide-number-label">Slide 15 / 18</span>
+      </div>
+      <h2 class="slide-heading">Handling Merge Conflicts</h2>
+      <p class="slide-lead">Conflicts occur when concurrent edits modify the exact same lines in a file.</p>
+
+      <div class="code-wrapper">
+        <code><span class="cmd-cmt">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (Your current branch)</span><br>
+"role": "Frontend Learner"<br>
 =======<br>
-<span class="str">"role": "Fullstack Engineer"</span><br>
-<span class="cmt">&gt;&gt;&gt;&gt;&gt;&gt;&gt; main (Incoming changes)</span></code>
-          <button class="copy-btn">Copy</button>
-        </div>
-        <p style="margin-top: 1rem; color: #94a3b8;">Solution: Pick the correct version, delete the conflict markers (<code>&lt;&lt;&lt;</code>, <code>===</code>, <code>&gt;&gt;&gt;</code>), stage and commit!</p>
+"role": "Fullstack Developer"<br>
+<span class="cmd-cmt">&gt;&gt;&gt;&gt;&gt;&gt;&gt; main (Incoming branch)</span></code>
+        <button class="btn-copy">Copy</button>
       </div>
-    </div>
 
-    <!-- Slide 16: Best Practices -->
-    <div class="slide" id="slide-16">
-      <div class="slide-header">
-        <span class="slide-tag">Best Practices</span>
-        <span class="slide-number">16 / 18</span>
-      </div>
-      <div class="slide-content">
-        <h2 class="slide-title">Golden Rules of Git</h2>
-        <ul class="bullet-list">
-          <li class="bullet-item"><span class="bullet-icon">✨</span> <strong>Commit Often:</strong> Make small, logical commits instead of massive weekly dumps.</li>
-          <li class="bullet-item"><span class="bullet-icon">🌿</span> <strong>Use Branches:</strong> Keep <code>main</code> deployable at all times.</li>
-          <li class="bullet-item"><span class="bullet-icon">💬</span> <strong>Clear Messages:</strong> Write commit messages that explain <em>why</em>, not just <em>what</em>.</li>
-          <li class="bullet-item"><span class="bullet-icon">🔄</span> <strong>Pull Before Push:</strong> Keep your branch synced with upstream changes.</li>
-        </ul>
-      </div>
-    </div>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+        <strong>Resolution:</strong> Choose the desired content, delete the marker lines (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>), then stage and commit.
+      </p>
+    </section>
 
-    <!-- Slide 17: Real World -->
-    <div class="slide" id="slide-17">
-      <div class="slide-header">
-        <span class="slide-tag">Real-World Utility</span>
-        <span class="slide-number">17 / 18</span>
+    <!-- Slide 16 -->
+    <section class="slide-card" id="slide-16">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Best Practices</span>
+        <span class="slide-number-label">Slide 16 / 18</span>
       </div>
-      <div class="slide-content">
-        <h2 class="slide-title">Why Git Powers Modern Tech</h2>
-        <div class="slide-grid-2">
-          <ul class="bullet-list">
-            <li class="bullet-item"><span class="bullet-icon">🌐</span> <strong>Global Open Source:</strong> Linux, React, Python are built by thousands via Git.</li>
-            <li class="bullet-item"><span class="bullet-icon">⚡</span> <strong>CI/CD & Automation:</strong> Pushing code automatically builds, tests, and deploys apps.</li>
-            <li class="bullet-item"><span class="bullet-icon">🛡️</span> <strong>Time Machine:</strong> Revert any bug instantly without breaking production.</li>
-          </ul>
-          <div class="card-box" style="text-align: center;">
-            <p style="font-size: 2.5rem; margin-bottom: 0.5rem;">🚀</p>
-            <p style="font-weight: 700; color: #a5b4fc;">You are now equipped for real-world team software engineering!</p>
-          </div>
-        </div>
+      <h2 class="slide-heading">Core Git Best Practices</h2>
+
+      <ul class="bullet-list">
+        <li class="bullet-item">
+          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span><strong>Commit Frequently:</strong> Make small, focused commits for single logical changes.</span>
+        </li>
+        <li class="bullet-item">
+          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span><strong>Use Feature Branches:</strong> Keep the primary <code>main</code> branch clean and stable.</span>
+        </li>
+        <li class="bullet-item">
+          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span><strong>Descriptive Commit Messages:</strong> Explain the purpose of changes clearly.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Slide 17 -->
+    <section class="slide-card" id="slide-17">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Real World</span>
+        <span class="slide-number-label">Slide 17 / 18</span>
       </div>
-    </div>
+      <h2 class="slide-heading">Real-World Industry Application</h2>
+      <p class="slide-lead">How engineering teams rely on Git & GitHub daily for production software development.</p>
 
-    <!-- Slide 18: Q&A & Wrap Up -->
-    <div class="slide" id="slide-18">
-      <div class="slide-header">
-        <span class="slide-tag">Wrap Up</span>
-        <span class="slide-number">18 / 18</span>
+      <ul class="bullet-list">
+        <li class="bullet-item">
+          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span><strong>Global Open Source:</strong> Thousands of developers contribute asynchronously to major projects.</span>
+        </li>
+        <li class="bullet-item">
+          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span><strong>Continuous Integration (CI):</strong> Automated testing runs on every Pull Request before code reaches production.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Slide 18 -->
+    <section class="slide-card" id="slide-18">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Wrap Up</span>
+        <span class="slide-number-label">Slide 18 / 18</span>
       </div>
-      <div class="slide-content" style="text-align: center;">
-        <h2 class="slide-title">🎉 Congratulations! You are Git Ready!</h2>
-        <p class="slide-subtitle">Check out the live Wall of Fame, star the repository, and keep building awesome projects together.</p>
-        <div style="margin: 2rem 0;">
-          <a href="index.html" class="slide-tag" style="padding: 0.8rem 2rem; font-size: 1rem; text-decoration: none; background: linear-gradient(135deg, #6366f1, #ec4899); color: white;">View Live Student Wall of Fame ➔</a>
-        </div>
-        <p style="color: #64748b; font-size: 0.9rem;">Thank you for attending our peer-to-peer workshop!</p>
+      <h2 class="slide-heading">Workshop Wrap Up</h2>
+      <p class="slide-lead">Congratulations! You have completed the hands-on peer-to-peer Git workshop.</p>
+
+      <div style="margin-top: 1.5rem;">
+        <a href="index.html" class="btn-link">View Live Student Wall of Fame ➔</a>
       </div>
-    </div>
+    </section>
 
-  </div>
+  </main>
 
-  <!-- Controls Bar -->
-  <div class="controls-bar">
-    <button class="nav-btn" id="prev-slide" title="Previous Slide (←)">←</button>
-    
-    <div class="progress-container">
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" id="progress-bar-fill"></div>
-      </div>
-      <span class="slide-indicator"><span id="current-slide-num">1</span> / <span id="total-slides-num">18</span></span>
-    </div>
-
-    <button class="nav-btn" id="next-slide" title="Next Slide (→)">→</button>
-    <button class="nav-btn" id="overview-btn" title="Slide Overview Grid (M)">☰</button>
-    <button class="nav-btn" id="fullscreen-btn" title="Toggle Fullscreen (F)">⛶</button>
-  </div>
-
-  <!-- Overview Modal -->
-  <div class="overview-modal" id="overview-modal" style="position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(9, 13, 22, 0.95); z-index: 1000; padding: 3rem 2rem; overflow-y: auto; display: none;">
-    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto 1.5rem;">
-      <h2>Slide Overview Grid</h2>
-      <button class="nav-btn" onclick="document.getElementById('overview-modal').style.display='none'">✕</button>
-    </div>
-    <div class="overview-grid" id="overview-grid" style="max-width: 1200px; margin: 0 auto;"></div>
-  </div>
+  <footer class="slides-footer container">
+    <p>GitReady Workshop • Peer-to-Peer Learning Material</p>
+  </footer>
 
   <script src="js/slides.js"></script>
 </body>
