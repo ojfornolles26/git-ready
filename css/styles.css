@@ -319,8 +319,8 @@ body {
 /* Notion Database Cards Gallery Grid */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-  gap: 1.35rem;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1.4rem;
   text-align: left;
 }
 
@@ -329,7 +329,7 @@ body {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
-  padding: 1.45rem 1.6rem;
+  padding: 1.5rem 1.75rem;
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
   display: flex;
   flex-direction: column;
@@ -779,11 +779,11 @@ footer {
 /* 1. Large Monitors (1400px+) */
 @media (min-width: 1400px) {
   .notion-page-container {
-    max-width: 1140px;
+    max-width: 1200px;
   }
 
   .cards-grid {
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     gap: 1.5rem;
   }
 
@@ -795,19 +795,19 @@ footer {
 /* 2. Standard Laptops (1024px - 1399px) */
 @media (min-width: 1024px) and (max-width: 1399px) {
   .notion-page-container {
-    max-width: 980px;
+    max-width: 1040px;
   }
 
   .cards-grid {
-    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-    gap: 1.35rem;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1.4rem;
   }
 }
 
 /* 3. Tablets & iPads (769px - 1023px) */
 @media (min-width: 769px) and (max-width: 1023px) {
   .notion-page-container {
-    max-width: 760px;
+    max-width: 800px;
     padding: 0 1.5rem 5rem;
   }
 
@@ -820,8 +820,8 @@ footer {
   }
 
   .cards-grid {
-    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.3rem;
   }
 
   .floating-logo-img {
