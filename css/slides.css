@@ -95,15 +95,15 @@ body {
 }
 
 .floating-logo-img {
-  height: 130px;
+  height: 165px;
   width: auto;
   display: block;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.10));
   transition: transform 0.2s ease;
 }
 
 .floating-logo-img:hover {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 /* Floating Bottom Right Git & GitHub Logos */
@@ -115,14 +115,14 @@ body {
   background: transparent;
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .floating-tech-icon {
-  height: 48px;
+  height: 58px;
   width: auto;
   display: block;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.10));
   transition: transform 0.2s ease;
 }
 
@@ -639,13 +639,13 @@ body {
   }
 
   .floating-logo-img {
-    height: 80px;
-    pointer-events: none;
+    height: 145px;
+    pointer-events: auto;
   }
 
   .floating-tech-icon {
-    height: 36px;
-    pointer-events: none;
+    height: 52px;
+    pointer-events: auto;
   }
 }
 
@@ -675,11 +675,11 @@ body {
   }
 
   .floating-logo-img {
-    height: 90px;
+    height: 125px;
   }
 
   .floating-tech-icon {
-    height: 38px;
+    height: 44px;
   }
 
   .toc-select {
