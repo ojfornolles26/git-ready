@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const handle = escapeHtml(rawHandle || 'anonymous');
 
       return `
-        <div class="student-card">
+        <div class="student-card" data-id="${escapeHtml(student.id)}">
           <div class="card-header">
             <div class="avatar-circle">
               <svg width="20" height="20" fill="none" stroke="#787774" stroke-width="2" viewBox="0 0 24 24">
@@ -122,10 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <circle cx="12" cy="7" r="4"/>
               </svg>
             </div>
-            <div class="student-meta">
+            <div class="student-meta" style="flex-grow: 1;">
               <h3>${escapeHtml(student.name)}</h3>
               <span class="student-role">${escapeHtml(student.role)}</span>
             </div>
+            <span class="card-expand-hint" title="Click to view full card details">Expand ↗</span>
           </div>
 
           <p class="student-bio">${escapeHtml(student.bio)}</p>
@@ -179,11 +180,105 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCards(filtered);
   }
 
-  // Event Listeners
-  if (searchInput) {
-    searchInput.addEventListener('input', filterAndRender);
+  // Bottom Sheet Drawer DOM elements
+  const sheetOverlay = document.getElementById('bottom-sheet-overlay');
+  const sheetCloseBtn = document.getElementById('sheet-close-btn');
+  const sheetContent = document.getElementById('sheet-content');
+
+  // Open Bottom Sheet with Full Card Details
+  function openBottomSheet(cardEl, data = null) {
+    if (!sheetOverlay || !sheetContent) return;
+
+    let name, role, bio, tags, quote, github;
+
+    if (data) {
+      name = data.name;
+      role = data.role;
+      bio = data.bio;
+      tags = (data.techStack || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('');
+      quote = data.quote || '';
+      github = (data.github || '').trim().replace(/^@/, '');
+    } else if (cardEl) {
+      name = cardEl.querySelector('.student-meta h3')?.textContent || 'Student Profile';
+      role = cardEl.querySelector('.student-role')?.textContent || '';
+      bio = cardEl.querySelector('.student-bio')?.textContent || '';
+      tags = cardEl.querySelector('.tech-tags')?.innerHTML || '';
+      quote = cardEl.querySelector('.quote')?.textContent?.replace(/^"|"$/g, '') || '';
+      const githubAnchor = cardEl.querySelector('.github-link');
+      github = githubAnchor ? githubAnchor.getAttribute('href').replace('https://github.com/', '') : '';
+    }
+
+    sheetContent.innerHTML = `
+      <div class="sheet-full-card">
+        <div class="sheet-full-header">
+          <div class="sheet-avatar">
+            <svg width="28" height="28" fill="none" stroke="#64748b" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="sheet-title-meta">
+            <h2>${escapeHtml(name)}</h2>
+            <span class="sheet-role">${escapeHtml(role)}</span>
+          </div>
+        </div>
+
+        <div class="sheet-section">
+          <div class="sheet-section-title">About / Bio</div>
+          <p class="sheet-bio-text">${escapeHtml(bio)}</p>
+        </div>
+
+        ${tags ? `
+        <div class="sheet-section">
+          <div class="sheet-section-title">Tech Stack & Tools</div>
+          <div class="tech-tags">${tags}</div>
+        </div>` : ''}
+
+        ${quote ? `
+        <div class="sheet-section">
+          <div class="sheet-section-title">Favorite Quote / Tagline</div>
+          <div class="sheet-quote-box">"${escapeHtml(quote)}"</div>
+        </div>` : ''}
+
+        ${github ? `
+        <div class="sheet-section">
+          <a href="https://github.com/${escapeHtml(github)}" target="_blank" class="sheet-github-button">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            View GitHub Profile (@${escapeHtml(github)})
+          </a>
+        </div>` : ''}
+      </div>
+    `;
+
+    sheetOverlay.classList.add('active');
   }
 
-  // Initialize
-  loadStudentProfiles();
-});
+  function closeBottomSheet() {
+    if (sheetOverlay) sheetOverlay.classList.remove('active');
+  }
+
+  if (sheetCloseBtn) sheetCloseBtn.addEventListener('click', closeBottomSheet);
+  if (sheetOverlay) {
+    sheetOverlay.addEventListener('click', (e) => {
+      if (e.target === sheetOverlay) closeBottomSheet();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeBottomSheet();
+  });
+
+  // Attach card click listener to open Bottom Sheet Drawer
+  if (cardsGrid) {
+    cardsGrid.addEventListener('click', (e) => {
+      // Ignore direct clicks on github link anchor tags
+      if (e.target.closest('.github-link')) return;
+
+      const card = e.target.closest('.student-card');
+      if (card) {
+        const studentId = card.getAttribute('data-id');
+        const studentData = allStudents.find(s => s.id === studentId);
+        openBottomSheet(card, studentData);
+      }
+    });
+  }

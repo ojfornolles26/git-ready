@@ -66,10 +66,11 @@
               <circle cx="12" cy="7" r="4"/>
             </svg>
           </div>
-          <div class="student-meta">
+          <div class="student-meta" style="flex-grow: 1;">
             <h3>Workshop Lead</h3>
             <span class="student-role">Peer Tutor & Facilitator</span>
           </div>
+          <span class="card-expand-hint" title="Click to view full card details">Expand ↗</span>
         </div>
 
         <p class="student-bio">Welcome to GitReady! Copy the HTML card snippet from README.md, paste it into index.html, replace the placeholders with your info, and submit a Pull Request!</p>
@@ -130,6 +131,19 @@
           <code style="font-family: var(--font-mono); color: #d4d4d4; display: block; background: #1e1e1e; padding: 0.5rem 0.75rem; border-radius: 4px; user-select: none;">git push origin student/your-name<br>git pull origin main</code>
           <p style="font-size: 0.825rem; color: var(--text-muted); margin-top: 0.35rem;">Pushes your branch to GitHub for PR review, and pulls merged changes from others.</p>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Sheet Detail Drawer Modal -->
+  <div class="bottom-sheet-overlay" id="bottom-sheet-overlay">
+    <div class="bottom-sheet" id="bottom-sheet">
+      <div class="sheet-handle-bar">
+        <div class="sheet-handle"></div>
+        <button class="sheet-close-btn" id="sheet-close-btn" title="Close Details">✕</button>
+      </div>
+      <div class="sheet-content" id="sheet-content">
+        <!-- Dynamically rendered full card details -->
       </div>
     </div>
   </div>
