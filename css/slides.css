@@ -670,7 +670,14 @@ body {
   }
 
   .nav-brand span {
-    display: none;
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    max-width: 125px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
   }
 
   .toc-select {
