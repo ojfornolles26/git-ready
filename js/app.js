@@ -11,7 +11,10 @@ function escapeHtml(str) {
 
 // Global Bottom Sheet Modal trigger
 window.openBottomSheetModal = function(element, event) {
-  if (event && event.target && event.target.closest('.github-link')) return;
+  if (event) {
+    if (event.target && event.target.closest('.github-link')) return;
+    event.stopPropagation();
+  }
 
   const overlay = document.getElementById('bottom-sheet-overlay');
   const content = document.getElementById('sheet-content');
@@ -37,18 +40,18 @@ window.openBottomSheetModal = function(element, event) {
     bio = data.bio || '';
     tags = (data.techStack || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('');
     quote = data.quote || '';
-    github = (data.github || '').trim().replace(/^@/, '');
+    github = (data.github || '').trim().replace(/^https?:\/\/github\.com\//i, '').replace(/\/$/, '').replace(/^@/, '');
   }
 
   // Fallback to DOM extraction if data object is missing or incomplete
   if (!name && cardEl) {
-    name = cardEl.querySelector('.student-meta h3')?.textContent || 'Student Profile';
-    role = cardEl.querySelector('.student-role')?.textContent || '';
-    bio = cardEl.querySelector('.student-bio')?.textContent || '';
+    name = cardEl.querySelector('.student-meta h3')?.textContent?.trim() || 'Student Profile';
+    role = cardEl.querySelector('.student-role')?.textContent?.trim() || '';
+    bio = cardEl.querySelector('.student-bio')?.textContent?.trim() || '';
     tags = cardEl.querySelector('.tech-tags')?.innerHTML || '';
-    quote = cardEl.querySelector('.quote')?.textContent?.replace(/^"|"$/g, '') || '';
+    quote = cardEl.querySelector('.quote')?.textContent?.replace(/^"|"$/g, '')?.trim() || '';
     const githubAnchor = cardEl.querySelector('.github-link');
-    github = githubAnchor ? githubAnchor.getAttribute('href').replace('https://github.com/', '') : '';
+    github = githubAnchor ? (githubAnchor.getAttribute('href') || '').replace(/^https?:\/\/github\.com\//i, '').replace(/\/$/, '').replace(/^@/, '') : '';
   }
 
   content.innerHTML = `
@@ -151,8 +154,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  // Parse statically authored HTML cards directly from index.html (supports student HTML copy-paste workflow)
+  function parseDOMCards() {
+    if (!cardsGrid) return [];
+    const domCards = Array.from(cardsGrid.querySelectorAll('.student-card'));
+    const parsed = [];
+
+    domCards.forEach(cardEl => {
+      const id = cardEl.getAttribute('data-id') || `html-${Math.random().toString(36).substr(2, 8)}`;
+      const name = cardEl.querySelector('.student-meta h3')?.textContent?.trim() || '';
+      const role = cardEl.querySelector('.student-role')?.textContent?.trim() || '';
+      const bio = cardEl.querySelector('.student-bio')?.textContent?.trim() || '';
+      const tagEls = Array.from(cardEl.querySelectorAll('.tech-tags .tag'));
+      const techStack = tagEls.map(t => t.textContent.trim()).filter(Boolean);
+      const rawQuote = cardEl.querySelector('.quote')?.textContent?.replace(/^"|"$/g, '')?.trim() || '';
+      const githubAnchor = cardEl.querySelector('.github-link');
+      const rawGithub = githubAnchor ? (githubAnchor.getAttribute('href') || '').replace(/^https?:\/\/github\.com\//i, '').replace(/\/$/, '').replace(/^@/, '') : '';
+
+      if (name) {
+        parsed.push({
+          id,
+          name,
+          role,
+          bio,
+          techStack: techStack.length > 0 ? techStack : ["Git", "GitHub"],
+          quote: rawQuote,
+          github: rawGithub,
+          updatedAt: Date.now()
+        });
+      }
+    });
+
+    return parsed;
+  }
+
   // Fetch profiles dynamically from data/students/
   async function loadStudentProfiles() {
+    const domParsedCards = parseDOMCards();
+
     try {
       const profileFiles = ['host-profile.json', '_template.json'];
       
@@ -184,26 +223,29 @@ document.addEventListener('DOMContentLoaded', () => {
       loadedProfiles.reverse();
 
       const profileMap = new Map();
+      // First load seed profiles
+      seedProfiles.forEach(p => profileMap.set(p.id, p));
+      // Overwrite with statically authored DOM cards from index.html
+      domParsedCards.forEach(p => profileMap.set(p.id, p));
+      // Overwrite with JSON profile files
       loadedProfiles.forEach(p => profileMap.set(p.id, p));
-      seedProfiles.forEach(p => {
-        if (!profileMap.has(p.id)) {
-          profileMap.set(p.id, p);
-        }
-      });
 
       allStudents = Array.from(profileMap.values());
 
       allStudents.sort((a, b) => {
-        if (a.id === 'host-profile') return 1;
-        if (b.id === 'host-profile') return -1;
+        if (a.id === 'host-profile') return -1; // Host card stays first
+        if (b.id === 'host-profile') return 1;
         const timeA = typeof a.updatedAt === 'number' ? a.updatedAt : (new Date(a.updatedAt || 0).getTime() || 0);
         const timeB = typeof b.updatedAt === 'number' ? b.updatedAt : (new Date(b.updatedAt || 0).getTime() || 0);
         return timeB - timeA;
       });
 
     } catch (err) {
-      console.warn("Using initial host seed profile:", err);
-      allStudents = seedProfiles;
+      console.warn("Using DOM parsed and seed profiles:", err);
+      const profileMap = new Map();
+      seedProfiles.forEach(p => profileMap.set(p.id, p));
+      domParsedCards.forEach(p => profileMap.set(p.id, p));
+      allStudents = Array.from(profileMap.values());
     }
 
     window._allStudentProfiles = allStudents;
