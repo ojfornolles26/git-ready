@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       // Probing candidates list to dynamically discover PR submissions
       const profileFiles = ['host-profile.json', '_template.json'];
-      for (let i = 1; i <= 35; i++) {
+      for (let i = 1; i <= 60; i++) {
         profileFiles.push(`student-${i < 10 ? '0' + i : i}.json`);
         profileFiles.push(`student-${i}.json`);
       }
@@ -292,10 +292,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       for (const file of profileFiles) {
         try {
-          const response = await fetch(`./data/students/${file}`);
+          const response = await fetch(`./data/students/${file}?t=${Date.now()}`);
           if (response.ok) {
             const data = await response.json();
             if (data && data.name && !data.id.includes('template')) {
+              // Ensure timestamp exists; if missing, use high fallback priority for PRs
+              if (!data.updatedAt && !data.timestamp) {
+                data.updatedAt = Date.now();
+              }
               loadedProfiles.push(data);
             }
           }
@@ -304,10 +308,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // Combine seed profiles with loaded ones, avoiding duplicates by id
+      // Reverse loaded PR profiles so newly pulled student files appear FIRST
+      loadedProfiles.reverse();
+
+      // Combine loaded student PR profiles (newest first) followed by seed profiles
       const profileMap = new Map();
-      [...seedProfiles, ...loadedProfiles].forEach(p => profileMap.set(p.id, p));
+      
+      // 1. Put newly pulled student PR profiles at the top
+      loadedProfiles.forEach(p => profileMap.set(p.id, p));
+      
+      // 2. Add remaining seed profiles
+      seedProfiles.forEach(p => {
+        if (!profileMap.has(p.id)) {
+          profileMap.set(p.id, p);
+        }
+      });
+
       allStudents = Array.from(profileMap.values());
+
+      // 3. Sort all profiles by updatedAt / timestamp descending (newest on top)
+      allStudents.sort((a, b) => {
+        const timeA = typeof a.updatedAt === 'number' ? a.updatedAt : (new Date(a.updatedAt || 0).getTime() || 0);
+        const timeB = typeof b.updatedAt === 'number' ? b.updatedAt : (new Date(b.updatedAt || 0).getTime() || 0);
+        if (timeA && timeB && timeA !== timeB) {
+          return timeB - timeA;
+        }
+        return 0;
+      });
 
     } catch (err) {
       console.warn("Using seed profiles for preview:", err);
