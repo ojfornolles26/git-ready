@@ -159,20 +159,16 @@
       <div class="slide-meta">
         <span class="slide-step-badge">Step 5: Hands-On</span>
       </div>
-      <h2 class="slide-heading">Create Your Student Profile JSON</h2>
-      <p class="slide-lead">In your editor, add a new JSON file under <code>data/students/your-github-username.json</code>.</p>
+      <h2 class="slide-heading">Add Your Card to index.html</h2>
+      <p class="slide-lead">Copy the HTML card snippet from <code>README.md</code> and paste it inside <code>&lt;div class="cards-grid"&gt;</code> in <code>index.html</code>.</p>
 
       <div class="code-wrapper">
-        <code>{<br>
-&nbsp;&nbsp;<span class="cmd-kw">"id"</span>: <span class="cmd-str">"your-github-username"</span>,<br>
-&nbsp;&nbsp;<span class="cmd-kw">"name"</span>: <span class="cmd-str">"Your Name"</span>,<br>
-&nbsp;&nbsp;<span class="cmd-kw">"role"</span>: <span class="cmd-str">"Student / Learner"</span>,<br>
-&nbsp;&nbsp;<span class="cmd-kw">"bio"</span>: <span class="cmd-str">"Learning Git and web development hands-on!"</span>,<br>
-&nbsp;&nbsp;<span class="cmd-kw">"techStack"</span>: [<span class="cmd-str">"JavaScript"</span>, <span class="cmd-str">"HTML"</span>, <span class="cmd-str">"Git"</span>],<br>
-&nbsp;&nbsp;<span class="cmd-kw">"github"</span>: <span class="cmd-str">"your-github-username"</span>,<br>
-&nbsp;&nbsp;<span class="cmd-kw">"cardColor"</span>: <span class="cmd-str">"#3b82f6"</span>,<br>
-&nbsp;&nbsp;<span class="cmd-kw">"quote"</span>: <span class="cmd-str">"Building software together."</span><br>
-}</code>
+        <code><span class="cmd-kw">&lt;div</span> <span class="cmd-str">class="student-card"</span>&gt;<br>
+&nbsp;&nbsp;<span class="cmd-kw">&lt;h3&gt;</span>Your Full Name<span class="cmd-kw">&lt;/h3&gt;</span><br>
+&nbsp;&nbsp;<span class="cmd-kw">&lt;span</span> <span class="cmd-str">class="student-role"</span>&gt;Computer Science Student<span class="cmd-kw">&lt;/span&gt;</span><br>
+&nbsp;&nbsp;<span class="cmd-kw">&lt;p</span> <span class="cmd-str">class="student-bio"</span>&gt;Write a short bio about yourself!<span class="cmd-kw">&lt;/p&gt;</span><br>
+&nbsp;&nbsp;<span class="cmd-kw">&lt;a</span> <span class="cmd-str">href="https://github.com/your-username"</span>&gt;@your-username<span class="cmd-kw">&lt;/a&gt;</span><br>
+<span class="cmd-kw">&lt;/div&gt;</span></code>
       </div>
     </section>
 
@@ -182,17 +178,17 @@
         <span class="slide-step-badge">Step 6: Stage</span>
       </div>
       <h2 class="slide-heading">Stage Your Changes: git add</h2>
-      <p class="slide-lead">Move your new JSON profile file into the Staging Area.</p>
+      <p class="slide-lead">Move your modified <code>index.html</code> file into the Staging Area.</p>
 
       <div class="code-wrapper">
-        <code><span class="cmd-kw">git</span> add data/students/your-github-username.json<br>
+        <code><span class="cmd-kw">git</span> add index.html<br>
 <span class="cmd-cmt"># Or stage all changed files:</span><br>
 <span class="cmd-kw">git</span> add .</code>
       </div>
 
       <div class="callout callout-success">
         <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-        <span>Running <code>git status</code> after staging will show your file listed under <em>"Changes to be committed"</em> in green.</span>
+        <span>Running <code>git status</code> after staging will show <code>index.html</code> listed under <em>"Changes to be committed"</em> in green.</span>
       </div>
     </section>
 
