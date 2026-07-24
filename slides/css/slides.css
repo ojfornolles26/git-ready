@@ -281,6 +281,16 @@ body::before {
   line-height: 1.2;
 }
 
+/* Static 3D Heading Effect for Title Slide */
+.slide-heading.title-3d {
+  font-size: 3.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.035em;
+  text-shadow: 0 1px 0 #cbd5e1, 0 2px 0 #cbd5e1, 0 3px 0 #cbd5e1, 0 4px 0 #cbd5e1, 0 6px 16px rgba(15, 23, 42, 0.14);
+  margin-bottom: 1.25rem;
+}
+
 .slide-lead {
   font-size: 1.15rem;
   color: #334155;
