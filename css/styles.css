@@ -110,12 +110,18 @@ body {
 }
 
 .notion-cover-title {
-  font-size: 2.75rem;
-  font-weight: 800;
+  font-size: 2.85rem;
+  font-weight: 900;
   color: #ffffff;
   letter-spacing: -0.035em;
   line-height: 1.15;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
+  text-shadow: 
+    1px 1px 0px #cbd5e1,
+    2px 2px 0px #94a3b8,
+    3px 3px 0px #64748b,
+    4px 4px 0px #475569,
+    5px 5px 0px #334155,
+    6px 6px 18px rgba(0, 0, 0, 0.8);
 }
 
 
