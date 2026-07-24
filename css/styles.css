@@ -335,13 +335,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.student-card:hover {
-  transform: translateY(-2px);
-  border-color: #94a3b8;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
 }
 
 /* Static Header - Avatar & Name */
