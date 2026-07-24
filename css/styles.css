@@ -550,14 +550,29 @@ body {
 
 .sheet-quote-box {
   background: #f8fafc;
-  border-left: 3px solid #4f46e5;
-  padding: 0.85rem 1.15rem;
-  border-radius: 0 8px 8px 0;
-  font-size: 0.925rem;
-  font-style: italic;
-  color: #334155;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.9rem 1.15rem;
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  color: #1e293b;
   margin-bottom: 1.35rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.sheet-quote-box::before {
+  content: '“';
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2rem;
+  line-height: 1;
+  color: #94a3b8;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: -0.15rem;
 }
 
 .sheet-github-button {
