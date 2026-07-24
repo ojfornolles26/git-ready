@@ -380,6 +380,39 @@ body::before {
   background: rgba(56, 189, 248, 0.24);
 }
 
+/* Small Copy Button for Repository URL in Code Blocks */
+.btn-copy-url {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f1f5f9;
+  font-size: 0.725rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  transition: all 0.15s ease;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.btn-copy-url:hover {
+  background: #38bdf8;
+  border-color: #38bdf8;
+  color: #0f172a;
+}
+
+.btn-copy-url.copied {
+  background: #22c55e !important;
+  border-color: #22c55e !important;
+  color: #ffffff !important;
+}
+
 /* Clean Callout Cards - High Legibility Glassmorphism */
 .callout {
   padding: 1.25rem 1.5rem;

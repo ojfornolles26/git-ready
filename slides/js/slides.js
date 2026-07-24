@@ -1,3 +1,38 @@
+// Global Copy Repository URL helper
+window.copyRepoUrl = function(btn) {
+  const url = "https://github.com/ojfornolles26/git-ready.git";
+  
+  function showSuccess() {
+    if (!btn) return;
+    const label = btn.querySelector('span');
+    const originalText = label ? label.textContent : 'Copy';
+    if (label) label.textContent = 'Copied! ✓';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      if (label) label.textContent = originalText;
+      btn.classList.remove('copied');
+    }, 1600);
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(showSuccess).catch(() => {
+      fallbackCopy();
+    });
+  } else {
+    fallbackCopy();
+  }
+
+  function fallbackCopy() {
+    const tempInput = document.createElement('input');
+    tempInput.value = url;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    showSuccess();
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   const tocSelect = document.getElementById('toc-select');
   const slideCards = Array.from(document.querySelectorAll('.slide-card'));
