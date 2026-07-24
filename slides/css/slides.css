@@ -239,47 +239,60 @@ body {
   z-index: 10;
 }
 
-/* Slide 1 Dedicated Left-Aligned & Scattered SwuDevs Logo Watermarks */
+/* Slide 1 Dedicated 3-Logo Scattered Watermark Composition */
 #slide-1 {
   position: relative;
   overflow: hidden;
   background-color: #ffffff !important;
 }
 
-/* Primary Left-Aligned Watermark Logo */
-#slide-1::before {
-  content: '';
+.scattered-bg-container {
   position: absolute;
-  top: 48%;
-  left: -8%;
-  transform: translateY(-50%) rotate(-12deg);
-  width: 480px;
-  height: 480px;
-  background-image: url('../../SwuDevs%20Logo%20Variations%201.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  opacity: 0.16;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Secondary Scattered Top-Right Watermark Logo */
-#slide-1::after {
-  content: '';
+.scatter-logo {
   position: absolute;
-  top: -14%;
-  right: -6%;
-  transform: rotate(22deg) scale(0.85);
-  width: 360px;
-  height: 360px;
   background-image: url('../../SwuDevs%20Logo%20Variations%201.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.08;
   pointer-events: none;
-  z-index: 0;
+}
+
+/* 1. Primary Left-Aligned Watermark Logo */
+.scatter-logo.logo-1 {
+  top: 50%;
+  left: -8%;
+  transform: translateY(-50%) rotate(-12deg);
+  width: 480px;
+  height: 480px;
+  opacity: 0.16;
+}
+
+/* 2. Top-Right Scattered Watermark Logo */
+.scatter-logo.logo-2 {
+  top: -14%;
+  right: -6%;
+  transform: rotate(22deg);
+  width: 360px;
+  height: 360px;
+  opacity: 0.08;
+}
+
+/* 3. Bottom-Right Scattered Watermark Logo */
+.scatter-logo.logo-3 {
+  bottom: -16%;
+  right: 12%;
+  transform: rotate(-24deg);
+  width: 310px;
+  height: 310px;
+  opacity: 0.12;
 }
 
 #slide-1 > * {
