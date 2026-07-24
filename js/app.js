@@ -106,6 +106,7 @@ window.openBottomSheetModal = function(element, event) {
     container.style.transform = 'translateY(0)';
   }
 
+  document.body.classList.add('sheet-open');
   document.body.style.overflow = 'hidden';
 };
 
@@ -129,6 +130,7 @@ window.closeBottomSheetModal = function() {
     container.style.transform = 'translateY(100%)';
   }
 
+  document.body.classList.remove('sheet-open');
   document.body.style.overflow = '';
 };
 
