@@ -118,39 +118,7 @@ body {
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.notion-cover-byline {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  margin-top: 0.65rem;
-}
 
-.notion-cover-byline span {
-  font-size: 1.15rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
-  letter-spacing: 0.02em;
-}
-
-.swudevs-brand {
-  display: inline-flex;
-  align-items: center;
-  font-size: 1.2rem;
-  font-weight: 800;
-  background: #ffffff;
-  padding: 0.15rem 0.65rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  letter-spacing: -0.01em;
-}
-
-.swu-text {
-  color: #800000; /* Maroon */
-}
-
-.devs-text {
-  color: #000000; /* Black */
-}
 
 /* Notion Classic Left-Aligned Page Container */
 .notion-page-container {
