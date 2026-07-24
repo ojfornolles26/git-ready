@@ -45,7 +45,7 @@ body {
   min-height: 100vh;
 }
 
-/* SwuDevs Organization Logo Background Backdrop - Large & Prominent */
+/* SwuDevs Organization Logo Background Backdrop */
 body::before {
   content: '';
   position: fixed;
@@ -62,6 +62,36 @@ body::before {
   opacity: 0.35;
   pointer-events: none;
   z-index: 0;
+}
+
+/* Floating Bottom Left Organization Logo FAB */
+.floating-logo-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  box-shadow: var(--shadow-floating);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-logo-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -5px rgba(0, 0, 0, 0.12);
+}
+
+.floating-logo-img {
+  height: 26px;
+  width: auto;
+  display: block;
 }
 
 /* Floating Bottom Navigation Bar */
@@ -362,5 +392,10 @@ body::before {
 
   .toc-select {
     max-width: 160px;
+  }
+
+  .floating-logo-fab {
+    bottom: 4.5rem;
+    left: 1rem;
   }
 }
