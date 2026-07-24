@@ -239,26 +239,45 @@ body {
   z-index: 10;
 }
 
-/* Slide 1 Dedicated Transparent SwuDevs Logo Background */
+/* Slide 1 Dedicated Left-Aligned & Scattered SwuDevs Logo Watermarks */
 #slide-1 {
   position: relative;
   overflow: hidden;
   background-color: #ffffff !important;
 }
 
+/* Primary Left-Aligned Watermark Logo */
 #slide-1::before {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 82%;
-  height: 82%;
+  top: 48%;
+  left: -8%;
+  transform: translateY(-50%) rotate(-12deg);
+  width: 480px;
+  height: 480px;
   background-image: url('../../SwuDevs%20Logo%20Variations%201.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.18;
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Secondary Scattered Top-Right Watermark Logo */
+#slide-1::after {
+  content: '';
+  position: absolute;
+  top: -14%;
+  right: -6%;
+  transform: rotate(22deg) scale(0.85);
+  width: 360px;
+  height: 360px;
+  background-image: url('../../SwuDevs%20Logo%20Variations%201.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.08;
   pointer-events: none;
   z-index: 0;
 }
