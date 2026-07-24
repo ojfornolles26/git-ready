@@ -356,7 +356,7 @@ body {
   font-weight: 800;
   color: #0f172a;
   letter-spacing: -0.035em;
-  text-shadow: 0 1px 0 #cbd5e1, 0 2px 0 #cbd5e1, 0 3px 0 #cbd5e1, 0 4px 0 #cbd5e1, 0 6px 16px rgba(15, 23, 42, 0.14);
+  text-shadow: 0 1px 0 #cbd5e1, 0 2px 0 #cbd5e1, 0 3px 0 #cbd5e1, 0 4px 0 #94a3b8;
   margin-bottom: 1.25rem;
 }
 
@@ -574,6 +574,7 @@ body {
     -webkit-overflow-scrolling: touch;
     border-radius: var(--radius-lg);
     word-break: break-word;
+    box-shadow: none !important;
   }
 
   .slide-1-content {
@@ -625,6 +626,7 @@ body {
     padding: 0.75rem 0.85rem;
     margin: 0.6rem 0;
     overflow-x: auto;
+    box-shadow: none !important;
   }
 
   .btn-copy-url {
