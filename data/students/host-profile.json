@@ -1,11 +1,9 @@
 {
   "id": "host-profile",
   "name": "Workshop Lead",
-  "role": "Peer Tutor & Host 🚀",
+  "role": "Peer Tutor & Host",
   "bio": "Welcome to GitReady! Clone this repo, add your profile JSON under data/students/, and push your PR!",
   "techStack": ["Git", "GitHub", "JavaScript", "HTML/CSS", "Open Source"],
   "github": "octocat",
-  "cardColor": "#6366f1",
-  "emoji": "🎓",
   "quote": "git commit -m 'Building the future together!'"
 }

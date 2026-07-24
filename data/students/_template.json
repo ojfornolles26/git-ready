@@ -5,7 +5,5 @@
   "bio": "Write a short 1-2 sentence bio about yourself, your goals, or your favorite coding topic!",
   "techStack": ["HTML", "CSS", "JavaScript", "Python"],
   "github": "your-github-username",
-  "cardColor": "#3b82f6",
-  "emoji": "💻",
   "quote": "git push origin main and make it happen!"
 }
