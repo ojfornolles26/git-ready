@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const cardsGrid = document.getElementById('cards-grid');
+  const searchInput = document.getElementById('search-input');
   const participantCountEl = document.getElementById('participant-count');
 
   let allStudents = [];
@@ -411,6 +412,33 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#039;');
+  }
+
+  // Filter cards by search query
+  function filterAndRender() {
+    const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+
+    if (!query) {
+      renderCards(allStudents);
+      return;
+    }
+
+    const filtered = allStudents.filter(student => {
+      const name = (student.name || '').toLowerCase();
+      const role = (student.role || '').toLowerCase();
+      const bio = (student.bio || '').toLowerCase();
+      const handle = (student.github || '').toLowerCase();
+      const tech = Array.isArray(student.techStack) ? student.techStack.join(' ').toLowerCase() : '';
+
+      return name.includes(query) || role.includes(query) || bio.includes(query) || handle.includes(query) || tech.includes(query);
+    });
+
+    renderCards(filtered);
+  }
+
+  // Event Listeners
+  if (searchInput) {
+    searchInput.addEventListener('input', filterAndRender);
   }
 
   // Initialize
