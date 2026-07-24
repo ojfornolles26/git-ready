@@ -1,5 +1,7 @@
 # ⚡ Getting Started With Git: Interactive Peer-to-Peer Workshop
 
+> **Learn Git by doing! Together, we'll collaborate live and see everyone's contributions come to life on a shared website.**
+
 [![Web Presentation Slides](https://img.shields.io/badge/Slides-Live%20Projector-4f46e5?style=for-the-badge&logo=google-slides)](slides.html)
 [![Wall of Fame](https://img.shields.io/badge/App-Wall%20of%20Fame-059669?style=for-the-badge&logo=github)](index.html)
 

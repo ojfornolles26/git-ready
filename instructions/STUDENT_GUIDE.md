@@ -1,6 +1,6 @@
 # 🎓 Getting Started With Git — Student Hands-On Guide
 
-Welcome to the **Getting Started With Git** peer-to-peer workshop! Follow this step-by-step guide during our hands-on live session.
+Welcome to **Getting Started With Git**! Learn Git by doing! Together, we'll collaborate live and see everyone's contributions come to life on a shared website.
 
 ---
 
