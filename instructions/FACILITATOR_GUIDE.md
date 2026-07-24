@@ -1,29 +1,19 @@
 # Getting Started With Git — Workshop Facilitator Guide
 
-Welcome! This guide outlines the exact step-by-step workflow for hosting your **"Getting Started With Git"** live collaborative workshop.
+Welcome! This guide outlines the exact step-by-step workflow and schedule for hosting your **10:00 AM – 12:30 PM (2.5 Hours)** live collaborative workshop.
 
 ---
 
-## 📋 Recommended Time Breakdown (60 - 75 Minutes Total)
+## ⏰ Official Workshop Schedule (10:00 AM – 12:30 PM)
 
-```mermaid
-gantt
-    title Workshop Flow Schedule
-    dateFormat  m
-    axisFormat %M min
-
-    section Phase 1: Interactive Slides
-    Concepts & Git Commands (`slides.html`)   :a1, 0, 20m
-
-    section Phase 2: Live Demo
-    Host Demonstrates Cloning & PR Flow       :a2, 20, 30m
-
-    section Phase 3: Hands-On Activity
-    Students Clone, Add JSON Profile, Push PR :a3, 30, 60m
-
-    section Phase 4: Live PR Merging
-    Facilitator Pulls PRs & Wall Updates Live :a4, 60, 70m
-```
+| Time Slot | Phase | Focus / Activity |
+| :--- | :--- | :--- |
+| **10:00 AM – 10:15 AM** (15 mins) | **Welcome & Setup** | Participant check-in, wifi setup, opening remarks. |
+| **10:15 AM – 10:55 AM** (40 mins) | **Interactive Slides** | Present `slides.html` covering Git & GitHub concepts. |
+| **10:55 AM – 11:15 AM** (20 mins) | **Live Facilitator Demo** | Live demonstration of cloning, editing `index.html`, & PRs. |
+| **11:15 AM – 12:00 PM** (45 mins) | **Student Hands-On** | Students work on laptops, add HTML card, push branch & PR. |
+| **12:00 PM – 12:20 PM** (20 mins) | **Live PR Merge Showcase** | Facilitator merges PRs on projector & pulls live updates. |
+| **12:20 PM – 12:30 PM** (10 mins) | **Q&A & Group Photo** | Key takeaways, resources for further learning, and wrap-up. |
 
 ---
 
