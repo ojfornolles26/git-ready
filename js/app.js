@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: "host-profile",
       name: "Workshop Lead",
       role: "Peer Tutor & Facilitator",
-      bio: "Welcome to GitReady! Copy the HTML card snippet from README.md, paste it into index.html, replace the placeholders with your info, and submit a Pull Request!",
+      bio: "Welcome to GitReady! Copy the HTML card snippet from README.md, paste it into gallery.html, replace the placeholders with your info, and submit a Pull Request!",
       techStack: ["Git", "GitHub", "JavaScript", "HTML/CSS", "Open Source"],
       github: "octocat",
       quote: "git commit -m 'Building future software together!'"
