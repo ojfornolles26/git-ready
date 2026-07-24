@@ -108,12 +108,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Mouse wheel step navigation (debounced to prevent rapid skips)
-  let wheelTimeout = false;
+  // Smart Trackpad & Mouse Wheel Navigation with Inertia Lock & Internal Content Protection
+  let lastWheelTime = 0;
+  const WHEEL_DEBOUNCE_MS = 650; // Completely blocks trackpad momentum velocity events
+  const WHEEL_DELTA_THRESHOLD = 30; // Minimum scroll delta required to trigger intentional slide step
+
   document.addEventListener('wheel', (e) => {
-    if (wheelTimeout) return;
-    wheelTimeout = true;
-    setTimeout(() => { wheelTimeout = false; }, 350);
+    // 1. Check if user is scrolling inside an active card or scrollable element
+    const activeCard = slideCards[currentIdx];
+    if (activeCard) {
+      let targetEl = e.target;
+      while (targetEl && targetEl !== activeCard && targetEl !== document.body) {
+        const overflowY = window.getComputedStyle(targetEl).overflowY;
+        if ((overflowY === 'auto' || overflowY === 'scroll') && targetEl.scrollHeight > targetEl.clientHeight) {
+          const isAtTop = targetEl.scrollTop === 0 && e.deltaY < 0;
+          const isAtBottom = Math.abs(targetEl.scrollHeight - targetEl.clientHeight - targetEl.scrollTop) < 3 && e.deltaY > 0;
+          if (!isAtTop && !isAtBottom) {
+            return; // Allow internal element scrolling without stepping slides!
+          }
+        }
+        targetEl = targetEl.parentElement;
+      }
+      
+      // Also check activeCard itself if it has overflow scrollable content
+      if (activeCard.scrollHeight > activeCard.clientHeight) {
+        const isAtTop = activeCard.scrollTop === 0 && e.deltaY < 0;
+        const isAtBottom = Math.abs(activeCard.scrollHeight - activeCard.clientHeight - activeCard.scrollTop) < 3 && e.deltaY > 0;
+        if (!isAtTop && !isAtBottom) {
+          return;
+        }
+      }
+    }
+
+    // 2. Filter out tiny drift deltas
+    if (Math.abs(e.deltaY) < WHEEL_DELTA_THRESHOLD) return;
+
+    // 3. Enforce strict timing debounce lock against trackpad inertia momentum
+    const now = Date.now();
+    if (now - lastWheelTime < WHEEL_DEBOUNCE_MS) return;
+
+    lastWheelTime = now;
 
     if (e.deltaY > 0) {
       nextSlide();
