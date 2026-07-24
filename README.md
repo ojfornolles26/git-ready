@@ -11,7 +11,7 @@ A hands-on workshop repository to learn Git & GitHub by adding your profile card
 Open your terminal and run:
 
 ```bash
-git clone https://github.com/your-org/git-ready.git
+git clone https://github.com/ojfornolles26/git-ready.git
 cd git-ready
 git checkout -b student/your-github-username
 ```

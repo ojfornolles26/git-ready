@@ -155,17 +155,26 @@ document.addEventListener('DOMContentLoaded', () => {
   if (prevBtn) prevBtn.addEventListener('click', prevSlide);
   if (nextBtn) nextBtn.addEventListener('click', nextSlide);
 
-  // PREVENT COPY/PASTE TO ENFORCE HANDS-ON TYPING PRACTICE
+  // PREVENT COPY/PASTE ON COMMANDS TO ENFORCE HANDS-ON TYPING PRACTICE, BUT ALLOW COPYING REPO URL
   document.querySelectorAll('.code-wrapper, code').forEach(el => {
     el.addEventListener('copy', (e) => {
+      if (e.target && e.target.closest('.copyable-link, .btn-copy-url')) {
+        return true; // Allow copying repository URL!
+      }
       e.preventDefault();
       return false;
     });
     el.addEventListener('cut', (e) => {
+      if (e.target && e.target.closest('.copyable-link, .btn-copy-url')) {
+        return true;
+      }
       e.preventDefault();
       return false;
     });
     el.addEventListener('contextmenu', (e) => {
+      if (e.target && e.target.closest('.copyable-link, .btn-copy-url')) {
+        return true;
+      }
       e.preventDefault();
       return false;
     });

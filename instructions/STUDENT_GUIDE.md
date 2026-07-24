@@ -20,7 +20,7 @@ You will:
 Open your terminal or Git Bash and run:
 
 ```bash
-git clone https://github.com/your-org/git-ready.git
+git clone https://github.com/ojfornolles26/git-ready.git
 cd git-ready
 git checkout -b student/your-github-username
 ```
