@@ -53,20 +53,26 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Cross-Platform Sleek Scrollbars for Windows Edge & Chrome */
+/* Ultra-Lowkey & Minimalist Cross-Platform Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 9999px;
+  transition: background 0.2s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
 }
 
 /* Floating Bottom Left Organization Logo */
@@ -518,25 +524,23 @@ body {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   box-sizing: border-box !important;
   scrollbar-width: thin;
-  scrollbar-color: #94a3b8 #f1f5f9;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
 }
 
-/* Custom Sleek Scrollbar for Bottom Sheet Modal */
+/* Custom Lowkey & Minimalist Scrollbar for Bottom Sheet Modal */
 .bottom-sheet::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 .bottom-sheet::-webkit-scrollbar-track {
-  background: #f1f5f9;
-  border-radius: 9999px;
-  margin: 1rem 0;
+  background: transparent;
+  margin: 1.5rem 0;
 }
 .bottom-sheet::-webkit-scrollbar-thumb {
-  background: #94a3b8;
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 9999px;
-  border: 1px solid #f1f5f9;
 }
 .bottom-sheet::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: rgba(0, 0, 0, 0.35);
 }
 
 body.sheet-open {
