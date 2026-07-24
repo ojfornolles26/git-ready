@@ -131,15 +131,22 @@ body {
   transform: scale(1.06);
 }
 
-/* Notion Page Title */
+/* Notion Page Title - EYE-CATCHING STATIC 3D TYPOGRAPHY */
 .notion-title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: var(--text-main);
-  letter-spacing: -0.02em;
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
   margin-bottom: 2rem;
-  line-height: 1.2;
   text-align: left;
+  position: relative;
+  display: block;
+  text-shadow: 
+    1px 1px 0px #cbd5e1,
+    2px 2px 0px #94a3b8,
+    3px 3px 0px #64748b,
+    4px 4px 14px rgba(15, 23, 42, 0.15);
 }
 
 /* Notion Database Gallery Controls */
