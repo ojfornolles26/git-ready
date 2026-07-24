@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const cheatsheetBtn = document.getElementById('open-cheatsheet');
+  const cheatsheetBtn = document.getElementById('open-cheatsheet-hero') || document.getElementById('open-cheatsheet');
   const modalOverlay = document.getElementById('cheatsheet-modal');
   const modalCloseBtn = document.getElementById('modal-close-btn');
 
