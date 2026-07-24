@@ -11,6 +11,8 @@
   --text-muted: #64748b;
 
   --primary: #4f46e5;
+  --git-orange: #F05032; /* Official Git Logo Orange-Red */
+
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'Fira Code', monospace;
 
@@ -119,7 +121,7 @@ body::before {
   transform: scale(1.08);
 }
 
-/* Floating Bottom Navigation Bar - PERFECTLY BALANCED PLACEMENT */
+/* Floating Bottom Navigation Bar */
 .bottom-nav {
   position: fixed;
   bottom: 1.5rem;
@@ -149,6 +151,11 @@ body::before {
   color: var(--text-primary);
   text-decoration: none;
   white-space: nowrap;
+}
+
+.nav-brand svg {
+  stroke: var(--git-orange);
+  color: var(--git-orange);
 }
 
 .nav-counter {
