@@ -14,18 +14,33 @@ document.addEventListener('DOMContentLoaded', () => {
     slideCounter.textContent = `${num} / ${total}`;
   }
 
-  // Jump to slide by index with natural scroll snap
-  function jumpToSlide(idx) {
+  // Display single active slide
+  function showSlide(idx) {
     if (idx < 0) idx = 0;
     if (idx >= slideCards.length) idx = slideCards.length - 1;
     currentIdx = idx;
 
-    updateCounter(currentIdx);
+    slideCards.forEach((card, i) => {
+      if (i === currentIdx) {
+        card.classList.add('active');
+      } else {
+        card.classList.remove('active');
+      }
+    });
 
-    const targetEl = slideCards[currentIdx];
-    if (targetEl) {
-      targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (tocSelect) {
+      tocSelect.value = slideCards[currentIdx].id;
     }
+
+    updateCounter(currentIdx);
+  }
+
+  function nextSlide() {
+    showSlide(currentIdx + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentIdx - 1);
   }
 
   // Toggle Fullscreen Mode
@@ -51,49 +66,59 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleFullscreen();
     } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
       e.preventDefault();
-      jumpToSlide(currentIdx + 1);
+      nextSlide();
     } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
       e.preventDefault();
-      jumpToSlide(currentIdx - 1);
+      prevSlide();
     }
   });
+
+  // Mouse wheel step navigation (debounced to prevent rapid skips)
+  let wheelTimeout = false;
+  document.addEventListener('wheel', (e) => {
+    if (wheelTimeout) return;
+    wheelTimeout = true;
+    setTimeout(() => { wheelTimeout = false; }, 350);
+
+    if (e.deltaY > 0) {
+      nextSlide();
+    } else if (e.deltaY < 0) {
+      prevSlide();
+    }
+  }, { passive: true });
+
+  // Touch Swipe navigation
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, false);
+
+  document.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const touchEndY = e.changedTouches[0].screenY;
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+
+    if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 40) {
+      if (diffY < 0) nextSlide();
+      else prevSlide();
+    }
+  }, false);
 
   // Setup TOC Selector Jump
   if (tocSelect) {
     tocSelect.addEventListener('change', (e) => {
       const targetId = e.target.value;
       const idx = slideCards.findIndex(c => c.id === targetId);
-      if (idx !== -1) jumpToSlide(idx);
+      if (idx !== -1) showSlide(idx);
     });
   }
 
-  if (prevBtn) prevBtn.addEventListener('click', () => jumpToSlide(currentIdx - 1));
-  if (nextBtn) nextBtn.addEventListener('click', () => jumpToSlide(currentIdx + 1));
-
-  // IntersectionObserver to auto-update TOC select option & counter
-  if (slideCards.length > 0) {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-30% 0px -30% 0px',
-      threshold: 0.3
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          if (tocSelect) tocSelect.value = id;
-          const idx = slideCards.findIndex(c => c.id === id);
-          if (idx !== -1) {
-            currentIdx = idx;
-            updateCounter(currentIdx);
-          }
-        }
-      });
-    }, observerOptions);
-
-    slideCards.forEach(card => observer.observe(card));
-  }
+  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
 
   // PREVENT COPY/PASTE TO ENFORCE HANDS-ON TYPING PRACTICE
   document.querySelectorAll('.code-wrapper, code').forEach(el => {
@@ -111,6 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Initial counter state
-  updateCounter(0);
+  // Show initial slide
+  showSlide(0);
 });

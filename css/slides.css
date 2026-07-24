@@ -29,10 +29,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  height: 100%;
+html, body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* REMOVED SCROLLING ENTIRELY */
 }
 
 body {
@@ -43,11 +43,12 @@ body {
   -webkit-font-smoothing: antialiased;
   letter-spacing: -0.01em;
   position: relative;
-  min-height: 100vh;
-  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* SwuDevs Organization Logo Background Backdrop - Large & Prominent */
+/* SwuDevs Organization Logo Background Backdrop */
 body::before {
   content: '';
   position: fixed;
@@ -208,36 +209,41 @@ body::before {
   border-color: #94a3b8;
 }
 
-/* Main Container */
+/* Main Presentation Viewport */
 .slides-container {
+  width: 90vw;
   max-width: 860px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  flex-direction: column;
+  height: 82vh;
+  max-height: 700px;
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Full Viewport Scroll-Snapping Slide Card - CLEAN & CRISP NATURAL SCROLLING */
+/* Presentation Slide Card - DISCREET ACTIVE SLIDE ONLY (NO SCROLLING) */
 .slide-card {
-  min-height: 100vh;
+  position: absolute;
   width: 100%;
-  display: flex;
+  height: 100%;
+  display: none; /* Hidden by default */
   flex-direction: column;
   justify-content: center;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   background: var(--bg-card);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
   padding: 3rem 3.5rem;
-  margin: 1rem 0;
   box-shadow: var(--shadow-premium);
   word-wrap: break-word;
   box-sizing: border-box;
+}
+
+.slide-card.active {
+  display: flex; /* Only active slide is rendered */
+  z-index: 10;
 }
 
 .slide-meta {
@@ -387,12 +393,12 @@ body::before {
 /* Responsive */
 @media (max-width: 768px) {
   .slides-container {
-    padding: 0 0.75rem;
+    width: 95vw;
+    height: 85vh;
   }
 
   .slide-card {
     padding: 2rem 1.25rem;
-    min-height: 100vh;
   }
 
   .slide-heading {
