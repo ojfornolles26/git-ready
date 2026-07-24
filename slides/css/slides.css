@@ -256,32 +256,15 @@ body::before {
   z-index: 10;
 }
 
-/* Slide 1 Dedicated SwuDevs Logo Background Accent */
+/* Slide 1 Dedicated Transparent SwuDevs Logo Background */
 #slide-1 {
   position: relative;
   overflow: hidden;
-}
-
-#slide-1::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: -2%;
-  transform: translateY(-50%);
-  width: 480px;
-  height: 480px;
-  background-image: url('../SwuDevs%20Logo%20Variations%201.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  opacity: 0.15;
-  pointer-events: none;
-  z-index: 0;
-}
-
-#slide-1 > * {
-  position: relative;
-  z-index: 1;
+  background-color: #ffffff !important;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)), url('../SwuDevs%20Logo%20Variations%201.png') !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: min(650px, 85%) auto !important;
 }
 
 .slide-meta {
