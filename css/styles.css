@@ -142,12 +142,10 @@ body {
 
 .swu-text {
   color: #800000; /* Official Deep Maroon */
-  text-shadow: 0 0 4px #ffffff, 0 1px 3px rgba(255, 255, 255, 0.8);
 }
 
 .devs-text {
   color: #000000; /* Official Pure Black */
-  text-shadow: 0 0 4px #ffffff, 0 1px 3px rgba(255, 255, 255, 0.8);
 }
 
 /* Notion Classic Left-Aligned Page Container */
