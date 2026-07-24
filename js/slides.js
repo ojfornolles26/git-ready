@@ -28,6 +28,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Toggle Fullscreen Mode
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => {
+        console.warn("Fullscreen request error:", err);
+      });
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  }
+
+  // Keyboard navigation shortcuts
+  document.addEventListener('keydown', (e) => {
+    // Ignore keybindings if focus is inside an input or textarea
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+
+    if (e.key === 'f' || e.key === 'F') {
+      e.preventDefault();
+      toggleFullscreen();
+    } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') {
+      e.preventDefault();
+      jumpToSlide(currentIdx + 1);
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      jumpToSlide(currentIdx - 1);
+    }
+  });
+
   // Setup TOC Selector Jump
   if (tocSelect) {
     tocSelect.addEventListener('change', (e) => {

@@ -43,9 +43,10 @@ body {
   letter-spacing: -0.01em;
   position: relative;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* SwuDevs Organization Logo Background Backdrop */
+/* SwuDevs Organization Logo Background Backdrop - Large & Prominent */
 body::before {
   content: '';
   position: fixed;
@@ -228,6 +229,7 @@ body::before {
   padding: 3rem 3.5rem;
   scroll-margin-top: 2.5rem;
   box-shadow: var(--shadow-premium);
+  word-wrap: break-word;
 }
 
 .slide-meta {
