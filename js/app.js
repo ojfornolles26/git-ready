@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const response = await fetch(`./data/students/${file}?t=${Date.now()}`);
           if (response.ok) {
             const data = await response.json();
-            if (data && data.name && !data.id.includes('template')) {
+            if (data && data.name && !data.id.includes('template') && data.id !== 'host-profile') {
               if (!data.updatedAt && !data.timestamp) {
                 data.updatedAt = Date.now();
               }
