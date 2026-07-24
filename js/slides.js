@@ -70,17 +70,18 @@ document.addEventListener('DOMContentLoaded', () => {
   if (prevBtn) prevBtn.addEventListener('click', () => jumpToSlide(currentIdx - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => jumpToSlide(currentIdx + 1));
 
-  // IntersectionObserver to auto-update TOC select option & counter as student scrolls down
+  // IntersectionObserver to auto-update TOC select option & toggle active CSS slide transition class
   if (slideCards.length > 0) {
     const observerOptions = {
       root: null,
-      rootMargin: '-30% 0px -30% 0px',
-      threshold: 0.4
+      rootMargin: '-20% 0px -20% 0px',
+      threshold: 0.35
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          entry.target.classList.add('active');
           const id = entry.target.id;
           if (tocSelect) tocSelect.value = id;
           const idx = slideCards.findIndex(c => c.id === id);
@@ -88,6 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIdx = idx;
             updateCounter(currentIdx);
           }
+        } else {
+          entry.target.classList.remove('active');
         }
       });
     }, observerOptions);
@@ -111,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Initial counter state
+  // Initial counter state & activate first slide
   updateCounter(0);
+  if (slideCards[0]) slideCards[0].classList.add('active');
 });
