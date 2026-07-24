@@ -52,16 +52,19 @@ window.openBottomSheetModal = function(element, event) {
     quote = cardEl.querySelector('.quote')?.textContent?.replace(/^"|"$/g, '')?.trim() || '';
     const githubAnchor = cardEl.querySelector('.github-link');
     github = githubAnchor ? (githubAnchor.getAttribute('href') || '').replace(/^https?:\/\/github\.com\//i, '').replace(/\/$/, '').replace(/^@/, '') : '';
+    const imgEl = cardEl.querySelector('.avatar-circle img, .avatar-img');
+    customAvatarSrc = imgEl ? imgEl.getAttribute('src') : null;
   }
 
   content.innerHTML = `
     <div class="sheet-full-card">
       <div class="sheet-full-header">
         <div class="sheet-avatar">
+          ${customAvatarSrc ? `<img src="${escapeHtml(customAvatarSrc)}" alt="${escapeHtml(name)}" class="sheet-avatar-img">` : `
           <svg width="28" height="28" fill="none" stroke="#64748b" stroke-width="2" viewBox="0 0 24 24">
             <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
             <circle cx="12" cy="7" r="4"/>
-          </svg>
+          </svg>`}
         </div>
         <div class="sheet-title-meta">
           <h2>${escapeHtml(name)}</h2>
