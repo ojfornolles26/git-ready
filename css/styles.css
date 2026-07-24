@@ -141,13 +141,13 @@ body {
 }
 
 .swu-text {
-  color: #ef4444; /* High-contrast Maroon / Crimson */
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  color: #800000; /* Official Deep Maroon */
+  text-shadow: 0 0 4px #ffffff, 0 1px 3px rgba(255, 255, 255, 0.8);
 }
 
 .devs-text {
-  color: #ffffff; /* High-contrast white for dark background */
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  color: #000000; /* Official Pure Black */
+  text-shadow: 0 0 4px #ffffff, 0 1px 3px rgba(255, 255, 255, 0.8);
 }
 
 /* Notion Classic Left-Aligned Page Container */
