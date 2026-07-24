@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slideCounter.textContent = `${num} / ${total}`;
   }
 
-  // Jump to slide by index with perfect center snap
+  // Jump to slide by index with natural scroll snap
   function jumpToSlide(idx) {
     if (idx < 0) idx = 0;
     if (idx >= slideCards.length) idx = slideCards.length - 1;
@@ -70,18 +70,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (prevBtn) prevBtn.addEventListener('click', () => jumpToSlide(currentIdx - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => jumpToSlide(currentIdx + 1));
 
-  // IntersectionObserver to auto-update TOC select option & toggle active CSS slide transition class
+  // IntersectionObserver to auto-update TOC select option & counter
   if (slideCards.length > 0) {
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -20% 0px',
-      threshold: 0.35
+      rootMargin: '-30% 0px -30% 0px',
+      threshold: 0.3
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('active');
           const id = entry.target.id;
           if (tocSelect) tocSelect.value = id;
           const idx = slideCards.findIndex(c => c.id === id);
@@ -89,8 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
             currentIdx = idx;
             updateCounter(currentIdx);
           }
-        } else {
-          entry.target.classList.remove('active');
         }
       });
     }, observerOptions);
@@ -114,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Initial counter state & activate first slide
+  // Initial counter state
   updateCounter(0);
-  if (slideCards[0]) slideCards[0].classList.add('active');
 });

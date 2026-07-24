@@ -219,7 +219,7 @@ body::before {
   z-index: 1;
 }
 
-/* Full Viewport Scroll-Snapping Slide Card - WITH SMOOTH SCROLL FADE TRANSITION */
+/* Full Viewport Scroll-Snapping Slide Card - CLEAN & CRISP NATURAL SCROLLING */
 .slide-card {
   min-height: 100vh;
   width: 100%;
@@ -238,16 +238,6 @@ body::before {
   box-shadow: var(--shadow-premium);
   word-wrap: break-word;
   box-sizing: border-box;
-  
-  /* Smooth Scroll Transition Effects */
-  opacity: 0.3;
-  transform: scale(0.97) translateY(10px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.slide-card.active {
-  opacity: 1;
-  transform: scale(1) translateY(0);
 }
 
 .slide-meta {
