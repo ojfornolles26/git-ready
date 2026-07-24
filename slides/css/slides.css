@@ -384,6 +384,7 @@ body::before {
 .btn-copy-url {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.3rem;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -396,9 +397,11 @@ body::before {
   cursor: pointer;
   margin-left: 0.5rem;
   vertical-align: middle;
-  transition: all 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   user-select: none !important;
   -webkit-user-select: none !important;
+  min-width: 82px;
+  text-align: center;
 }
 
 .btn-copy-url:hover {
