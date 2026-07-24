@@ -9,38 +9,6 @@
 </head>
 <body>
 
-  <!-- Sticky Header & Table of Contents Jump Selector -->
-  <header class="top-nav">
-    <div class="nav-container">
-      <a href="index.html" class="nav-brand">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        <span>GitReady Workshop</span>
-        <span class="nav-tag">Live Slides</span>
-      </a>
-
-      <select id="toc-select" class="toc-select" aria-label="Jump to Slide Section">
-        <option value="slide-1">1. Welcome & Introduction</option>
-        <option value="slide-2">2. The Need for Version Control</option>
-        <option value="slide-3">3. The 3 Local Git Areas</option>
-        <option value="slide-4">4. Step 1: Environment Check</option>
-        <option value="slide-5">5. Step 2: Clone Repository</option>
-        <option value="slide-6">6. Step 3: Git Status</option>
-        <option value="slide-7">7. Step 4: Create Feature Branch</option>
-        <option value="slide-8">8. Step 5: Add Student Profile JSON</option>
-        <option value="slide-9">9. Step 6: Stage Changes (git add)</option>
-        <option value="slide-10">10. Step 7: Commit Snapshot (git commit)</option>
-        <option value="slide-11">11. Step 8: Push Branch to GitHub</option>
-        <option value="slide-12">12. Step 9: Create Pull Request</option>
-        <option value="slide-13">13. Step 10: Live PR Review & Merge</option>
-        <option value="slide-14">14. Step 11: Sync Classmate Cards (git pull)</option>
-        <option value="slide-15">15. Handling Merge Conflicts</option>
-        <option value="slide-16">16. Core Git Best Practices</option>
-        <option value="slide-17">17. Real-World Industry Application</option>
-        <option value="slide-18">18. Workshop Wrap Up & Next Steps</option>
-      </select>
-    </div>
-  </header>
-
   <!-- Scrollable Slides Container -->
   <main class="slides-container">
 
@@ -426,6 +394,44 @@
   <footer class="slides-footer container">
     <p>GitReady Workshop • Peer-to-Peer Learning Material</p>
   </footer>
+
+  <!-- Floating Sticky Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-brand">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      <span>GitReady</span>
+      <span class="nav-tag">Slides</span>
+    </a>
+
+    <div class="nav-divider"></div>
+
+    <div class="nav-controls">
+      <button id="btn-prev-slide" class="btn-nav-step" title="Previous Slide Section">▲</button>
+      
+      <select id="toc-select" class="toc-select" aria-label="Jump to Slide Section">
+        <option value="slide-1">1. Welcome & Introduction</option>
+        <option value="slide-2">2. The Need for Version Control</option>
+        <option value="slide-3">3. The 3 Local Git Areas</option>
+        <option value="slide-4">4. Step 1: Environment Check</option>
+        <option value="slide-5">5. Step 2: Clone Repository</option>
+        <option value="slide-6">6. Step 3: Git Status</option>
+        <option value="slide-7">7. Step 4: Create Feature Branch</option>
+        <option value="slide-8">8. Step 5: Add Student Profile JSON</option>
+        <option value="slide-9">9. Step 6: Stage Changes (git add)</option>
+        <option value="slide-10">10. Step 7: Commit Snapshot (git commit)</option>
+        <option value="slide-11">11. Step 8: Push Branch to GitHub</option>
+        <option value="slide-12">12. Step 9: Create Pull Request</option>
+        <option value="slide-13">13. Step 10: Live PR Review & Merge</option>
+        <option value="slide-14">14. Step 11: Sync Classmate Cards (git pull)</option>
+        <option value="slide-15">15. Handling Merge Conflicts</option>
+        <option value="slide-16">16. Core Git Best Practices</option>
+        <option value="slide-17">17. Real-World Industry Application</option>
+        <option value="slide-18">18. Workshop Wrap Up & Next Steps</option>
+      </select>
+
+      <button id="btn-next-slide" class="btn-nav-step" title="Next Slide Section">▼</button>
+    </div>
+  </nav>
 
   <script src="js/slides.js"></script>
 </body>
