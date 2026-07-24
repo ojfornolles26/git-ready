@@ -132,11 +132,14 @@ body {
   letter-spacing: 0.02em;
 }
 
-.notion-cover-byline-logo {
-  height: 48px;
-  width: auto;
-  display: block;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+.notion-cover-byline-brand {
+  font-size: 1.35rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.01em;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
 }
 
 /* Notion Classic Left-Aligned Page Container */
