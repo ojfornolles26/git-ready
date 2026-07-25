@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: "Orlando Fornolles Jr.",
       role: "Software Developer",
       bio: "I am a Fullstack Web Developer at SugboDoc Technologies Inc., building SaaS applications focused on modernizing healthcare technology in the Philippines.",
+      avatarUrl: "images/IMG_2526.jpg",
       techStack: ["React", "Next.js", "PHP", "MySQL", "HTML/CSS", "JavaScript", "Firebase", "Supabase", "AI Fluency", "Git", "GitHub"],
       github: "ojfornolles26",
       quote: "git commit -m 'Building future software together!'"
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const name = cardEl.querySelector('.student-meta h3')?.textContent?.trim() || '';
       const role = cardEl.querySelector('.student-role')?.textContent?.trim() || '';
       const bio = cardEl.querySelector('.student-bio')?.textContent?.trim() || '';
+      const avatarSrc = cardEl.querySelector('.avatar-circle img')?.getAttribute('src') || '';
       const tagEls = Array.from(cardEl.querySelectorAll('.tech-tags .tag'));
       const techStack = tagEls.map(t => t.textContent.trim()).filter(Boolean);
       const rawQuote = cardEl.querySelector('.quote')?.textContent?.replace(/^"|"$/g, '')?.trim() || '';
@@ -58,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
           name,
           role,
           bio,
+          avatarUrl: avatarSrc,
           techStack: techStack.length > 0 ? techStack : ["Git", "GitHub"],
           quote: rawQuote,
           github: rawGithub,
@@ -159,14 +162,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const rawHandle = (student.github || '').trim().replace(/^@/, '');
       const handle = escapeHtml(rawHandle || 'anonymous');
 
+      let avatarSrc = student.avatarUrl || student.avatar || '';
+      if (!avatarSrc && rawHandle && rawHandle !== 'anonymous') {
+        avatarSrc = `https://github.com/${rawHandle}.png`;
+      }
+
+      const avatarHtml = avatarSrc
+        ? `<img src="${escapeHtml(avatarSrc)}" alt="${escapeHtml(student.name)}" class="avatar-img" onerror="this.onerror=null; this.outerHTML='<svg width=\\'20\\' height=\\'20\\' fill=\\'none\\' stroke=\\'#787774\\' stroke-width=\\'2\\' viewBox=\\'0 0 24 24\\'><path d=\\'M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2\\'/><circle cx=\\'12\\' cy=\\'7\\' r=\\'4\\'/></svg>';">`
+        : `<svg width="20" height="20" fill="none" stroke="#787774" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`;
+
       return `
         <div class="student-card" data-id="${escapeHtml(student.id)}">
           <div class="card-header">
             <div class="avatar-circle">
-              <svg width="20" height="20" fill="none" stroke="#787774" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-                <circle cx="12" cy="7" r="4"/>
-              </svg>
+              ${avatarHtml}
             </div>
             <div class="student-meta" style="flex-grow: 1;">
               <h3>${escapeHtml(student.name)}</h3>
