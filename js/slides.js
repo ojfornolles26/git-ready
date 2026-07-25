@@ -118,6 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const activeCard = slideCards[currentIdx];
     if (activeCard) {
       let targetEl = e.target;
+      if (targetEl && targetEl.closest('.code-wrapper')) {
+        return; // Always prevent slide changes when scrolling inside code blocks!
+      }
       while (targetEl && targetEl !== activeCard && targetEl !== document.body) {
         const overflowY = window.getComputedStyle(targetEl).overflowY;
         if ((overflowY === 'auto' || overflowY === 'scroll') && targetEl.scrollHeight > targetEl.clientHeight) {
@@ -197,6 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 35) {
       // If swipe started inside a scrollable container (e.g. .code-wrapper or scrollable card)
       if (touchScrollContainer) {
+        if (touchScrollContainer.classList.contains('code-wrapper')) {
+          return; // Always prevent slide changes when swiping inside code blocks!
+        }
         const isSwipingUp = diffY < 0;    // User wants to scroll down into the code box
         const isSwipingDown = diffY > 0;  // User wants to scroll up into the code box
 
