@@ -87,21 +87,13 @@
         <li class="bullet-item">
           <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span><strong>Pull Requests & Reviews:</strong> Propose code changes, review team contributions, and discuss features.</span>
-        </li>
-        <li class="bullet-item">
-          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span><strong>Open Source Community:</strong> Connects millions of software engineers and hosts major projects globally.</span>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Slide 3: Workflow Sync -->
+    <!-- Slide 3: Workflow Sync Part 1 -->
     <section class="slide-card" id="slide-3">
       <div class="slide-meta">
-        <span class="slide-step-badge">How It Works</span>
+        <span class="slide-step-badge">How It Works (Part 1)</span>
       </div>
-      <h2 class="slide-heading">How Git & GitHub Work Together</h2>
-      <p class="slide-lead">The 6-step collaborative cycle from forking to live cloud deployment.</p>
+      <h2 class="slide-heading">How Git &amp; GitHub Work Together</h2>
+      <p class="slide-lead">Steps 1 to 3: Forking, local editing, and staging your commit snapshot.</p>
 
       <ul class="bullet-list">
         <li class="bullet-item">
@@ -110,19 +102,31 @@
         </li>
         <li class="bullet-item">
           <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span><strong>2. Clone & Edit Locally:</strong> Download your fork onto your laptop and edit files inside your workspace.</span>
+          <span><strong>2. Clone &amp; Edit Locally:</strong> Download your fork onto your laptop and edit files inside your workspace.</span>
         </li>
         <li class="bullet-item">
           <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span><strong>3. Git Commit (Local):</strong> Save an immutable snapshot of your changes to your laptop's Git repository.</span>
         </li>
+      </ul>
+    </section>
+
+    <!-- Slide 4: Workflow Sync Part 2 -->
+    <section class="slide-card" id="slide-4">
+      <div class="slide-meta">
+        <span class="slide-step-badge">How It Works (Part 2)</span>
+      </div>
+      <h2 class="slide-heading">How Git &amp; GitHub Work Together</h2>
+      <p class="slide-lead">Steps 4 to 6: Pushing to cloud, pull request review, and syncing classmates.</p>
+
+      <ul class="bullet-list">
         <li class="bullet-item">
           <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span><strong>4. Git Push (Cloud):</strong> Upload your feature branch snapshot to your personal GitHub fork.</span>
         </li>
         <li class="bullet-item">
           <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span><strong>5. Pull Request & Merge (GitHub):</strong> Open a PR to the instructor's repo so your card gets merged into main live.</span>
+          <span><strong>5. Pull Request &amp; Merge (GitHub):</strong> Open a PR to the main repo so your card gets merged live.</span>
         </li>
         <li class="bullet-item">
           <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -131,8 +135,8 @@
       </ul>
     </section>
 
-    <!-- Slide 4 -->
-    <section class="slide-card" id="slide-4">
+    <!-- Slide 5 -->
+    <section class="slide-card" id="slide-5">
       <div class="slide-meta">
         <span class="slide-step-badge">Core Problem</span>
       </div>
@@ -146,123 +150,117 @@
         </li>
         <li class="bullet-item">
           <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
-          <span>No clear audit trail of who made a change, when it occurred, or why it was done.</span>
+          <span>Zero visibility into who made specific changes, why they were made, or when bugs were introduced.</span>
         </li>
         <li class="bullet-item">
-          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-          <span><strong>Git Solution:</strong> Every modification is tracked as a clean, immutable snapshot in a central timeline.</span>
+          <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span><strong>Git Solution:</strong> Provides a complete time-machine history where every change is tracked and attributed.</span>
         </li>
       </ul>
-    </section>
-
-    <!-- Slide 5 -->
-    <section class="slide-card" id="slide-5">
-      <div class="slide-meta">
-        <span class="slide-step-badge">Mental Model</span>
-      </div>
-      <h2 class="slide-heading">The 3 Local Git Areas</h2>
-      <p class="slide-lead">Understanding how Git organizes file states locally before sending them to GitHub.</p>
-
-      <div class="content-grid">
-        <ul class="bullet-list">
-          <li class="bullet-item">
-            <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span><strong>1. Working Directory:</strong> The actual files on your computer where you write code.</span>
-          </li>
-          <li class="bullet-item">
-            <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span><strong>2. Staging Area:</strong> The staging area (Index) where files are prepared using <code>git add</code>.</span>
-          </li>
-          <li class="bullet-item">
-            <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span><strong>3. Local Repository:</strong> Permanent snapshot history saved via <code>git commit</code>.</span>
-          </li>
-        </ul>
-
-        <div class="callout">
-          <div>
-            <strong>Execution Flow:</strong><br>
-            <code>Working Directory</code><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;↓ <em>git add</em><br>
-            <code>Staging Area</code><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;↓ <em>git commit</em><br>
-            <code>Local Repository</code><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;↓ <em>git push</em><br>
-            <code>GitHub (Remote)</code>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- Slide 6 -->
     <section class="slide-card" id="slide-6">
       <div class="slide-meta">
-        <span class="slide-step-badge">Step 1: Setup</span>
+        <span class="slide-step-badge">Architecture</span>
       </div>
-      <h2 class="slide-heading">Environment Check & User Identity</h2>
-      <p class="slide-lead">Configure your Git name and email to ensure your commits are properly authored.</p>
+      <h2 class="slide-heading">The 3 Local Git Areas</h2>
+      <p class="slide-lead">Understand how files move through Git's internal architecture on your machine.</p>
 
-      <div class="code-wrapper">
-        <code><span class="cmd-kw">git</span> --version<br>
-<span class="cmd-kw">git</span> config --global user.name <span class="cmd-str">"Your Full Name"</span><br>
-<span class="cmd-kw">git</span> config --global user.email <span class="cmd-str">"your.email@example.com"</span></code>
+      <div class="content-grid">
+        <div style="background: #f8fafc; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <h4 style="color: #0f172a; font-weight: 700; margin-bottom: 0.4rem;">1. Working Directory</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0;">Your active workspace where you create, edit, or delete files on disk.</p>
+        </div>
+        <div style="background: #f8fafc; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <h4 style="color: #0f172a; font-weight: 700; margin-bottom: 0.4rem;">2. Staging Area (Index)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0;">The preview area where you organize changes before committing (<code>git add</code>).</p>
+        </div>
+      </div>
+
+      <div style="background: #f8fafc; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-top: 0.85rem;">
+        <h4 style="color: #0f172a; font-weight: 700; margin-bottom: 0.4rem;">3. Local Repository (.git)</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0;">The permanent database storing committed snapshots in project history (<code>git commit</code>).</p>
       </div>
     </section>
 
     <!-- Slide 7 -->
     <section class="slide-card" id="slide-7">
       <div class="slide-meta">
-        <span class="slide-step-badge">Step 2: Fork &amp; Clone</span>
+        <span class="slide-step-badge">Step 1: Setup</span>
       </div>
-      <h2 class="slide-heading">Fork &amp; Clone the Repository</h2>
-      <p class="slide-lead">First, click <strong>Fork</strong> on GitHub to create your personal copy, then clone your fork to your laptop.</p>
+      <h2 class="slide-heading">Check Environment &amp; Version</h2>
+      <p class="slide-lead">Verify Git is properly installed and accessible on your terminal command line.</p>
 
       <div class="code-wrapper">
-        <code><span class="cmd-cmt"># 1. Open github.com/ojfornolles26/git-ready and click "Fork"</span><br>
-<span class="cmd-cmt"># 2. Clone YOUR fork (replace with your GitHub username):</span><br>
-<span class="cmd-kw">git</span> clone <span class="cmd-str">https://github.com/your-github-username/git-ready.git</span><br>
-<span class="cmd-kw">cd</span> git-ready</code>
+        <code><span class="cmd-kw">git</span> --version</code>
       </div>
 
       <div class="callout callout-info">
         <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        <span><strong>Pro Tip:</strong> Make sure to clone <em>your fork's URL</em> (under your GitHub username), NOT the original instructor URL!</span>
+        <span>Expected Output: <code>git version 2.x.x</code>. If not found, download Git from <a href="https://git-scm.com" target="_blank" style="color: inherit; font-weight: 600;">git-scm.com</a>.</span>
       </div>
     </section>
 
     <!-- Slide 8 -->
     <section class="slide-card" id="slide-8">
       <div class="slide-meta">
-        <span class="slide-step-badge">Step 3: Inspect</span>
+        <span class="slide-step-badge">Step 2: Setup</span>
       </div>
-      <h2 class="slide-heading">Repository Compass: git status</h2>
-      <p class="slide-lead">Run <code>git status</code> whenever you want to check your active branch and untracked files.</p>
+      <h2 class="slide-heading">Fork &amp; Clone Repository</h2>
+      <p class="slide-lead">Fork the workshop repository on GitHub, then download your personal fork onto your laptop.</p>
 
       <div class="code-wrapper">
-        <code><span class="cmd-kw">git</span> status<br>
-<span class="cmd-cmt"># Output: On branch main, your branch is up to date with 'origin/main'.</span></code>
+        <code><span class="cmd-cmt"># 1. Click "Fork" button at top-right of GitHub repo page</span><br>
+<span class="cmd-cmt"># 2. Clone your personal fork to your laptop:</span><br>
+<span class="cmd-kw">git</span> clone <span class="copyable-link">https://github.com/YOUR-GITHUB-USERNAME/git-ready.git</span><br>
+<span class="cmd-kw">cd</span> git-ready</code>
+        <button class="btn-copy-url" onclick="navigator.clipboard.writeText('https://github.com/ojfornolles26/git-ready.git'); this.innerText='Copied!'; setTimeout(() => this.innerText='Copy URL', 2000);">Copy URL</button>
+      </div>
+
+      <div class="callout callout-info">
+        <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span>Replace <code>YOUR-GITHUB-USERNAME</code> with your actual GitHub handle!</span>
       </div>
     </section>
 
     <!-- Slide 9 -->
     <section class="slide-card" id="slide-9">
       <div class="slide-meta">
-        <span class="slide-step-badge">Step 4: Branching</span>
+        <span class="slide-step-badge">Step 3: Inspection</span>
       </div>
-      <h2 class="slide-heading">Create a Feature Branch</h2>
-      <p class="slide-lead">Isolate your individual work from the primary <code>main</code> branch.</p>
+      <h2 class="slide-heading">Inspect Working Directory Status</h2>
+      <p class="slide-lead">Check which files have been modified, untracked, or staged in your workspace.</p>
 
       <div class="code-wrapper">
-        <code><span class="cmd-kw">git</span> checkout -b <span class="cmd-str">student/your-github-username</span></code>
+        <code><span class="cmd-kw">git</span> status</code>
       </div>
 
       <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
-        The <code>-b</code> flag tells Git to create a new branch and immediately switch your workspace to it.
+        <strong>Pro Tip:</strong> Run <code>git status</code> continuously after modifying files to see where your changes live!
       </p>
     </section>
 
-    <!-- Slide 10: Step 5 Part 1 -->
+    <!-- Slide 10 -->
     <section class="slide-card" id="slide-10">
+      <div class="slide-meta">
+        <span class="slide-step-badge">Step 4: Branching</span>
+      </div>
+      <h2 class="slide-heading">Create Your Feature Branch</h2>
+      <p class="slide-lead">Create an isolated workspace branch so your profile card edits stay separated from main.</p>
+
+      <div class="code-wrapper">
+        <code><span class="cmd-kw">git</span> checkout -b student/your-github-username</code>
+      </div>
+
+      <div class="callout callout-info">
+        <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span>Example: <code>git checkout -b student/ojfornolles26</code></span>
+      </div>
+    </section>
+
+    <!-- Slide 11: Step 5 Part 1 -->
+    <section class="slide-card" id="slide-11">
       <div class="slide-meta">
         <span class="slide-step-badge">Step 5 (Part 1): Hands-On</span>
       </div>
@@ -283,8 +281,8 @@
       </div>
     </section>
 
-    <!-- Slide 11: Step 5 Part 2 -->
-    <section class="slide-card" id="slide-11">
+    <!-- Slide 12: Step 5 Part 2 -->
+    <section class="slide-card" id="slide-12">
       <div class="slide-meta">
         <span class="slide-step-badge">Step 5 (Part 2): Hands-On</span>
       </div>
@@ -304,8 +302,8 @@
       </div>
     </section>
 
-    <!-- Slide 12 -->
-    <section class="slide-card" id="slide-12">
+    <!-- Slide 13 -->
+    <section class="slide-card" id="slide-13">
       <div class="slide-meta">
         <span class="slide-step-badge">Step 6: Stage</span>
       </div>
@@ -324,8 +322,8 @@
       </div>
     </section>
 
-    <!-- Slide 13 -->
-    <section class="slide-card" id="slide-13">
+    <!-- Slide 14 -->
+    <section class="slide-card" id="slide-14">
       <div class="slide-meta">
         <span class="slide-step-badge">Step 7: Commit</span>
       </div>
@@ -337,8 +335,8 @@
       </div>
     </section>
 
-    <!-- Slide 14 -->
-    <section class="slide-card" id="slide-14">
+    <!-- Slide 15 -->
+    <section class="slide-card" id="slide-15">
       <div class="slide-meta">
         <span class="slide-step-badge">Step 8: Push</span>
       </div>
@@ -350,8 +348,8 @@
       </div>
     </section>
 
-    <!-- Slide 15 -->
-    <section class="slide-card" id="slide-15">
+    <!-- Slide 16 -->
+    <section class="slide-card" id="slide-16">
       <div class="slide-meta">
         <span class="slide-step-badge">Step 9: Collaborate</span>
       </div>
@@ -365,7 +363,7 @@
         </li>
         <li class="bullet-item">
           <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span>Click the <strong>"Compare & pull request"</strong> button on your newly pushed branch.</span>
+          <span>Click the <strong>"Compare &amp; pull request"</strong> button on your newly pushed branch.</span>
         </li>
         <li class="bullet-item">
           <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -374,12 +372,12 @@
       </ul>
     </section>
 
-    <!-- Slide 16 -->
-    <section class="slide-card" id="slide-16">
+    <!-- Slide 17 -->
+    <section class="slide-card" id="slide-17">
       <div class="slide-meta">
         <span class="slide-step-badge">Step 10: Review</span>
       </div>
-      <h2 class="slide-heading">Live PR Review & Merge</h2>
+      <h2 class="slide-heading">Live PR Review &amp; Merge</h2>
       <p class="slide-lead">The workshop host will review all student Pull Requests on the projector screen and merge them into main.</p>
 
       <div class="callout callout-info">
@@ -388,8 +386,8 @@
       </div>
     </section>
 
-    <!-- Slide 17 -->
-    <section class="slide-card" id="slide-17">
+    <!-- Slide 18 -->
+    <section class="slide-card" id="slide-18">
       <div class="slide-meta">
         <span class="slide-step-badge">Step 11: Sync</span>
       </div>
@@ -407,8 +405,8 @@
       </div>
     </section>
 
-    <!-- Slide 18 -->
-    <section class="slide-card" id="slide-18">
+    <!-- Slide 19 -->
+    <section class="slide-card" id="slide-19">
       <div class="slide-meta">
         <span class="slide-step-badge">Pro Tip</span>
       </div>
@@ -428,8 +426,8 @@
       </p>
     </section>
 
-    <!-- Slide 19 -->
-    <section class="slide-card" id="slide-19">
+    <!-- Slide 20 -->
+    <section class="slide-card" id="slide-20">
       <div class="slide-meta">
         <span class="slide-step-badge">Best Practices</span>
       </div>
@@ -451,13 +449,13 @@
       </ul>
     </section>
 
-    <!-- Slide 20 -->
-    <section class="slide-card" id="slide-20">
+    <!-- Slide 21 -->
+    <section class="slide-card" id="slide-21">
       <div class="slide-meta">
         <span class="slide-step-badge">Real World</span>
       </div>
       <h2 class="slide-heading">Real-World Industry Application</h2>
-      <p class="slide-lead">How engineering teams rely on Git & GitHub daily for production software development.</p>
+      <p class="slide-lead">How engineering teams rely on Git &amp; GitHub daily for production software development.</p>
 
       <ul class="bullet-list">
         <li class="bullet-item">
@@ -471,16 +469,16 @@
       </ul>
     </section>
 
-    <!-- Slide 21: Any Questions? -->
-    <section class="slide-card" id="slide-21">
+    <!-- Slide 22: Any Questions? -->
+    <section class="slide-card" id="slide-22">
       <h1 class="slide-heading title-3d" style="font-size: 3.5rem; text-align: center; margin-top: 1.5rem;">Any Questions?</h1>
       <p class="slide-lead" style="text-align: center; margin-top: 1.5rem; color: var(--text-secondary);">
         Open floor for questions, clarifications, or live command troubleshooting.
       </p>
     </section>
 
-    <!-- Slide 22: Wrap Up -->
-    <section class="slide-card" id="slide-22">
+    <!-- Slide 23: Wrap Up -->
+    <section class="slide-card" id="slide-23">
       <div class="slide-meta">
         <span class="slide-step-badge">Wrap Up</span>
       </div>
@@ -514,7 +512,7 @@
       <span>Getting Started With Git</span>
     </a>
 
-    <span id="slide-counter" class="nav-counter">01 / 22</span>
+    <span id="slide-counter" class="nav-counter">01 / 23</span>
 
     <div class="nav-divider"></div>
 
@@ -524,26 +522,27 @@
       <select id="toc-select" class="toc-select" aria-label="Jump to Slide Section">
         <option value="slide-1">1. Welcome & Introduction</option>
         <option value="slide-2">2. What is Git vs. What is GitHub?</option>
-        <option value="slide-3">3. How Git & GitHub Work Together</option>
-        <option value="slide-4">4. The Need for Version Control</option>
-        <option value="slide-5">5. The 3 Local Git Areas</option>
-        <option value="slide-6">6. Step 1: Environment Check</option>
-        <option value="slide-7">7. Step 2: Fork & Clone Repository</option>
-        <option value="slide-8">8. Step 3: Git Status</option>
-        <option value="slide-9">9. Step 4: Create Feature Branch</option>
-        <option value="slide-10">10. Step 5 (Part 1): Add Card & Header</option>
-        <option value="slide-11">11. Step 5 (Part 2): Bio, Tags & Links</option>
-        <option value="slide-12">12. Step 6: Stage Changes (git add)</option>
-        <option value="slide-13">13. Step 7: Commit Snapshot (git commit)</option>
-        <option value="slide-14">14. Step 8: Push Branch to GitHub</option>
-        <option value="slide-15">15. Step 9: Create Pull Request</option>
-        <option value="slide-16">16. Step 10: Live PR Review & Merge</option>
-        <option value="slide-17">17. Step 11: Sync Classmate Cards (git pull)</option>
-        <option value="slide-18">18. Handling Merge Conflicts</option>
-        <option value="slide-19">19. Core Git Best Practices</option>
-        <option value="slide-20">20. Real-World Industry Application</option>
-        <option value="slide-21">21. Any Questions? (Q&A)</option>
-        <option value="slide-22">22. Workshop Wrap Up & Next Steps</option>
+        <option value="slide-3">3. How Git & GitHub Work Together (Part 1)</option>
+        <option value="slide-4">4. How Git & GitHub Work Together (Part 2)</option>
+        <option value="slide-5">5. The Need for Version Control</option>
+        <option value="slide-6">6. The 3 Local Git Areas</option>
+        <option value="slide-7">7. Step 1: Environment Check</option>
+        <option value="slide-8">8. Step 2: Fork & Clone Repository</option>
+        <option value="slide-9">9. Step 3: Git Status</option>
+        <option value="slide-10">10. Step 4: Create Feature Branch</option>
+        <option value="slide-11">11. Step 5 (Part 1): Add Card & Header</option>
+        <option value="slide-12">12. Step 5 (Part 2): Bio, Tags & Links</option>
+        <option value="slide-13">13. Step 6: Stage Changes (git add)</option>
+        <option value="slide-14">14. Step 7: Commit Snapshot (git commit)</option>
+        <option value="slide-15">15. Step 8: Push Branch to GitHub</option>
+        <option value="slide-16">16. Step 9: Create Pull Request</option>
+        <option value="slide-17">17. Step 10: Live PR Review & Merge</option>
+        <option value="slide-18">18. Step 11: Sync Classmate Cards (git pull)</option>
+        <option value="slide-19">19. Handling Merge Conflicts</option>
+        <option value="slide-20">20. Core Git Best Practices</option>
+        <option value="slide-21">21. Real-World Industry Application</option>
+        <option value="slide-22">22. Any Questions? (Q&A)</option>
+        <option value="slide-23">23. Workshop Wrap Up & Next Steps</option>
       </select>
 
       <button id="btn-next-slide" class="btn-nav-step" title="Next Slide Section">▼</button>

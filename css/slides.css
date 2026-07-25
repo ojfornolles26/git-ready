@@ -271,7 +271,7 @@ body {
 }
 
 /* Dedicated spacing for Step 5: Hands-On code slide */
-#slide-10 {
+#slide-11 {
   padding-top: 1.6rem;
   padding-bottom: 1.6rem;
 }
@@ -803,13 +803,14 @@ body {
   }
 
   .bullet-list {
-    gap: 0.65rem;
-    margin: 0.5rem 0;
+    gap: 0.45rem;
+    margin: 0.35rem 0;
   }
 
   .bullet-item {
-    font-size: 0.875rem;
-    line-height: 1.45;
+    font-size: 0.85rem;
+    line-height: 1.35;
+    gap: 0.5rem;
   }
 
   .code-wrapper {
