@@ -276,21 +276,18 @@ body {
   padding-bottom: 1.6rem;
 }
 
-/* Static 3D Font Text Step Title Badge - High Contrast & Standout Legibility */
+/* Clean Flat Text Step Title Badge - High Contrast, Modern & Sharp Legibility */
 .slide-step-badge {
-  font-size: 0.95rem;
-  font-weight: 850;
+  font-size: 0.9rem;
+  font-weight: 750;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #0f172a;
+  letter-spacing: 0.075em;
+  color: #1e293b;
   background: transparent;
   padding: 0;
   border: none;
   box-shadow: none;
-  text-shadow: 
-    1px 1px 0 #cbd5e1,
-    2px 2px 0 #94a3b8,
-    3px 3px 6px rgba(15, 23, 42, 0.12);
+  text-shadow: none;
 }
 
 .slide-card::-webkit-scrollbar {
