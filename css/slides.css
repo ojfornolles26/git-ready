@@ -232,8 +232,8 @@ body {
 .slides-container {
   width: 90vw;
   max-width: 880px;
-  height: 76vh;
-  max-height: 660px;
+  height: 78vh;
+  max-height: 700px;
   position: relative;
   z-index: 1;
   display: flex;
@@ -258,6 +258,12 @@ body {
   box-sizing: border-box;
   overflow-y: auto;
   scrollbar-width: none; /* Hide scrollbars in non-fullscreen desktop mode */
+}
+
+/* Dedicated spacing for Step 5: Hands-On code slide */
+#slide-10 {
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
 }
 
 .slide-card::-webkit-scrollbar {
@@ -618,8 +624,8 @@ body {
   }
 
   .slides-container {
-    height: 72vh;
-    max-height: 520px;
+    height: 76vh;
+    max-height: 590px;
   }
 
   .slide-card {
