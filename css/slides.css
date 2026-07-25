@@ -728,16 +728,17 @@ body {
 
   body {
     padding-top: 0.5rem;
-    padding-bottom: 4.5rem;
+    padding-bottom: 4.8rem;
   }
 
   .slides-container {
     width: 94vw;
     max-width: 100%;
-    height: calc(100dvh - 105px);
-    max-height: calc(100dvh - 105px);
+    height: calc(100dvh - 125px);
+    max-height: calc(100dvh - 125px);
     position: relative;
     z-index: 1;
+    margin-bottom: 0.75rem;
   }
 
   .slide-card {
