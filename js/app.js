@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const seedProfiles = [
     {
       id: "host-profile",
-      name: "Workshop Lead",
-      role: "Peer Tutor & Facilitator",
-      bio: "Welcome to GitReady! Copy the HTML card snippet from README.md, paste it into gallery.html, replace the placeholders with your info, and submit a Pull Request!",
-      techStack: ["Git", "GitHub", "JavaScript", "HTML/CSS", "Open Source"],
-      github: "octocat",
+      name: "Orlando Fornolles Jr.",
+      role: "Software Developer",
+      bio: "I am a Fullstack Web Developer at SugboDoc Technologies Inc., building SaaS applications focused on modernizing healthcare technology in the Philippines.",
+      techStack: ["React", "Next.js", "PHP", "MySQL", "HTML/CSS", "JavaScript", "Firebase", "Supabase", "AI Fluency", "Git", "GitHub"],
+      github: "ojfornolles26",
       quote: "git commit -m 'Building future software together!'"
     }
   ];
