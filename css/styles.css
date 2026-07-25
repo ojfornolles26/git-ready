@@ -227,6 +227,10 @@ body {
   gap: 0.75rem;
 }
 
+.notion-db-title svg {
+  stroke: #3b4d7a;
+}
+
 .db-title-text {
   color: #0f172a;
   font-weight: 800;
