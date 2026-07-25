@@ -7,20 +7,22 @@ Welcome to the **Getting Started With Git** hands-on activity! Follow these step
 ## 🎯 Activity Overview
 
 You will:
-1. Clone this repository to your laptop.
-2. Create a new branch named `student/your-github-username`.
-3. Copy the HTML card code snippet from `README.md` into `gallery.html`.
-4. Replace the placeholder details (Name, Role, Bio, Tech Stack, Quote, GitHub Link) with your own information.
-5. Stage, commit, push your branch to GitHub, and submit a Pull Request!
+1. Fork this repository on GitHub to your personal account.
+2. Clone your fork to your laptop.
+3. Create a new branch named `student/your-github-username`.
+4. Copy the HTML card code snippet from `README.md` into `gallery.html`.
+5. Replace the placeholder details (Name, Role, Bio, Tech Stack, Quote, GitHub Link) with your own information.
+6. Stage, commit, push your branch to your GitHub fork, and submit a Pull Request back to the workshop repository!
 
 ---
 
-## 📋 Step 1: Terminal Setup
+## 📋 Step 1: Fork & Terminal Setup
 
-Open your terminal or Git Bash and run:
+1. Open `https://github.com/ojfornolles26/git-ready` on GitHub and click **Fork** (top right).
+2. Open your terminal or Git Bash and run:
 
 ```bash
-git clone https://github.com/ojfornolles26/git-ready.git
+git clone https://github.com/your-github-username/git-ready.git
 cd git-ready
 git checkout -b student/your-github-username
 ```

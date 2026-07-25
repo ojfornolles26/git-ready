@@ -2,5 +2,5 @@
   "workshopTitle": "Getting Started With Git",
   "version": "1.0.0",
   "topic": "Mastering Git & GitHub Hands-On",
-  "targetCommands": ["clone", "checkout", "add", "commit", "push", "pull", "pr"]
+  "targetCommands": ["fork", "clone", "checkout", "add", "commit", "push", "pull", "pr"]
 }

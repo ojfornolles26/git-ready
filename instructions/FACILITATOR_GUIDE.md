@@ -35,45 +35,44 @@ Welcome! This guide outlines the exact step-by-step workflow and schedule for ho
 ### Step 2: Live Facilitator Demonstration — 10 Mins
 Before letting students type on their own, share your projector screen and demonstrate the exact sequence live:
 
-1. **Show the Wall**: Open `index.html` on your screen — point out that there is currently **1 card** (yours as the Workshop Lead).
-2. **Demonstrate Terminal Commands**:
+1. **Show the Wall**: Open `gallery.html` on your screen — point out that there is currently **1 card** (yours as the Workshop Lead).
+2. **Demonstrate Forking & Terminal Commands**:
+   - Open repository on GitHub and click **Fork** (top right).
    ```bash
-   # 1. Clone the repository
-   git clone https://github.com/your-org/git-ready.git
+   # 1. Clone YOUR fork
+   git clone https://github.com/your-username/git-ready.git
    cd git-ready
 
    # 2. Create a feature branch
    git checkout -b student/your-name
-
-   # 3. Create your profile JSON file under data/students/
-   cp data/students/_template.json data/students/your-name.json
    ```
-3. **Show File Editing**: Open `data/students/your-name.json` in VS Code/Sublime/Notepad, change the values, and save.
+3. **Show File Editing**: Open `gallery.html` in VS Code, paste HTML snippet inside `<div class="cards-grid">`, change values, and save.
 4. **Stage, Commit, & Push**:
    ```bash
-   git add .
+   git add gallery.html
    git commit -m "feat: add my profile card"
    git push origin student/your-name
    ```
-5. **Open Pull Request**: Navigate to GitHub on projector screen and click **"Compare & pull request"**.
+5. **Open Pull Request**: Navigate to your fork on GitHub and click **"Compare & pull request"** back to the main repository.
 
 ---
 
 ### Step 3: Student Hands-On Activity — 30 Mins
 1. Share the GitHub repository URL on the screen or in class chat.
-2. Circulate around the room with co-facilitators/tutors to help students with:
+2. Remind students to click **Fork** first before copying the clone URL from their own fork profile page.
+3. Circulate around the room with co-facilitators/tutors to help students with:
    - Git CLI installation or terminal navigation issues.
-   - Creating their JSON profile format correctly under `data/students/`.
+   - Ensuring they are editing `gallery.html` or creating profile card HTML.
    - Resolving typos in Git commands.
 
 ---
 
 ### Step 4: Live PR Merging & Celebration — 10 Mins
-1. Keep the **Student Attendance Gallery** (`index.html`) displayed on the main projector screen.
-2. As students submit Pull Requests on GitHub:
+1. Keep the **Student Attendance Gallery** (`gallery.html`) displayed on the main projector screen.
+2. As students submit Pull Requests from their forks:
    - Click **"Merge Pull Request"** on GitHub.
    - Run `git pull origin main` on your facilitator laptop.
-   - **Refresh `index.html` on the projector screen!**
+   - **Refresh `gallery.html` on the projector screen!**
 3. Watch the room light up as each student's card instantly pops up **at the top of the gallery grid** in real-time, incrementing the live participant counter!
 
 ---
@@ -82,6 +81,6 @@ Before letting students type on their own, share your projector screen and demon
 
 | Situation | Solution |
 | :--- | :--- |
+| **Student gets `403 Permission Denied` on push** | Check if they cloned the instructor repo directly instead of cloning their own fork! Have them update remote URL: `git remote set-url origin https://github.com/<their-username>/git-ready.git`. |
 | **Student has merge conflicts** | Guide them to run `git pull origin main` on their branch, resolve conflicts, commit, and push. |
-| **JSON syntax error** | Verify missing commas or unquoted strings in their `data/students/<name>.json`. |
-| **Card not showing after pull** | Check if file is placed directly inside `data/students/` and ends with `.json`. |
+| **Card not showing after pull** | Check if HTML snippet was pasted inside `<div class="cards-grid" id="cards-grid">` in `gallery.html`. |

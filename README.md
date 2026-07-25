@@ -4,10 +4,13 @@ A repository for learning Git and GitHub by adding your profile card to the Stud
 
 ## Quick Start Guide
 
-### 1. Clone and Create Branch
+### 1. Fork, Clone, and Create Branch
+
+1. Open `https://github.com/ojfornolles26/git-ready` on GitHub and click **Fork** on the top right.
+2. Clone **your fork** to your laptop and switch to a feature branch:
 
 ```bash
-git clone https://github.com/ojfornolles26/git-ready.git
+git clone https://github.com/your-github-username/git-ready.git
 cd git-ready
 git checkout -b student/your-github-username
 ```
