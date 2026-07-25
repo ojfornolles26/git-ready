@@ -375,7 +375,7 @@ body {
   color: #0f172a;
   line-height: 1.15;
   letter-spacing: -0.035em;
-  text-shadow: 0 1px 0 #cbd5e1, 0 2px 0 #cbd5e1, 0 3px 0 #cbd5e1, 0 4px 0 #94a3b8;
+  text-shadow: none;
   margin-bottom: 1.35rem;
 }
 
@@ -401,13 +401,13 @@ body {
   line-height: 1.2;
 }
 
-/* Static 3D Heading Effect for Title Slide */
+/* Clean Flat Heading Effect for Title Slide & Q&A */
 .slide-heading.title-3d {
   font-size: 3rem;
   font-weight: 850;
   color: #0f172a;
   letter-spacing: -0.035em;
-  text-shadow: 0 1px 0 #cbd5e1, 0 2px 0 #cbd5e1, 0 3px 0 #cbd5e1, 0 4px 0 #94a3b8;
+  text-shadow: none;
   margin-bottom: 1.15rem;
 }
 
