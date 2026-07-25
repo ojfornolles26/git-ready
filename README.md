@@ -1,14 +1,10 @@
-# Getting Started With Git 🚀
+# Getting Started With Git
 
-A hands-on workshop repository to learn Git & GitHub by adding your profile card to our live **Student Attendance Gallery**.
+A repository for learning Git and GitHub by adding your profile card to the Student Attendance Gallery.
 
----
+## Quick Start Guide
 
-## ⚡ Quick 3-Step Student Guide
-
-### Step 1: Clone & Create Your Branch
-
-Open your terminal and run:
+### 1. Clone and Create Branch
 
 ```bash
 git clone https://github.com/ojfornolles26/git-ready.git
@@ -16,11 +12,9 @@ cd git-ready
 git checkout -b student/your-github-username
 ```
 
----
+### 2. Add Profile Card to gallery.html
 
-### Step 2: Add Your Profile Card to `gallery.html`
-
-Open `gallery.html` in your code editor. Copy the snippet below and paste it inside `<div class="cards-grid">`:
+Open `gallery.html` and paste the following snippet inside `<div class="cards-grid">`:
 
 ```html
 <div class="student-card" data-id="student-yourusername">
@@ -58,13 +52,9 @@ Open `gallery.html` in your code editor. Copy the snippet below and paste it ins
 </div>
 ```
 
-> **Replace the placeholders**: Change `Your Full Name`, `Computer Science Student`, Bio, Tech Tags, Quote, and `your-github-username` with your own information.
+Replace `Your Full Name`, `Computer Science Student`, Bio, Tech Tags, Quote, and `your-github-username` with your own details.
 
----
-
-### Step 3: Commit, Push & Pull Request
-
-In your terminal, run:
+### 3. Commit, Push, and Create Pull Request
 
 ```bash
 git add gallery.html
@@ -72,4 +62,4 @@ git commit -m "feat: add profile card for your-github-username"
 git push origin student/your-github-username
 ```
 
-Go to GitHub and click **"Compare & pull request"**! 🎉
+Open GitHub and click **Compare & pull request**.
