@@ -779,6 +779,13 @@ body {
     line-height: 1.25;
     margin-bottom: 0.75rem;
     text-align: center;
+    justify-content: center;
+    gap: 0.65rem !important;
+  }
+
+  .slide-1-git-logo {
+    width: 36px;
+    height: 36px;
   }
 
   .slide-1-content .slide-lead {
