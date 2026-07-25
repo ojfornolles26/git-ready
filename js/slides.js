@@ -156,22 +156,64 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
-  // Touch Swipe navigation
+  // Touch Swipe navigation with internal scroll container protection
   let touchStartX = 0;
   let touchStartY = 0;
+  let touchScrollContainer = null;
 
   document.addEventListener('touchstart', (e) => {
+    if (!e.changedTouches || !e.changedTouches[0]) return;
     touchStartX = e.changedTouches[0].screenX;
     touchStartY = e.changedTouches[0].screenY;
-  }, false);
+
+    let targetEl = e.target;
+    const activeCard = slideCards[currentIdx];
+    touchScrollContainer = null;
+
+    while (targetEl && targetEl !== document.body) {
+      const style = window.getComputedStyle(targetEl);
+      const overflowY = style.overflowY;
+      const isScrollable = (overflowY === 'auto' || overflowY === 'scroll' || targetEl.classList.contains('code-wrapper'));
+      if (isScrollable && targetEl.scrollHeight > targetEl.clientHeight + 2) {
+        touchScrollContainer = targetEl;
+        break;
+      }
+      if (targetEl === activeCard) break;
+      targetEl = targetEl.parentElement;
+    }
+
+    if (!touchScrollContainer && activeCard && activeCard.scrollHeight > activeCard.clientHeight + 2) {
+      touchScrollContainer = activeCard;
+    }
+  }, { passive: true });
 
   document.addEventListener('touchend', (e) => {
+    if (!e.changedTouches || !e.changedTouches[0]) return;
     const touchEndX = e.changedTouches[0].screenX;
     const touchEndY = e.changedTouches[0].screenY;
     const diffX = touchEndX - touchStartX;
     const diffY = touchEndY - touchStartY;
 
-    if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 40) {
+    if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 35) {
+      // If swipe started inside a scrollable container (e.g. .code-wrapper or scrollable card)
+      if (touchScrollContainer) {
+        const isSwipingUp = diffY < 0;    // User wants to scroll down into the code box
+        const isSwipingDown = diffY > 0;  // User wants to scroll up into the code box
+
+        const currentScrollTop = touchScrollContainer.scrollTop;
+        const maxScroll = touchScrollContainer.scrollHeight - touchScrollContainer.clientHeight;
+
+        // If swiping up to view lower code content, but container is not yet at the absolute bottom
+        if (isSwipingUp && currentScrollTop < maxScroll - 5) {
+          return; // Allow internal code box / card to scroll! Do NOT step slides.
+        }
+
+        // If swiping down to view higher code content, but container is not yet at the absolute top
+        if (isSwipingDown && currentScrollTop > 5) {
+          return; // Allow internal code box / card to scroll! Do NOT step slides.
+        }
+      }
+
       if (diffY < 0) nextSlide();
       else prevSlide();
     }
