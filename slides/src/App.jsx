@@ -120,9 +120,6 @@ function App() {
           } else if (data === 'EXIT_FULLSCREEN') {
             setIsNavHidden(false);
             setIsFullscreen(false);
-            if (document.exitFullscreen) {
-              document.exitFullscreen().catch(() => {});
-            }
           } else if (typeof data === 'string' && data.startsWith('JUMP:')) {
             const idx = parseInt(data.split(':')[1], 10);
             if (!isNaN(idx) && idx >= 0 && idx < slides.length) {
