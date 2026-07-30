@@ -721,7 +721,7 @@ function PhoneRemoteView() {
     return (
       <div style={{
         minHeight: '100svh',
-        background: '#05070c',
+        background: '#f8fafc',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -742,7 +742,7 @@ function PhoneRemoteView() {
     return (
       <div style={{
         minHeight: '100svh',
-        background: '#05070c',
+        background: '#f8fafc',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -756,7 +756,7 @@ function PhoneRemoteView() {
           height: '12px',
           borderRadius: '50%',
           background: '#F05032',
-          boxShadow: '0 0 16px #F05032',
+          boxShadow: '0 0 16px rgba(240, 80, 50, 0.3)',
           animation: 'pulse 1.5s ease-in-out infinite',
           marginBottom: '1.5rem'
         }} />
@@ -781,7 +781,7 @@ function PhoneRemoteView() {
   return (
     <div style={{
       minHeight: '100svh',
-      background: '#05070c',
+      background: '#f1f5f9',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -791,41 +791,46 @@ function PhoneRemoteView() {
       boxSizing: 'border-box',
       width: '100%'
     }}>
-      {/* Remote Container - Clean & Borderless Dashboard style */}
+      {/* Remote Container - Minimalist Light Capsule Remote */}
       <div style={{
         width: '100%',
-        maxWidth: '340px',
+        maxWidth: '300px',
+        background: '#ffffff',
+        border: '1px solid #e2e8f0',
+        borderRadius: '36px',
+        padding: '1.5rem 1.25rem 2rem',
+        boxShadow: '0 15px 35px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(0,0,0,0.02)',
         display: 'flex',
         flexDirection: 'column',
-        gap: '1.25rem'
+        alignItems: 'center',
+        gap: '1.1rem',
+        boxSizing: 'border-box'
       }}>
+
+        {/* ── Top notch blaster area ── */}
+        <div style={{ width: '40px', height: '4px', background: '#cbd5e1', borderRadius: '99px', marginBottom: '0.25rem' }} />
 
         {/* ── Display Screen ── */}
         <div style={{
           width: '100%',
-          background: '#0a0f1d',
-          border: '1px solid #1e293b',
-          borderRadius: '16px',
-          padding: '1.25rem 1.5rem',
+          background: '#f8fafc',
+          border: '1px solid #e2e8f0',
+          borderRadius: '12px',
+          padding: '1rem 1.15rem',
           boxSizing: 'border-box'
         }}>
           {/* Screen Header */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
             <span style={{ fontSize: '0.625rem', fontWeight: 800, color: '#F05032', textTransform: 'uppercase', letterSpacing: '0.12em', fontFamily: 'var(--font-display)' }}>GIT REMOTE</span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 6px #10b981' }} />
-              <span style={{ fontSize: '0.625rem', color: '#10b981', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>LIVE</span>
+            <span style={{ fontSize: '0.625rem', color: '#64748b', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+              SLIDE {currentSlideInfo.index + 1} / {totalSlides}
             </span>
-          </div>
-          {/* Slide counter */}
-          <div style={{ fontSize: '0.625rem', color: '#475569', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem' }}>
-            SLIDE {currentSlideInfo.index + 1} / {totalSlides}
           </div>
           {/* Slide title */}
           <div style={{
-            fontSize: '0.875rem',
+            fontSize: '0.85rem',
             fontWeight: 700,
-            color: '#cbd5e1',
+            color: '#0f172a',
             lineHeight: 1.4,
             height: '2.8em',
             overflow: 'hidden',
@@ -838,13 +843,13 @@ function PhoneRemoteView() {
             {currentSlideInfo.title}
           </div>
           {/* Progress bar */}
-          <div style={{ marginTop: '1rem', height: '3px', background: '#1e293b', borderRadius: '99px', overflow: 'hidden' }}>
+          <div style={{ marginTop: '0.85rem', height: '3px', background: '#e2e8f0', borderRadius: '99px', overflow: 'hidden' }}>
             <div style={{ height: '100%', width: `${progress}%`, background: 'linear-gradient(90deg, #F05032, #ff8c6b)', borderRadius: '99px', transition: 'width 0.4s ease' }} />
           </div>
         </div>
 
         {/* ── Screen Mode Controls (Fullscreen & Minimize) ── */}
-        <div style={{ display: 'flex', gap: '0.75rem', width: '100%' }}>
+        <div style={{ display: 'flex', gap: '0.6rem', width: '100%' }}>
           <button
             onClick={() => {
               if (!document.fullscreenElement) {
@@ -853,22 +858,22 @@ function PhoneRemoteView() {
             }}
             style={{
               flex: 1,
-              padding: '0.65rem 0.75rem',
-              borderRadius: '12px',
-              border: '1px solid #1e293b',
-              background: '#0a0f1d',
-              color: '#94a3b8',
-              fontSize: '0.72rem',
+              padding: '0.55rem 0.65rem',
+              borderRadius: '10px',
+              border: '1px solid #cbd5e1',
+              background: '#ffffff',
+              color: '#475569',
+              fontSize: '0.7rem',
               fontWeight: 700,
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '0.35rem',
+              gap: '0.3rem',
               transition: 'background 0.2s ease, color 0.2s ease, border-color 0.2s ease'
             }}
           >
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
             </svg>
             Fullscreen
@@ -882,22 +887,22 @@ function PhoneRemoteView() {
             }}
             style={{
               flex: 1,
-              padding: '0.65rem 0.75rem',
-              borderRadius: '12px',
-              border: '1px solid #1e293b',
-              background: '#0a0f1d',
-              color: '#94a3b8',
-              fontSize: '0.72rem',
+              padding: '0.55rem 0.65rem',
+              borderRadius: '10px',
+              border: '1px solid #cbd5e1',
+              background: '#ffffff',
+              color: '#475569',
+              fontSize: '0.7rem',
               fontWeight: 700,
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '0.35rem',
+              gap: '0.3rem',
               transition: 'background 0.2s ease, color 0.2s ease, border-color 0.2s ease'
             }}
           >
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 14h6v6M20 10h-6V4M14 10l7-7M10 14l-7 7"/>
             </svg>
             Minimize
@@ -910,20 +915,20 @@ function PhoneRemoteView() {
           value={currentSlideInfo.index}
           style={{
             width: '100%',
-            padding: '0.65rem 1rem',
-            borderRadius: '12px',
-            border: '1px solid #1e293b',
-            background: '#0a0f1d',
-            color: '#cbd5e1',
-            fontSize: '0.8rem',
+            padding: '0.55rem 0.85rem',
+            borderRadius: '10px',
+            border: '1px solid #cbd5e1',
+            background: '#ffffff',
+            color: '#0f172a',
+            fontSize: '0.78rem',
             fontWeight: 600,
             outline: 'none',
             cursor: 'pointer',
             WebkitAppearance: 'none',
-            backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='none' stroke='%2364748b' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5'></path></svg>")`,
+            backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='none' stroke='%23475569' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5'></path></svg>")`,
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'right 1rem center',
-            backgroundSize: '12px'
+            backgroundPosition: 'right 0.85rem center',
+            backgroundSize: '11px'
           }}
         >
           {tocOptions.map((opt, idx) => (
@@ -931,73 +936,68 @@ function PhoneRemoteView() {
           ))}
         </select>
 
-        {/* ── Redesigned Clean Navigation Buttons ── */}
-        <div style={{ display: 'flex', gap: '0.75rem', width: '100%', marginTop: '0.25rem' }}>
-          {/* PREV BUTTON */}
+        {/* ── Physical Remote Vertically Stacked Keys ── */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', width: '100%', marginTop: '0.15rem' }}>
+          
+          {/* PREVIOUS BUTTON (Top Key) */}
           <button
             onPointerDown={() => setPressing('prev')}
             onPointerUp={() => setPressing(null)}
             onPointerLeave={() => setPressing(null)}
             onClick={() => sendCommand('PREV')}
             style={{
-              flex: 1,
-              height: '80px',
-              borderRadius: '16px',
-              border: '1px solid #1e293b',
-              background: pressing === 'prev' ? '#1e293b' : '#0a0f1d',
-              color: pressing === 'prev' ? '#ffffff' : '#94a3b8',
+              width: '100%',
+              height: '56px',
+              borderRadius: '14px',
+              border: '1px solid #cbd5e1',
+              background: pressing === 'prev' ? '#e2e8f0' : '#ffffff',
+              color: '#0f172a',
               cursor: 'pointer',
               display: 'flex',
-              flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '0.35rem',
+              gap: '0.45rem',
               transition: 'all 0.15s cubic-bezier(0.16, 1, 0.3, 1)',
-              transform: pressing === 'prev' ? 'scale(0.96)' : 'scale(1)'
+              transform: pressing === 'prev' ? 'scale(0.96)' : 'scale(1)',
+              boxShadow: '0 2px 4px rgba(15, 23, 42, 0.02)'
             }}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M15 19l-7-7 7-7"/>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 15l-6-6-6 6"/>
             </svg>
-            <span style={{ fontSize: '0.625rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>PREVIOUS</span>
+            <span style={{ fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>PREVIOUS</span>
           </button>
 
-          {/* NEXT BUTTON (Spacious & Dominant Git Orange) */}
+          {/* NEXT BUTTON (Dominant Bottom Key - Git Orange) */}
           <button
             onPointerDown={() => setPressing('next')}
             onPointerUp={() => setPressing(null)}
             onPointerLeave={() => setPressing(null)}
             onClick={() => sendCommand('NEXT')}
             style={{
-              flex: 1.6,
-              height: '80px',
-              borderRadius: '16px',
+              width: '100%',
+              height: '72px',
+              borderRadius: '14px',
               border: 'none',
-              background: pressing === 'next' ? '#d93c1e' : 'linear-gradient(135deg, #F05032 0%, #ff6b4a 100%)',
+              background: pressing === 'next' ? '#d93c1e' : '#F05032',
               color: '#ffffff',
               cursor: 'pointer',
               display: 'flex',
-              flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '0.35rem',
-              boxShadow: '0 4px 14px rgba(240, 80, 50, 0.25)',
+              gap: '0.45rem',
+              boxShadow: '0 4px 12px rgba(240, 80, 50, 0.2)',
               transition: 'all 0.15s cubic-bezier(0.16, 1, 0.3, 1)',
               transform: pressing === 'next' ? 'scale(0.96)' : 'scale(1)'
             }}
           >
-            <span style={{ fontSize: '0.625rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>NEXT SLIDE</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M9 5l7 7-7 7"/>
+            <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>NEXT SLIDE</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 9l6 6 6-6"/>
             </svg>
           </button>
-        </div>
 
-        {/* ── Footer Branding ── */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '0.5rem' }}>
-          <span style={{ fontSize: '0.65rem', color: '#475569', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>SWUDEVS PRESENTATION CONTROLLER</span>
         </div>
-
       </div>
     </div>
   );
