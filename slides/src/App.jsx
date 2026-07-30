@@ -438,7 +438,7 @@ function App() {
       )}
 
       {/* Floating Sticky Bottom Navigation Bar */}
-      <nav className={`bottom-nav ${isNavHidden || isFullscreen ? 'nav-hidden' : ''}`}>
+      <nav className={`bottom-nav ${isNavHidden ? 'nav-hidden' : ''}`}>
         <a href="../gallery/index.html" className="nav-brand" title="Getting Started With Git">
           <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -504,7 +504,7 @@ function App() {
       </nav>
 
       {/* Floating Restore Navigation Button */}
-      {isNavHidden && !isFullscreen && (
+      {isNavHidden && (
         <button 
           className="btn-restore-nav" 
           title="Show Navigation Bar" 
