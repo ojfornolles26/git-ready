@@ -54,6 +54,19 @@
       max-width: 280px;
       margin: 0 auto;
     }
+    @media (max-width: 1023px) {
+      #mobile-gate {
+        display: flex !important;
+      }
+      .floating-logo-fab,
+      .notion-cover-wrapper,
+      .notion-page-container {
+        display: none !important;
+      }
+      body {
+        overflow: hidden !important;
+      }
+    }
   </style>
   <script>
     (function() {

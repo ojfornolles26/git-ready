@@ -765,9 +765,44 @@ function PhoneRemoteView() {
         fontFamily: 'var(--font-sans)',
         boxSizing: 'border-box'
       }}>
-        <div style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}>🔒</div>
-        <div style={{ color: '#ef4444', fontWeight: 700, fontSize: '1.25rem', marginBottom: '0.5rem', fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>Access Denied</div>
-        <div style={{ color: '#64748b', fontSize: '0.85rem', textAlign: 'center', lineHeight: 1.5 }}>{statusMsg}</div>
+        {/* Minimalist WiFi-off Icon */}
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: '1.25rem' }}>
+          <line x1="1" y1="1" x2="23" y2="23"></line>
+          <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.5"></path>
+          <path d="M5 12.5a10.94 10.94 0 0 1 5.83-2.84"></path>
+          <path d="M12 20h.01"></path>
+          <path d="M8.5 16.5a5.5 5.5 0 0 1 7 0"></path>
+        </svg>
+        <div style={{ color: '#0f172a', fontWeight: 700, fontSize: '1.15rem', marginBottom: '0.5rem', fontFamily: 'var(--font-display)', letterSpacing: '-0.01em' }}>Network cannot be reached</div>
+        <div style={{ color: '#64748b', fontSize: '0.82rem', textAlign: 'center', lineHeight: 1.5, marginBottom: '2rem' }}>{statusMsg}</div>
+        
+        {/* Go Back button */}
+        <button
+          onClick={() => {
+            window.location.href = window.location.origin + window.location.pathname;
+          }}
+          style={{
+            padding: '0.5rem 1rem',
+            borderRadius: '8px',
+            border: '1px solid #cbd5e1',
+            background: '#ffffff',
+            color: '#475569',
+            fontSize: '0.75rem',
+            fontWeight: 700,
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.35rem',
+            transition: 'all 0.15s ease',
+            boxShadow: '0 1px 2px rgba(0,0,0,0.02)'
+          }}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Go Back
+        </button>
       </div>
     );
   }
@@ -806,8 +841,37 @@ function PhoneRemoteView() {
           fontWeight: 700,
           fontSize: '0.72rem',
           letterSpacing: '0.12em',
-          textTransform: 'uppercase'
+          textTransform: 'uppercase',
+          marginBottom: '2rem'
         }}>{statusMsg}</div>
+
+        {/* Go Back button */}
+        <button
+          onClick={() => {
+            window.location.href = window.location.origin + window.location.pathname;
+          }}
+          style={{
+            padding: '0.5rem 1rem',
+            borderRadius: '8px',
+            border: '1px solid #cbd5e1',
+            background: '#ffffff',
+            color: '#475569',
+            fontSize: '0.75rem',
+            fontWeight: 700,
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.35rem',
+            transition: 'all 0.15s ease',
+            boxShadow: '0 1px 2px rgba(0,0,0,0.02)'
+          }}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Go Back
+        </button>
       </div>
     );
   }
