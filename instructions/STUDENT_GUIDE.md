@@ -48,7 +48,7 @@ git switch -c student/your-github-username
     </div>
     <div class="student-meta">
       <h3>Your Full Name</h3>
-      <span class="student-role">Computer Science Student</span>
+      <span class="student-role">BSIT1-C2</span>
     </div>
   </div>
 

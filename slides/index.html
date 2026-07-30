@@ -407,7 +407,7 @@
         <span class="slide-step-badge">Hands-On Step 6 (Part 1)</span>
       </div>
       <h2 class="slide-heading">Add Your Card: Header &amp; Name</h2>
-      <p class="slide-lead">Copy the HTML card snippet from <code>README.md</code> and paste it inside <code>&lt;div class="cards-grid"&gt;</code> in <code>gallery.html</code>.</p>
+      <p class="slide-lead">Copy the HTML card snippet from <code>README.md</code> and paste it inside <code>&lt;div class="cards-grid"&gt;</code> in <code>gallery/index.html</code>.</p>
 
       <div class="code-wrapper">
         <code><span class="cmd-kw">&lt;div</span> <span class="cmd-str">class="student-card"</span> <span class="cmd-str">data-id="student-yourusername"</span>&gt;<br>
@@ -417,7 +417,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd-kw">&lt;/div&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd-kw">&lt;div</span> <span class="cmd-str">class="student-meta"</span> <span class="cmd-str">style="flex-grow: 1;"</span>&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd-kw">&lt;h3&gt;</span>Your Full Name<span class="cmd-kw">&lt;/h3&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd-kw">&lt;span</span> <span class="cmd-str">class="student-role"</span>&gt;Computer Science Student<span class="cmd-kw">&lt;/span&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd-kw">&lt;span</span> <span class="cmd-str">class="student-role"</span>&gt;BSIT1-C2<span class="cmd-kw">&lt;/span&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd-kw">&lt;/div&gt;</span><br>
 &nbsp;&nbsp;<span class="cmd-kw">&lt;/div&gt;</span></code>
       </div>
@@ -450,17 +450,17 @@
         <span class="slide-step-badge">Hands-On Step 7</span>
       </div>
       <h2 class="slide-heading">Stage Your Changes: git add</h2>
-      <p class="slide-lead">Move your modified <code>gallery.html</code> file into the Staging Area.</p>
+      <p class="slide-lead">Move your modified <code>gallery/index.html</code> file into the Staging Area.</p>
 
       <div class="code-wrapper">
-        <code><span class="cmd-kw">git</span> add gallery.html<br>
+        <code><span class="cmd-kw">git</span> add gallery/index.html<br>
 <span class="cmd-cmt"># Or stage all changed files:</span><br>
 <span class="cmd-kw">git</span> add .</code>
       </div>
 
       <div class="callout callout-success">
         <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-        <span>Running <code>git status</code> after staging will show <code>gallery.html</code> listed under <em>"Changes to be committed"</em> in green.</span>
+        <span>Running <code>git status</code> after staging will show <code>gallery/index.html</code> listed under <em>"Changes to be committed"</em> in green.</span>
       </div>
     </section>
 
@@ -487,9 +487,9 @@
 
       <div class="code-wrapper">
         <code><span class="cmd-cmt"># 1. Discard uncommitted edits in a file (revert back to last commit)</span><br>
-<span class="cmd-kw">git</span> restore gallery.html<br><br>
+<span class="cmd-kw">git</span> restore gallery/index.html<br><br>
 <span class="cmd-cmt"># 2. Unstage a staged file (move it back to working directory)</span><br>
-<span class="cmd-kw">git</span> restore --staged gallery.html</code>
+<span class="cmd-kw">git</span> restore --staged gallery/index.html</code>
       </div>
 
       <div class="callout callout-info">
@@ -564,7 +564,7 @@
 
       <div class="callout callout-success">
         <svg class="icon-bullet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-        <span>Refresh <code>gallery.html</code> in your browser to see all merged student cards render live!</span>
+        <span>Refresh <code>gallery/index.html</code> in your browser to see all merged student cards render live!</span>
       </div>
     </section>
 

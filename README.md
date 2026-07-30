@@ -32,7 +32,7 @@ Open `gallery/index.html` and paste the following snippet inside `<div class="ca
     </div>
     <div class="student-meta" style="flex-grow: 1;">
       <h3>Your Full Name</h3>
-      <span class="student-role">Computer Science Student</span>
+      <span class="student-role">BSIT1-C2</span>
     </div>
   </div>
 
@@ -55,7 +55,7 @@ Open `gallery/index.html` and paste the following snippet inside `<div class="ca
 </div>
 ```
 
-Replace `Your Full Name`, `Computer Science Student`, Bio, Tech Tags, Quote, and `your-github-username` with your own details.
+Replace `Your Full Name`, `BSIT1-C2`, Bio, Tech Tags, Quote, and `your-github-username` with your own details.
 
 ### 3. Commit, Push, and Create Pull Request
 
