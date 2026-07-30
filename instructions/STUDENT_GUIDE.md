@@ -10,7 +10,7 @@ You will:
 1. Fork this repository on GitHub to your personal account.
 2. Clone your fork to your laptop.
 3. Create a new branch named `student/your-github-username`.
-4. Copy the HTML card code snippet from `README.md` into `gallery.html`.
+4. Copy the HTML card code snippet from `README.md` into `gallery/index.html`.
 5. Replace the placeholder details (Name, Role, Bio, Tech Stack, Quote, GitHub Link) with your own information.
 6. Stage, commit, push your branch to your GitHub fork, and submit a Pull Request back to the workshop repository!
 
@@ -31,9 +31,9 @@ git switch -c student/your-github-username
 
 ---
 
-## Step 2: Add Your Profile Card to `gallery.html`
+## Step 2: Add Your Profile Card to `gallery/index.html`
 
-1. Open `gallery.html` in VS Code or your code editor.
+1. Open `gallery/index.html` in VS Code or your code editor.
 2. Locate `<div class="cards-grid" id="cards-grid">`.
 3. Paste the following HTML card code snippet inside `<div class="cards-grid">`:
 
@@ -76,7 +76,7 @@ git switch -c student/your-github-username
 ## Step 3: Commit and Push
 
 ```bash
-git add gallery.html
+git add gallery/index.html
 git commit -m "feat: add profile card for your-github-username"
 git push origin student/your-github-username
 ```

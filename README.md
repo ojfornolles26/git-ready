@@ -15,9 +15,9 @@ cd git-ready
 git checkout -b student/your-github-username
 ```
 
-### 2. Add Profile Card to gallery.html
+### 2. Add Profile Card to gallery/index.html
 
-Open `gallery.html` and paste the following snippet inside `<div class="cards-grid">`:
+Open `gallery/index.html` and paste the following snippet inside `<div class="cards-grid">`:
 
 ```html
 <div class="student-card" data-id="student-yourusername">
@@ -60,7 +60,7 @@ Replace `Your Full Name`, `Computer Science Student`, Bio, Tech Tags, Quote, and
 ### 3. Commit, Push, and Create Pull Request
 
 ```bash
-git add gallery.html
+git add gallery/index.html
 git commit -m "feat: add profile card for your-github-username"
 git push origin student/your-github-username
 ```
