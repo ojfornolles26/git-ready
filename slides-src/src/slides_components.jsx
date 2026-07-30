@@ -694,9 +694,20 @@ function Slide27() {
 
 function Slide28() {
   return (
-    <section className="slide-card" id="slide-28" style={{"textAlign": "center", "justifyContent": "center"}}>
-      <h1 className="slide-heading congrats-heading" style={{"marginBottom": "0.75rem", "textAlign": "center"}}>
-        🎉 Congratulations!
+    <section className="slide-card" id="slide-28" style={{"textAlign": "center", "justifyContent": "center", "alignItems": "center", "display": "flex", "flexDirection": "column"}}>
+      <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="congrats-icon" style={{"marginBottom": "1.25rem", "color": "#f05032"}}>
+        <path d="M4 20l3-9 6 6-9 3z" fill="#f05032" stroke="#f05032" opacity="0.9" />
+        <path d="M12 12l4-4" stroke="#f59e0b" />
+        <path d="M15 15l5-2" stroke="#3b82f6" />
+        <path d="M9 9l2-5" stroke="#10b981" />
+        <path d="M19 4l1 1M20 5l-1-1" stroke="#ec4899" />
+        <circle cx="18" cy="7" r="1" fill="#ef4444" stroke="none" />
+        <circle cx="11" cy="4" r="1.2" fill="#3b82f6" stroke="none" />
+        <circle cx="16" cy="11" r="1" fill="#10b981" stroke="none" />
+        <circle cx="13" cy="13" r="1.2" fill="#eab308" stroke="none" />
+      </svg>
+      <h1 className="slide-heading congrats-heading" style={{"marginBottom": "0", "textAlign": "center"}}>
+        Congratulations!
       </h1>
     </section>
   );
