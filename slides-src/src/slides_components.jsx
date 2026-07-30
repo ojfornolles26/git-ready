@@ -429,7 +429,7 @@ function Slide9() {
           </svg>
         </span>
         <h1 className="slide-heading" style={{ margin: 0, fontSize: "2.8rem" }}>
-          Live Hands-On Activity Starts Now<span className="playful-jumping-glyph" style={{ color: "var(--git-orange)", marginLeft: "0.25rem", fontSize: "1.2em", transform: "translateY(0.04em)" }}>!</span>
+          Live Hands-On Activity Starts Now<span className="playful-jumping-glyph" style={{ color: "var(--git-orange)", marginLeft: "0.35rem", fontSize: "1.1em", transform: "translateY(0.04em)", fontFamily: "var(--font-mono)", fontWeight: 700 }}>&lt;/&gt;</span>
         </h1>
       </div>
       <p className="slide-lead" style={{ margin: "0 auto", maxWidth: "600px", textAlign: "center" }}>
