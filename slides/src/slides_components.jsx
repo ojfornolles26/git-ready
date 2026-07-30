@@ -422,12 +422,7 @@ function Slide8() {
 function Slide9() {
   return (
     <section className="slide-card qa-card" id="slide-9">
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.25rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-        <span style={{ color: 'var(--primary)', display: 'flex', alignItems: 'center' }}>
-          <svg className="slide-cover-git-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ animationName: 'playfulJump' }}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-          </svg>
-        </span>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
         <h1 className="qa-title" style={{ margin: 0, fontSize: 'clamp(2.5rem, 4.2vw, 4rem)' }}>
           Live Hands-On Activity Starts Now<span className="playful-jumping-glyph" style={{ color: "var(--git-orange)", marginLeft: "0.35rem", fontSize: "0.95em", transform: "translateY(-0.04em)", fontFamily: "var(--font-mono)", fontWeight: 700 }}>&lt;/&gt;</span>
         </h1>
