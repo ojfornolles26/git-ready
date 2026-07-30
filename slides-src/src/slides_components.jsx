@@ -88,7 +88,7 @@ function Slide4() {
       <h2 className="slide-heading">Git vs. GitHub: Key Differences</h2>
       <p className="slide-lead">Understanding how the command-line engine and the cloud platform complement each other.</p>
 
-      <div className="content-grid" style={{"marginTop": "1rem"}}>
+      <div className="content-grid" style={{"marginTop": "1rem", "overflowY": "auto", "maxHeight": "100%"}}>
         <div style={{"background": "#fff5f2", "border": "1px solid #ffccbe", "borderRadius": "var(--radius-md)", "padding": "1.25rem"}}>
           <h3 style={{"color": "#c53030", "fontSize": "1.15rem", "fontWeight": "700", "marginBottom": "0.5rem", "display": "flex", "alignItems": "center", "gap": "0.5rem"}}>
             <svg width="22" height="22" viewBox="0 0 128 128" fill="none"><path d="M124.6 57.6L70.4 3.4c-4.5-4.5-11.8-4.5-16.3 0L39.8 17.7l20.6 20.6c3.2-1.1 6.9-.3 9.4 2.2 2.5 2.5 3.3 6.2 2.2 9.4l19.8 19.8c3.2-1.1 6.9-.3 9.4 2.2 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-2.6-2.6-3.3-6.4-2.2-9.6L67.6 56.6v23.2c.8.4 1.6 1 2.3 1.7 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-3.6-3.6-3.6-9.4 0-13 .7-.7 1.3-1.3 2.1-1.7V55.6c-.8-.4-1.4-1-2.1-1.7-2.6-2.6-3.3-6.4-2.2-9.6L34.1 23.5 3.4 54.2c-4.5 4.5-4.5 11.8 0 16.3l54.2 54.2c4.5 4.5 11.8 4.5 16.3 0l50.7-50.7c4.5-4.5 4.5-11.8 0-16.4z" fill="#F05032"/></svg>
@@ -179,7 +179,7 @@ function Slide6() {
       <h2 className="slide-heading">The 3 Local Git Areas</h2>
       <p className="slide-lead">Understand how files move through Git's internal architecture on your machine.</p>
 
-      <div style={{"overflowX": "auto", "marginTop": "1.25rem"}}>
+      <div style={{"overflowX": "auto", "overflowY": "auto", "marginTop": "1.25rem", "maxHeight": "100%"}}>
         <table style={{"width": "100%", "borderCollapse": "separate", "borderSpacing": "0", "border": "1px solid var(--border-color)", "borderRadius": "var(--radius-md)", "overflow": "hidden", "background": "#ffffff", "fontSize": "0.9rem"}}>
           <thead>
             <tr style={{"background": "#f8fafc", "borderBottom": "1px solid var(--border-color)", "textAlign": "left"}}>
@@ -695,26 +695,7 @@ function Slide27() {
 function Slide28() {
   return (
     <section className="slide-card" id="slide-28" style={{"textAlign": "center", "justifyContent": "center", "alignItems": "center", "display": "flex", "flexDirection": "column"}}>
-      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="congrats-icon" style={{"marginBottom": "1.25rem", "color": "#f05032"}}>
-        {/* Symmetrical Confetti / Celebration Star */}
-        <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#f05032" strokeWidth="2.5" />
-        <path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="#f59e0b" strokeWidth="2" />
-        
-        {/* Symmetrical confetti sparkles */}
-        <path d="M12 8l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="#f05032" stroke="#f05032" opacity="0.9" />
-        
-        {/* Little dots falling symmetrically */}
-        <circle cx="6" cy="10" r="1.2" fill="#3b82f6" stroke="none" />
-        <circle cx="18" cy="10" r="1.2" fill="#3b82f6" stroke="none" />
-        
-        <circle cx="9" cy="6" r="1" fill="#ec4899" stroke="none" />
-        <circle cx="15" cy="6" r="1" fill="#ec4899" stroke="none" />
-        
-        <circle cx="7" cy="15" r="1.5" fill="#10b981" stroke="none" />
-        <circle cx="17" cy="15" r="1.5" fill="#10b981" stroke="none" />
-        
-        <circle cx="12" cy="17" r="1.2" fill="#eab308" stroke="none" />
-      </svg>
+      <span style={{"fontSize": "4rem", "lineHeight": "1", "marginBottom": "1.25rem", "display": "block"}}>🎉</span>
       <h1 className="slide-heading congrats-heading" style={{"marginBottom": "0", "textAlign": "center"}}>
         Congratulations!
       </h1>

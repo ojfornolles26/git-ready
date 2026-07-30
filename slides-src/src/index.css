@@ -743,39 +743,38 @@ body {
 /* 4. Mobile Phones (320px - 768px) */
 @media (max-width: 768px) {
   html, body {
-    height: auto !important;
-    min-height: 100dvh;
+    height: 100dvh !important;
     width: 100vw;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
+    overflow: hidden !important;
   }
 
   body {
     padding-top: 0.5rem;
-    padding-bottom: 5.5rem;
+    padding-bottom: 4.8rem;
   }
 
   .slides-container {
     width: 94vw;
     max-width: 100%;
-    height: auto !important;
-    min-height: calc(100dvh - 125px);
-    max-height: none !important;
+    height: calc(100dvh - 125px);
+    max-height: calc(100dvh - 125px);
     position: relative;
     z-index: 1;
     margin-bottom: 0.75rem;
   }
 
   .slide-card {
-    position: relative !important;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto !important;
-    min-height: calc(100dvh - 125px) !important;
+    height: 100%;
     padding: 3.5rem 1.15rem 1.5rem 1.15rem !important;
     display: none;
     flex-direction: column;
     justify-content: flex-start !important;
-    overflow-y: visible !important;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     border-radius: var(--radius-lg);
     word-break: break-word;
     box-shadow: none !important;
@@ -876,6 +875,7 @@ body {
     grid-template-columns: 1fr;
     gap: 0.75rem;
     margin: 0.5rem 0;
+    overflow: visible;
   }
 
   .callout {
