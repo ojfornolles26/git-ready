@@ -223,7 +223,13 @@ function App() {
   // Fullscreen state syncing
   useEffect(() => {
     const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
+      const active = !!document.fullscreenElement;
+      setIsFullscreen(active);
+      if (active) {
+        setIsNavHidden(true);
+      } else {
+        setIsNavHidden(false);
+      }
     };
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     return () => {
