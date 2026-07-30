@@ -4,7 +4,7 @@ Welcome! This guide outlines the exact step-by-step workflow and schedule for ho
 
 ---
 
-## ⏰ Official Workshop Schedule (10:00 AM – 12:30 PM)
+## Official Workshop Schedule (10:00 AM – 12:30 PM)
 
 | Time Slot | Phase | Focus / Activity |
 | :--- | :--- | :--- |
@@ -17,40 +17,58 @@ Welcome! This guide outlines the exact step-by-step workflow and schedule for ho
 
 ---
 
-## 🎯 Step-by-Step Workshop Flow
+## Step-by-Step Workshop Flow
 
-### Step 1: Present the Slides (`slides.html`) — 20 Mins
-1. Open `slides.html` in your web browser and press `F` for Fullscreen projector view.
-2. Walk students through the 18 slides covering:
-   - **Slide 1-5**: Why Git & GitHub exist (Version Control vs. `v1_final_final.zip`).
-   - **Slide 6-11**: Core Git concepts (Repository, Working Tree, Staging Area, Commits, Branches).
-   - **Slide 12-16**: Essential terminal commands (`clone`, `checkout -b`, `add`, `commit`, `push`, `pull`).
-   - **Slide 17-18**: Workshop goal introduction — contributing your card to the **Student Attendance Gallery** (`index.html`).
+### Step 1: Present the Slides (`index.html`) — 40 Mins
+1. Open `index.html` in your web browser and press `F` for Fullscreen projector view.
+2. Walk students through the 28 slides organized into clear phases:
+
+   * **PART 1: Conceptual Foundations (Slides 1–8)** — *Lecture / Discussion Mode (No Terminal Typing)*
+     - **Slide 1–3**: Introduction to Git (Local Engine) and GitHub (Cloud Platform).
+     - **Slide 4**: **Git vs. GitHub Comparison Matrix** (Explaining Local vs Cloud, Offline vs Online, Terminal vs Web UI).
+     - **Slide 5–7**: Why Version Control matters, the 3 Local Git Areas (table breakdown), and `git init` vs `git clone`.
+     - **Slide 8**: Complete Collaboration Workflow Overview (Fork -> Clone -> Branch -> Edit -> Commit -> Push -> PR -> Pull).
+
+   * **TRANSITION CUE (Slide 9)** — *Live Hands-On Activity Starts Now!*
+     - Tell the room: *"Theory is done! Open your Terminal / Command Prompt and VS Code."*
+
+   * **PART 2: Live Hands-On Activity (Slides 10–23)** — *Interactive Step-by-Step Typing*
+     - **Slide 10–14**: Environment setup (`git --version`), Fork & Clone (`git clone`), `git status`, `git diff` / `git log`, and feature branching (`git switch -c`).
+     - **Slide 15–18**: Editing `gallery.html`, staging (`git add`), committing (`git commit`), and safety net (`git restore`).
+     - **Slide 19–23**: Pushing (`git push`), opening Pull Requests, live review showcase, and syncing classmate profile cards (`git pull`).
+
+   * **PART 3: Wrap-Up & Conclusion (Slides 24–28)**
+     - **Slide 24–27**: Merge conflicts, core best practices, Q&A, and summary.
+     - **Slide 28**: **Standalone Celebration Slide** — *"You're Officially Git Ready!"* with a direct CTA button to open the live **Student Attendance Gallery** on the projector screen!
 
 > [!TIP]
-> Emphasize to students that typing terminal commands manually builds muscle memory. The slides intentionally block clipboard copying for this reason!
+> Emphasize to students that typing terminal commands manually builds muscle memory. The slides intentionally block clipboard copying for code snippets to enforce hands-on practice!
 
 ---
 
-### Step 2: Live Facilitator Demonstration — 10 Mins
+### Step 2: Live Facilitator Demonstration — 20 Mins
 Before letting students type on their own, share your projector screen and demonstrate the exact sequence live:
 
 1. **Show the Wall**: Open `gallery.html` on your screen — point out that there is currently **1 card** (yours as the Workshop Lead).
-2. **Demonstrate Forking & Terminal Commands**:
+2. **Demonstrate Repository Setup & Terminal Commands**:
    - Open repository on GitHub and click **Fork** (top right).
    ```bash
    # 1. Clone YOUR fork
    git clone https://github.com/your-username/git-ready.git
    cd git-ready
 
-   # 2. Create a feature branch
-   git checkout -b student/your-name
+   # 2. Create a feature branch using modern git switch (or git checkout -b)
+   git switch -c student/your-name
    ```
-3. **Show File Editing**: Open `gallery.html` in VS Code, paste HTML snippet inside `<div class="cards-grid">`, change values, and save.
-4. **Stage, Commit, & Push**:
+3. **Show File Editing & Inspection**:
+   - Open `gallery.html` in VS Code, paste HTML snippet inside `<div class="cards-grid">`, change values, and save.
+   - Run `git status` and `git diff` to show live line changes on the projector screen!
+4. **Stage, Commit, & Safety Net (`git restore`)**:
+   - Show how `git restore` can undo a typo, then stage and commit:
    ```bash
    git add gallery.html
    git commit -m "feat: add my profile card"
+   git log --oneline
    git push origin student/your-name
    ```
 5. **Open Pull Request**: Navigate to your fork on GitHub and click **"Compare & pull request"** back to the main repository.
@@ -77,7 +95,7 @@ Before letting students type on their own, share your projector screen and demon
 
 ---
 
-## ⚡ Quick Facilitator Cheat Sheet
+## Quick Facilitator Cheat Sheet
 
 | Situation | Solution |
 | :--- | :--- |

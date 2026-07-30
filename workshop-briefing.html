@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started With Git Objectives</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #f05032;
+      --text-dark: #0f172a;
+      --text-muted: #475569;
+      --bg-light: #f8fafc;
+      --border-color: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #f1f5f9;
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-color);
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .doc-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .doc-title span {
+      color: var(--primary-color);
+    }
+
+    .btn-pdf {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      border: none;
+      padding: 0.65rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      font-family: inherit;
+    }
+
+    .btn-pdf:hover {
+      background-color: #d93d21;
+      transform: translateY(-1px);
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-top: 1.75rem;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-left: 4px solid var(--primary-color);
+      padding-left: 0.65rem;
+    }
+
+    .summary-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-box strong {
+      color: var(--text-dark);
+    }
+
+    /* Table Styling */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1rem 0 2rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border-color);
+    }
+
+    th {
+      background-color: #f8fafc;
+      color: var(--text-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+
+    .time-col {
+      width: 25%;
+      font-weight: 600;
+      color: var(--text-dark);
+      white-space: nowrap;
+    }
+
+    .phase-col {
+      width: 25%;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .desc-col {
+      width: 50%;
+      color: var(--text-muted);
+    }
+
+    /* List styling */
+    .talking-points {
+      list-style-type: none;
+      margin-top: 0.5rem;
+    }
+
+    .talking-points li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.925rem;
+      color: var(--text-muted);
+    }
+
+    .talking-points li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    .talking-points li strong {
+      color: var(--text-dark);
+    }
+
+    /* Print / PDF Styles */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 1.2cm;
+      }
+      body {
+        background-color: #ffffff;
+        padding: 0;
+        margin: 0;
+        font-size: 10pt;
+      }
+      .container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        max-width: 100%;
+        margin: 0;
+      }
+      .btn-pdf {
+        display: none !important;
+      }
+      .header-actions {
+        border-bottom: 2px solid #000;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+      }
+      .summary-box {
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
+        font-size: 9pt;
+      }
+      .table-responsive {
+        margin: 0.75rem 0;
+      }
+      th, td {
+        padding: 0.5rem 0.75rem;
+        font-size: 9pt;
+      }
+      th {
+        background-color: #f1f5f9 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header class="header-actions">
+      <div class="doc-title">
+        Getting Started with Git: <span>Objectives</span>
+      </div>
+      <button class="btn-pdf" onclick="window.print()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        Download as PDF
+      </button>
+    </header>
+
+    <div class="summary-box">
+      <p style="margin-bottom: 0.75rem; font-weight: 600; color: var(--text-dark); font-size: 0.95rem;">
+        Workshop Objectives
+      </p>
+      <p style="margin-bottom: 0.75rem; color: var(--text-muted); font-size: 0.9rem;">
+        This hands-on workshop is designed to equip students with industry-standard version control skills. By the end of this session, participants will be able to:
+      </p>
+      <ul style="padding-left: 1.2rem; margin: 0; color: var(--text-muted); font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem;">
+        <li><strong>Master essential command-line tools</strong> to track, stage, commit, and sync code modifications (<code>git status</code>, <code>git add</code>, <code>git commit</code>, <code>git push</code>, <code>git pull</code>).</li>
+        <li><strong>Understand Git local architecture</strong> and file transitions (Working Directory, Staging Area, and Local Repository).</li>
+        <li><strong>Navigate collaborative workflows</strong> on GitHub by managing branches and opening Pull Requests (PRs).</li>
+        <li><strong>Publish a live contribution</strong> to a shared repository using HTML/CSS.</li>
+      </ul>
+    </div>
+
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Time Slot</th>
+            <th>Phase</th>
+            <th>Description & Student Activity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="time-col">10:00 AM – 10:15 AM</td>
+            <td class="phase-col">Welcome & Setup</td>
+            <td class="desc-col">Participant check-in, Wi-Fi connection, software verification.</td>
+          </tr>
+          <tr>
+            <td class="time-col">10:15 AM – 10:55 AM</td>
+            <td class="phase-col">Interactive Concepts</td>
+            <td class="desc-col">Facilitator presents visual slides covering Version Control, Git vs. GitHub, 3 local areas, and repository initialization (<code>git init</code> vs <code>git clone</code>).</td>
+          </tr>
+          <tr>
+            <td class="time-col">10:55 AM – 11:15 AM</td>
+            <td class="phase-col">Live Demo</td>
+            <td class="desc-col">Facilitator demonstrates the complete workflow live on screen (Fork ➔ Clone ➔ Branch ➔ Edit ➔ Commit ➔ Push ➔ Pull Request).</td>
+          </tr>
+          <tr>
+            <td class="time-col">11:15 AM – 12:00 PM</td>
+            <td class="phase-col">Student Hands-On</td>
+            <td class="desc-col">Students work on laptops: create a branch (<code>git switch -c</code>), customize an HTML card, stage/commit changes, and push to GitHub (<code>git push</code>).</td>
+          </tr>
+          <tr>
+            <td class="time-col">12:00 PM – 12:20 PM</td>
+            <td class="phase-col">Live PR Merge Showcase</td>
+            <td class="desc-col">Students submit Pull Requests. Facilitator merges PRs live on projector screen, rendering cards in real-time on the Student Gallery wall.</td>
+          </tr>
+          <tr>
+            <td class="time-col">12:20 PM – 12:30 PM</td>
+            <td class="phase-col">Wrap-Up & Q&A</td>
+            <td class="desc-col">Best practices, resolving merge conflicts, open Q&A, and group photo.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -554,30 +554,51 @@ body {
   color: #ffffff !important;
 }
 
-/* Clean Callout Cards - High Legibility Glassmorphism */
+/* Clean Callout Cards - High Legibility & Minimalist Accent Border */
 .callout {
-  padding: 1.25rem 1.5rem;
-  border-radius: var(--radius-lg);
-  border: 1px solid #cbd5e1;
-  background: rgba(255, 255, 255, 0.95);
-  font-size: 1.05rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid var(--git-orange);
+  font-size: 0.95rem;
   font-weight: 500;
-  color: #0f172a;
-  margin: 1.25rem 0;
+  color: var(--text-primary);
+  margin: 1.15rem 0;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.85rem;
   line-height: 1.55;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.callout .icon-bullet {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--git-orange);
 }
 
 .callout-info {
-  border-color: #cbd5e1;
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  border-left-color: var(--git-orange);
   color: #0f172a;
 }
 
+.callout-info .icon-bullet {
+  color: var(--git-orange);
+}
+
 .callout-success {
-  border-color: #a7f3d0;
+  background: #f0fdf4;
+  border-color: #dcfce7;
+  border-left-color: #10b981;
   color: #065f46;
+}
+
+.callout-success .icon-bullet {
+  color: #10b981;
 }
 
 .btn-link {
