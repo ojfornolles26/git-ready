@@ -900,36 +900,43 @@ function PhoneRemoteView() {
 function MobileBlockGate() {
   return (
     <div style={{
-      minHeight: '100vh',
-      background: 'linear-gradient(160deg, #0f172a 0%, #1e1b4b 100%)',
+      minHeight: '100svh',
+      background: '#ffffff',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '2.5rem 2rem',
-      fontFamily: 'sans-serif',
-      textAlign: 'center'
+      padding: '2rem 1.5rem',
+      fontFamily: 'var(--font-sans)',
+      textAlign: 'center',
+      boxSizing: 'border-box',
+      width: '100%'
     }}>
       {/* Git logo */}
-      <svg width="64" height="64" viewBox="0 0 128 128" fill="none" style={{ marginBottom: '1.5rem' }}>
+      <svg width="48" height="48" viewBox="0 0 128 128" fill="none" style={{ marginBottom: '1.75rem', flexShrink: 0 }}>
         <path d="M124.6 57.6L70.4 3.4c-4.5-4.5-11.8-4.5-16.3 0L39.8 17.7l20.6 20.6c3.2-1.1 6.9-.3 9.4 2.2 2.5 2.5 3.3 6.2 2.2 9.4l19.8 19.8c3.2-1.1 6.9-.3 9.4 2.2 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-2.6-2.6-3.3-6.4-2.2-9.6L67.6 56.6v23.2c.8.4 1.6 1 2.3 1.7 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-3.6-3.6-3.6-9.4 0-13 .7-.7 1.3-1.3 2.1-1.7V55.6c-.8-.4-1.4-1-2.1-1.7-2.6-2.6-3.3-6.4-2.2-9.6L34.1 23.5 3.4 54.2c-4.5 4.5-4.5 11.8 0 16.3l54.2 54.2c4.5 4.5 11.8 4.5 16.3 0l50.7-50.7c4.5-4.5 4.5-11.8 0-16.4z" fill="#F05032"/>
       </svg>
-      {/* Monitor icon */}
-      <div style={{ marginBottom: '1.5rem' }}>
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="3" width="20" height="14" rx="2"/>
-          <path d="M8 21h8M12 17v4"/>
-        </svg>
-      </div>
-      <h1 style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.5rem', marginBottom: '0.75rem', lineHeight: 1.3 }}>
+
+      <h1 style={{
+        color: '#0f172a',
+        fontWeight: 800,
+        fontSize: 'clamp(1.4rem, 6vw, 1.75rem)',
+        marginBottom: '0.75rem',
+        lineHeight: 1.25,
+        fontFamily: 'var(--font-display)'
+      }}>
         Desktop Only
       </h1>
-      <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: 1.6, maxWidth: '300px' }}>
-        This presentation is designed to be viewed on a laptop or desktop computer. Please open it on a bigger screen.
+
+      <p style={{
+        color: '#64748b',
+        fontSize: 'clamp(0.9rem, 4vw, 1rem)',
+        lineHeight: 1.65,
+        maxWidth: '280px',
+        margin: '0 auto'
+      }}>
+        Please open this on a laptop or desktop to view the presentation.
       </p>
-      <div style={{ marginTop: '2rem', padding: '0.5rem 1.25rem', borderRadius: '99px', background: 'rgba(240,80,50,0.12)', border: '1px solid rgba(240,80,50,0.25)', color: '#F05032', fontSize: '0.82rem', fontWeight: 700 }}>
-        Getting Started With Git — Workshop Slides
-      </div>
     </div>
   );
 }
