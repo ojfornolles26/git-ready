@@ -35,6 +35,96 @@ const tocOptions = [
 function App() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isNavHidden, setIsNavHidden] = useState(false);
+
+  const [isRemoteView, setIsRemoteView] = useState(window.location.hash.startsWith('#remote'));
+  const [peerId, setPeerId] = useState(null);
+  const [peerConnected, setPeerConnected] = useState(false);
+  const [showRemoteModal, setShowRemoteModal] = useState(false);
+  const peerRef = useRef(null);
+  const connRef = useRef(null);
+
+  // Sync hash changes (for reload/navigate back and forth)
+  useEffect(() => {
+    const handleHashChange = () => {
+      setIsRemoteView(window.location.hash.startsWith('#remote'));
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Initialize PeerJS on Laptop Presentation screen
+  useEffect(() => {
+    if (isRemoteView) return;
+
+    let peer;
+    try {
+      peer = new window.Peer();
+      peerRef.current = peer;
+
+      peer.on('open', (id) => {
+        setPeerId(id);
+      });
+
+      peer.on('connection', (conn) => {
+        if (connRef.current) {
+          connRef.current.close();
+        }
+        connRef.current = conn;
+
+        conn.on('open', () => {
+          setPeerConnected(true);
+          conn.send({
+            type: 'SYNC',
+            index: currentSlideIndex,
+            title: tocOptions[currentSlideIndex].label
+          });
+        });
+
+        conn.on('data', (data) => {
+          if (data === 'NEXT') {
+            nextSlide();
+          } else if (data === 'PREV') {
+            prevSlide();
+          } else if (typeof data === 'string' && data.startsWith('JUMP:')) {
+            const idx = parseInt(data.split(':')[1], 10);
+            if (!isNaN(idx) && idx >= 0 && idx < slides.length) {
+              setCurrentSlideIndex(idx);
+            }
+          }
+        });
+
+        conn.on('close', () => {
+          setPeerConnected(false);
+        });
+
+        conn.on('error', () => {
+          setPeerConnected(false);
+        });
+      });
+    } catch (err) {
+      console.warn("PeerJS initialization failed:", err);
+    }
+
+    return () => {
+      if (peer) peer.destroy();
+    };
+  }, [isRemoteView]);
+
+  // Sync active slide index back to the connected Phone
+  useEffect(() => {
+    if (connRef.current && peerConnected && !isRemoteView) {
+      try {
+        connRef.current.send({
+          type: 'SYNC',
+          index: currentSlideIndex,
+          title: tocOptions[currentSlideIndex].label
+        });
+      } catch (err) {
+        console.warn("Failed to send slide sync update:", err);
+      }
+    }
+  }, [currentSlideIndex, peerConnected, isRemoteView]);
 
   const touchStartX = useRef(0);
   const touchStartY = useRef(0);
@@ -266,6 +356,10 @@ function App() {
     return `${num} / ${total}`;
   };
 
+  if (isRemoteView) {
+    return <PhoneRemoteView />;
+  }
+
   return (
     <>
       <main 
@@ -300,7 +394,7 @@ function App() {
       </div>
 
       {/* Floating Sticky Bottom Navigation Bar */}
-      <nav className="bottom-nav">
+      <nav className={`bottom-nav ${isNavHidden ? 'nav-hidden' : ''}`}>
         <a href="../gallery/index.html" className="nav-brand" title="Getting Started With Git">
           <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -336,14 +430,355 @@ function App() {
           
           <button 
             className="btn-nav-step" 
+            title="Presentation Mobile Remote Control"
+            onClick={() => setShowRemoteModal(true)}
+          >
+            <svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
+              <rect x="6" y="2" width="12" height="20" rx="2" ry="2" />
+              <line x1="12" y1="18" x2="12" y2="18.01" strokeWidth="3.5" strokeLinecap="round" />
+            </svg>
+          </button>
+
+          <button 
+            className="btn-nav-step" 
             title={isFullscreen ? "Exit Fullscreen (F)" : "Toggle Fullscreen Presentation Mode (F)"}
             onClick={toggleFullscreen}
           >
             {renderFullscreenIcon()}
           </button>
+
+          <button 
+            className="btn-nav-step" 
+            title="Minimize/Hide Navigation Bar"
+            onClick={() => setIsNavHidden(true)}
+          >
+            <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
         </div>
       </nav>
+
+      {/* Floating Restore Navigation Button */}
+      {isNavHidden && (
+        <button 
+          className="btn-restore-nav" 
+          title="Show Navigation Bar" 
+          onClick={() => setIsNavHidden(false)}
+          style={{
+            position: 'fixed',
+            bottom: '1rem',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 1001,
+            background: 'rgba(255, 255, 255, 0.95)',
+            border: '1px solid var(--border-color)',
+            boxShadow: 'var(--shadow-floating)',
+            borderRadius: '50%',
+            width: '36px',
+            height: '36px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            color: 'var(--text-primary)',
+            transition: 'background 0.2s ease'
+          }}
+        >
+          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+          </svg>
+        </button>
+      )}
+
+      {showRemoteModal && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'rgba(15, 23, 42, 0.75)',
+          backdropFilter: 'blur(8px)',
+          zIndex: 2000,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <div style={{
+            background: '#ffffff',
+            borderRadius: '24px',
+            padding: '2.5rem',
+            maxWidth: '420px',
+            width: '90%',
+            textAlign: 'center',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+            border: '1px solid var(--border-color)',
+            position: 'relative'
+          }}>
+            <button 
+              onClick={() => setShowRemoteModal(false)}
+              style={{
+                position: 'absolute',
+                top: '1.25rem',
+                right: '1.25rem',
+                background: 'transparent',
+                border: 'none',
+                fontSize: '1.75rem',
+                cursor: 'pointer',
+                color: 'var(--text-muted)',
+                lineHeight: 1
+              }}
+            >
+              &times;
+            </button>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}>
+              Presenter Mobile Remote
+            </h3>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.5' }}>
+              Scan QR code to connect mobile remote.
+            </p>
+
+            {/* QR Code Container */}
+            <div style={{
+              background: '#f8fafc',
+              border: '1px solid var(--border-color)',
+              padding: '1.5rem',
+              borderRadius: '16px',
+              display: 'inline-block',
+              marginBottom: '1.5rem'
+            }}>
+              {peerId ? (
+                <img 
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(
+                    window.location.origin + window.location.pathname + '#remote?peer=' + peerId
+                  )}`} 
+                  alt="Remote QR Code" 
+                  style={{ display: 'block', width: '200px', height: '200px' }}
+                />
+              ) : (
+                <div style={{ width: '200px', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontWeight: 600 }}>
+                  Generating connection key...
+                </div>
+              )}
+            </div>
+
+            {/* Connection Status Badge */}
+            <div>
+              <div style={{
+                padding: '0.5rem 1.25rem',
+                borderRadius: '99px',
+                fontSize: '0.85rem',
+                fontWeight: 700,
+                display: 'inline-block',
+                background: peerConnected ? 'rgba(16, 185, 129, 0.12)' : '#f1f5f9',
+                color: peerConnected ? 'var(--success)' : '#475569',
+                border: `1px solid ${peerConnected ? 'var(--success)' : '#cbd5e1'}`
+              }}>
+                {peerConnected ? 'Connected' : 'Waiting for phone...'}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
+  );
+}
+
+function PhoneRemoteView() {
+  const [targetPeerId, setTargetPeerId] = useState(null);
+  const [peerConnected, setPeerConnected] = useState(false);
+  const [connectionStatus, setConnectionStatus] = useState('Initializing...');
+  const [currentSlideInfo, setCurrentSlideInfo] = useState({ index: 0, title: 'Welcome & Introduction' });
+  const connRef = useRef(null);
+  const peerRef = useRef(null);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    const match = hash.match(/peer=([^&?]+)/);
+    const peerIdFromUrl = match ? match[1] : null;
+    setTargetPeerId(peerIdFromUrl);
+
+    if (!peerIdFromUrl) {
+      setConnectionStatus('No laptop Peer ID found in URL. Please scan the QR code again.');
+      return;
+    }
+
+    setConnectionStatus('Connecting to PeerJS Network...');
+    const peer = new window.Peer();
+    peerRef.current = peer;
+
+    peer.on('open', () => {
+      setConnectionStatus(`Connecting to laptop Presentation...`);
+      const conn = peer.connect(peerIdFromUrl);
+      connRef.current = conn;
+
+      conn.on('open', () => {
+        setPeerConnected(true);
+        setConnectionStatus('Connected to Laptop!');
+      });
+
+      conn.on('data', (data) => {
+        if (data && data.type === 'SYNC') {
+          setCurrentSlideInfo({ index: data.index, title: data.title });
+        }
+      });
+
+      conn.on('close', () => {
+        setPeerConnected(false);
+        setConnectionStatus('Connection lost. Reconnecting...');
+      });
+
+      conn.on('error', (err) => {
+        console.error(err);
+        setPeerConnected(false);
+        setConnectionStatus('Connection error. Please try again.');
+      });
+    });
+
+    peer.on('error', (err) => {
+      console.error(err);
+      setConnectionStatus('Failed to connect to signaling network.');
+    });
+
+    return () => {
+      if (peer) peer.destroy();
+    };
+  }, []);
+
+  const sendCommand = (cmd) => {
+    if (connRef.current && peerConnected) {
+      connRef.current.send(cmd);
+    }
+  };
+
+  const handleSelectJump = (e) => {
+    const val = e.target.value;
+    const index = parseInt(val, 10);
+    if (!isNaN(index)) {
+      sendCommand(`JUMP:${index}`);
+    }
+  };
+
+  return (
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh',
+      background: '#0f172a',
+      color: '#ffffff',
+      padding: '2rem 1.5rem',
+      fontFamily: 'var(--font-sans)',
+      textAlign: 'center',
+      justifyContent: 'space-between'
+    }}>
+      {/* Header */}
+      <div>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.75rem', marginBottom: '0.25rem', color: '#ff6b4a' }}>
+          Git Slides Remote
+        </h2>
+        <div style={{
+          fontSize: '0.85rem',
+          padding: '0.35rem 1rem',
+          borderRadius: '99px',
+          background: peerConnected ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)',
+          color: peerConnected ? '#10b981' : '#f87171',
+          display: 'inline-block',
+          fontWeight: 600,
+          border: `1px solid ${peerConnected ? '#10b981' : '#ef4444'}`,
+          marginBottom: '1.5rem'
+        }}>
+          {connectionStatus}
+        </div>
+      </div>
+
+      {/* Screen Status Info */}
+      <div style={{
+        background: 'rgba(30, 41, 59, 0.6)',
+        border: '1px solid rgba(255, 255, 255, 0.08)',
+        borderRadius: '16px',
+        padding: '1.5rem 1.25rem',
+        margin: '1.5rem 0',
+        flexGrow: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
+      }}>
+        <div style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', color: '#94a3b8', marginBottom: '0.5rem', fontWeight: 700 }}>
+          Current Slide ({currentSlideInfo.index + 1} of {tocOptions.length})
+        </div>
+        <div style={{ fontSize: '1.35rem', fontWeight: 700, lineHeight: '1.4', color: '#ffffff' }}>
+          {currentSlideInfo.title}
+        </div>
+        
+        {/* Dropdown Jump list */}
+        {peerConnected && (
+          <select 
+            onChange={handleSelectJump}
+            value={currentSlideInfo.index}
+            style={{
+              marginTop: '1.5rem',
+              padding: '0.75rem 1rem',
+              borderRadius: '8px',
+              border: '1px solid rgba(255,255,255,0.15)',
+              background: '#1e293b',
+              color: '#ffffff',
+              fontSize: '0.95rem',
+              fontWeight: 600,
+              width: '100%',
+              outline: 'none'
+            }}
+          >
+            {tocOptions.map((opt, idx) => (
+              <option key={opt.value} value={idx}>
+                {opt.label}
+              </option>
+            ))}
+          </select>
+        )}
+      </div>
+
+      {/* Big Action Buttons */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
+        <button 
+          onClick={() => sendCommand('NEXT')}
+          disabled={!peerConnected}
+          style={{
+            padding: '1.5rem',
+            borderRadius: '16px',
+            background: peerConnected ? 'var(--primary)' : '#1e293b',
+            color: '#ffffff',
+            border: 'none',
+            fontSize: '1.5rem',
+            fontWeight: 800,
+            cursor: 'pointer',
+            opacity: peerConnected ? 1 : 0.5,
+            boxShadow: peerConnected ? '0 10px 15px -3px rgba(79, 70, 229, 0.4)' : 'none',
+            transition: 'all 0.15s ease'
+          }}
+        >
+          Next Slide ➔
+        </button>
+        <button 
+          onClick={() => sendCommand('PREV')}
+          disabled={!peerConnected}
+          style={{
+            padding: '1.25rem',
+            borderRadius: '16px',
+            background: peerConnected ? 'rgba(255, 255, 255, 0.08)' : '#1e293b',
+            color: peerConnected ? '#ffffff' : '#94a3b8',
+            border: peerConnected ? '1px solid rgba(255, 255, 255, 0.15)' : 'none',
+            fontSize: '1.15rem',
+            fontWeight: 700,
+            cursor: 'pointer',
+            opacity: peerConnected ? 1 : 0.5,
+            transition: 'all 0.15s ease'
+          }}
+        >
+          Previous Slide
+        </button>
+      </div>
+    </div>
   );
 }
 
