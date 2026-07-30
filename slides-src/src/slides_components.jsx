@@ -430,7 +430,7 @@ function Slide15() {
 &nbsp;&nbsp;&nbsp;&nbsp;<span className="cmd-kw">&lt;div</span> <span className="cmd-str">className="avatar-circle"</span>&gt;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="cmd-cmt">&lt;!-- &lt;img src="https://github.com/your-github-username.png" className="avatar-img"&gt; --&gt;</span><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<span className="cmd-kw">&lt;/div&gt;</span><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<span className="cmd-kw">&lt;div</span> <span className="cmd-str">className="student-meta"</span> <span className="cmd-str">style={{"flexGrow": "1"}}</span>&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span className="cmd-kw">&lt;div</span> <span className="cmd-str">className="student-meta"</span> <span className="cmd-str">style="flex-grow: 1"</span>&gt;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="cmd-kw">&lt;h3&gt;</span>Your Full Name<span className="cmd-kw">&lt;/h3&gt;</span><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="cmd-kw">&lt;span</span> <span className="cmd-str">className="student-role"</span>&gt;BSIT1-C2<span className="cmd-kw">&lt;/span&gt;</span><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<span className="cmd-kw">&lt;/div&gt;</span><br />
