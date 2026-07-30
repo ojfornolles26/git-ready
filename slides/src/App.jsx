@@ -54,6 +54,7 @@ function App() {
   const [presenterPin, setPresenterPin] = useState('');
   const [pinInput, setPinInput] = useState('');
   const [pinConfirmed, setPinConfirmed] = useState(false);
+  const [qrLoaded, setQrLoaded] = useState(false);
   const peerRef = useRef(null);
   const connRef = useRef(null);
 
@@ -543,7 +544,7 @@ function App() {
             boxShadow: '0 25px 50px -12px rgba(0,0,0,0.3)',
             border: '1px solid var(--border-color)', position: 'relative'
           }}>
-            <button onClick={() => { setShowRemoteModal(false); setPinConfirmed(false); setPinInput(''); }}
+            <button onClick={() => { setShowRemoteModal(false); setPinConfirmed(false); setPinInput(''); setQrLoaded(false); }}
               style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', background: 'transparent', border: 'none', fontSize: '1.75rem', cursor: 'pointer', color: 'var(--text-muted)', lineHeight: 1 }}>
               &times;
             </button>
@@ -591,21 +592,55 @@ function App() {
                 {/* QR Code */}
                 <div style={{
                   background: '#f8fafc', border: '1px solid var(--border-color)',
-                  padding: '1.25rem', borderRadius: '16px', display: 'inline-block', marginBottom: '1.25rem'
+                  padding: '1.25rem', borderRadius: '16px', display: 'inline-block', marginBottom: '1.25rem',
+                  position: 'relative'
                 }}>
                   {peerId ? (
-                    <img
-                      src={`https://api.qrserver.com/v1/create-qr-code/?size=190x190&data=${encodeURIComponent(
-                        window.location.origin + window.location.pathname + '#remote?peer=' + peerId + '&pin=' + presenterPin
-                      )}`}
-                      alt="Remote QR Code"
-                      style={{ display: 'block', width: '190px', height: '190px' }}
-                    />
+                    <div style={{ position: 'relative', width: '190px', height: '190px' }}>
+                      <img
+                        src={`https://api.qrserver.com/v1/create-qr-code/?size=190x190&data=${encodeURIComponent(
+                          window.location.origin + window.location.pathname + '#remote?peer=' + peerId + '&pin=' + presenterPin
+                        )}`}
+                        alt="Remote QR Code"
+                        onLoad={() => setQrLoaded(true)}
+                        style={{
+                          display: 'block',
+                          width: '190px',
+                          height: '190px',
+                          opacity: qrLoaded ? 1 : 0,
+                          transition: 'opacity 0.2s ease'
+                        }}
+                      />
+                      {!qrLoaded && (
+                        <div style={{
+                          position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+                          display: 'flex', alignItems: 'center', justifyContent: 'center'
+                        }}>
+                          <div className="qr-spinner" style={{
+                            width: '32px', height: '32px',
+                            border: '3px solid #f1f5f9', borderTopColor: '#F05032',
+                            borderRadius: '50%', animation: 'qr-spin 0.8s linear infinite'
+                          }} />
+                        </div>
+                      )}
+                    </div>
                   ) : (
-                    <div style={{ width: '190px', height: '190px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontWeight: 600 }}>
-                      Generating...
+                    <div style={{
+                      width: '190px', height: '190px',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center'
+                    }}>
+                      <div className="qr-spinner" style={{
+                        width: '32px', height: '32px',
+                        border: '3px solid #f1f5f9', borderTopColor: '#F05032',
+                        borderRadius: '50%', animation: 'qr-spin 0.8s linear infinite'
+                      }} />
                     </div>
                   )}
+                  <style>{`
+                    @keyframes qr-spin {
+                      to { transform: rotate(360deg); }
+                    }
+                  `}</style>
                 </div>
                 {/* PIN reminder */}
                 <div style={{ marginBottom: '1rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
@@ -621,7 +656,7 @@ function App() {
                   {peerConnected ? 'Connected' : 'Waiting for phone...'}
                 </div>
                 <div style={{ marginTop: '1rem' }}>
-                  <button onClick={() => { setPinConfirmed(false); setPinInput(''); setPresenterPin(''); setPeerConnected(false); }}
+                  <button onClick={() => { setPinConfirmed(false); setPinInput(''); setPresenterPin(''); setPeerConnected(false); setQrLoaded(false); }}
                     style={{ background: 'none', border: 'none', color: 'var(--text-muted)', fontSize: '0.82rem', cursor: 'pointer', textDecoration: 'underline' }}>
                     Change PIN
                   </button>
