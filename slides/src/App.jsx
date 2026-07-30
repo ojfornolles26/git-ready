@@ -111,6 +111,14 @@ function App() {
             nextSlide();
           } else if (data === 'PREV') {
             prevSlide();
+          } else if (data === 'FULLSCREEN') {
+            if (document.documentElement.requestFullscreen) {
+              document.documentElement.requestFullscreen().catch(() => {});
+            }
+          } else if (data === 'EXIT_FULLSCREEN') {
+            if (document.exitFullscreen) {
+              document.exitFullscreen().catch(() => {});
+            }
           } else if (typeof data === 'string' && data.startsWith('JUMP:')) {
             const idx = parseInt(data.split(':')[1], 10);
             if (!isNaN(idx) && idx >= 0 && idx < slides.length) {
@@ -779,13 +787,87 @@ function PhoneRemoteView() {
             SLIDE {currentSlideInfo.index + 1} / {totalSlides}
           </div>
           {/* Slide title */}
-          <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#e2e8f0', lineHeight: 1.4, minHeight: '2.5em' }}>
+          <div style={{
+            fontSize: '0.85rem',
+            fontWeight: 700,
+            color: '#e2e8f0',
+            lineHeight: 1.35,
+            height: '2.7em',
+            overflow: 'hidden',
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            wordBreak: 'break-word'
+          }}>
             {currentSlideInfo.title}
           </div>
           {/* Progress bar */}
           <div style={{ marginTop: '0.75rem', height: '3px', background: '#1e293b', borderRadius: '99px', overflow: 'hidden' }}>
             <div style={{ height: '100%', width: `${progress}%`, background: 'linear-gradient(90deg, #F05032, #ff8c6b)', borderRadius: '99px', transition: 'width 0.4s ease' }} />
           </div>
+        </div>
+
+        {/* ── Screen Mode Controls (Fullscreen & Minimize) ── */}
+        <div style={{ display: 'flex', gap: '0.65rem', width: '100%' }}>
+          <button
+            onClick={() => {
+              if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(() => {});
+              }
+              sendCommand('FULLSCREEN');
+            }}
+            style={{
+              flex: 1,
+              padding: '0.55rem 0.75rem',
+              borderRadius: '12px',
+              border: 'none',
+              background: 'linear-gradient(180deg, #2d3748 0%, #1a202c 100%)',
+              color: '#cbd5e1',
+              fontSize: '0.72rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.35rem',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)'
+            }}
+          >
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+            </svg>
+            Fullscreen
+          </button>
+
+          <button
+            onClick={() => {
+              if (document.fullscreenElement) {
+                document.exitFullscreen().catch(() => {});
+              }
+              sendCommand('EXIT_FULLSCREEN');
+            }}
+            style={{
+              flex: 1,
+              padding: '0.55rem 0.75rem',
+              borderRadius: '12px',
+              border: 'none',
+              background: 'linear-gradient(180deg, #2d3748 0%, #1a202c 100%)',
+              color: '#cbd5e1',
+              fontSize: '0.72rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.35rem',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)'
+            }}
+          >
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 14h6v6M20 10h-6V4M14 10l7-7M10 14l-7 7"/>
+            </svg>
+            Minimize
+          </button>
         </div>
 
         {/* ── Slide Picker ── */}
