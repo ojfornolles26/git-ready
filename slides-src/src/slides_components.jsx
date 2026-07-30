@@ -485,6 +485,30 @@ function Slide11() {
       <h2 className="slide-heading">Fork &amp; Clone Repository</h2>
       <p className="slide-lead">Fork the workshop repository on GitHub, then download your personal fork onto your laptop.</p>
 
+      {/* Repository URL Banner */}
+      <div style={{
+        background: '#f8fafc',
+        border: '1px solid var(--border-color)',
+        borderRadius: 'var(--radius-lg)',
+        padding: '1rem 1.25rem',
+        marginBottom: '1.25rem',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.75rem',
+        width: '100%',
+        boxSizing: 'border-box'
+      }}>
+        <span style={{ fontSize: '1.4rem', lineHeight: 1 }}>🍴</span>
+        <div>
+          <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: '0.05em', marginBottom: '0.15rem' }}>
+            Repository to Fork
+          </div>
+          <a href="https://github.com/ojfornolles26/git-ready" target="_blank" rel="noreferrer" style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--primary)', textDecoration: 'none', wordBreak: 'break-all' }}>
+            github.com/ojfornolles26/git-ready
+          </a>
+        </div>
+      </div>
+
       <div className="mac-window">
         <div className="mac-window-header">
           <div className="mac-dots">
