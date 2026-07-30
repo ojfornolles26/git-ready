@@ -380,7 +380,7 @@ function Slide8() {
         <span className="slide-step-badge">Concept • Complete Workflow</span>
       </div>
       <h2 className="slide-heading">The Full Git &amp; GitHub Workflow Overview</h2>
-      <p className="slide-lead">The 6-step lifecycle of how developers collaborate on code using Git &amp; GitHub.</p>
+      <p className="slide-lead">The 4-step lifecycle of how developers collaborate on code using Git &amp; GitHub.</p>
 
       <div className="stepper-timeline">
         <div className="stepper-card">
