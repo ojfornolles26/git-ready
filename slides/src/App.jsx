@@ -111,15 +111,6 @@ function App() {
             nextSlide();
           } else if (data === 'PREV') {
             prevSlide();
-          } else if (data === 'FULLSCREEN') {
-            setIsNavHidden(true);
-            setIsFullscreen(true);
-            if (document.documentElement.requestFullscreen) {
-              document.documentElement.requestFullscreen().catch(() => {});
-            }
-          } else if (data === 'EXIT_FULLSCREEN') {
-            setIsNavHidden(false);
-            setIsFullscreen(false);
           } else if (typeof data === 'string' && data.startsWith('JUMP:')) {
             const idx = parseInt(data.split(':')[1], 10);
             if (!isNaN(idx) && idx >= 0 && idx < slides.length) {
@@ -825,7 +816,6 @@ function PhoneRemoteView() {
               if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(() => {});
               }
-              sendCommand('FULLSCREEN');
             }}
             style={{
               flex: 1,
@@ -855,7 +845,6 @@ function PhoneRemoteView() {
               if (document.fullscreenElement) {
                 document.exitFullscreen().catch(() => {});
               }
-              sendCommand('EXIT_FULLSCREEN');
             }}
             style={{
               flex: 1,
