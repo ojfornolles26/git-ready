@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import slides from './slides_components';
 
+// Detect mobile/tablet devices — allow #remote hash through on phone
+function isMobileDevice() {
+  const ua = navigator.userAgent || navigator.vendor || '';
+  return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile|tablet/i.test(ua)
+    || (navigator.maxTouchPoints > 1 && window.screen.width < 1024);
+}
+
 const tocOptions = [
   { value: "slide-1", label: "1. Welcome & Introduction" },
   { value: "slide-2", label: "2. Concept: What is Git?" },
@@ -37,21 +44,21 @@ function App() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isNavHidden, setIsNavHidden] = useState(false);
 
-  const [isRemoteView, setIsRemoteView] = useState(window.location.hash.startsWith('#remote'));
+  const [isRemoteView] = useState(window.location.hash.startsWith('#remote'));
+  const [isMobile] = useState(isMobileDevice());
+
   const [peerId, setPeerId] = useState(null);
   const [peerConnected, setPeerConnected] = useState(false);
   const [showRemoteModal, setShowRemoteModal] = useState(false);
+  // PIN state: presenterPin is set by the presenter; pinInput is the live field value
+  const [presenterPin, setPresenterPin] = useState('');
+  const [pinInput, setPinInput] = useState('');
+  const [pinConfirmed, setPinConfirmed] = useState(false);
   const peerRef = useRef(null);
   const connRef = useRef(null);
 
-  // Sync hash changes (for reload/navigate back and forth)
-  useEffect(() => {
-    const handleHashChange = () => {
-      setIsRemoteView(window.location.hash.startsWith('#remote'));
-    };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+  // Block mobile on non-remote slides view
+  // (isRemoteView and isMobile handled in render gate below)
 
   // Initialize PeerJS on Laptop Presentation screen
   useEffect(() => {
@@ -71,17 +78,35 @@ function App() {
           connRef.current.close();
         }
         connRef.current = conn;
+        let authed = false;
 
         conn.on('open', () => {
-          setPeerConnected(true);
-          conn.send({
-            type: 'SYNC',
-            index: currentSlideIndex,
-            title: tocOptions[currentSlideIndex].label
-          });
+          // Do NOT mark connected yet — wait for AUTH message with PIN
         });
 
         conn.on('data', (data) => {
+          // First message must be AUTH with matching PIN
+          if (!authed) {
+            if (data && data.type === 'AUTH') {
+              // Read the CURRENT presenterPin via ref so the effect closure sees it
+              const currentPin = presenterPinRef.current;
+              if (currentPin && data.pin === currentPin) {
+                authed = true;
+                setPeerConnected(true);
+                conn.send({ type: 'AUTH_OK' });
+                conn.send({
+                  type: 'SYNC',
+                  index: currentSlideIndex,
+                  title: tocOptions[currentSlideIndex].label
+                });
+              } else {
+                conn.send({ type: 'AUTH_FAIL' });
+                conn.close();
+              }
+            }
+            return;
+          }
+
           if (data === 'NEXT') {
             nextSlide();
           } else if (data === 'PREV') {
@@ -110,6 +135,10 @@ function App() {
       if (peer) peer.destroy();
     };
   }, [isRemoteView]);
+
+  // Keep a ref of presenterPin so the peer connection handler always sees current value
+  const presenterPinRef = useRef('');
+  useEffect(() => { presenterPinRef.current = presenterPin; }, [presenterPin]);
 
   // Sync active slide index back to the connected Phone
   useEffect(() => {
@@ -356,6 +385,11 @@ function App() {
     return `${num} / ${total}`;
   };
 
+  // Mobile gate: block phones from the slide deck (but NOT the #remote view)
+  if (isMobile && !isRemoteView) {
+    return <MobileBlockGate />;
+  }
+
   if (isRemoteView) {
     return <PhoneRemoteView />;
   }
@@ -493,91 +527,101 @@ function App() {
 
       {showRemoteModal && (
         <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          background: 'rgba(15, 23, 42, 0.75)',
-          backdropFilter: 'blur(8px)',
-          zIndex: 2000,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
+          position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+          background: 'rgba(15, 23, 42, 0.8)', backdropFilter: 'blur(10px)',
+          zIndex: 2000, display: 'flex', alignItems: 'center', justifyContent: 'center'
         }}>
           <div style={{
-            background: '#ffffff',
-            borderRadius: '24px',
-            padding: '2.5rem',
-            maxWidth: '420px',
-            width: '90%',
-            textAlign: 'center',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-            border: '1px solid var(--border-color)',
-            position: 'relative'
+            background: '#ffffff', borderRadius: '24px', padding: '2.5rem',
+            maxWidth: '440px', width: '90%', textAlign: 'center',
+            boxShadow: '0 25px 50px -12px rgba(0,0,0,0.3)',
+            border: '1px solid var(--border-color)', position: 'relative'
           }}>
-            <button 
-              onClick={() => setShowRemoteModal(false)}
-              style={{
-                position: 'absolute',
-                top: '1.25rem',
-                right: '1.25rem',
-                background: 'transparent',
-                border: 'none',
-                fontSize: '1.75rem',
-                cursor: 'pointer',
-                color: 'var(--text-muted)',
-                lineHeight: 1
-              }}
-            >
+            <button onClick={() => { setShowRemoteModal(false); setPinConfirmed(false); setPinInput(''); }}
+              style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', background: 'transparent', border: 'none', fontSize: '1.75rem', cursor: 'pointer', color: 'var(--text-muted)', lineHeight: 1 }}>
               &times;
             </button>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.4rem', color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}>
               Presenter Mobile Remote
             </h3>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.5' }}>
-              Scan QR code to connect mobile remote.
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+              {pinConfirmed ? 'Scan QR code to connect mobile remote.' : 'Set a PIN to secure your remote session.'}
             </p>
 
-            {/* QR Code Container */}
-            <div style={{
-              background: '#f8fafc',
-              border: '1px solid var(--border-color)',
-              padding: '1.5rem',
-              borderRadius: '16px',
-              display: 'inline-block',
-              marginBottom: '1.5rem'
-            }}>
-              {peerId ? (
-                <img 
-                  src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(
-                    window.location.origin + window.location.pathname + '#remote?peer=' + peerId
-                  )}`} 
-                  alt="Remote QR Code" 
-                  style={{ display: 'block', width: '200px', height: '200px' }}
+            {/* Step 1: PIN Setup */}
+            {!pinConfirmed ? (
+              <div>
+                <input
+                  type="password"
+                  inputMode="numeric"
+                  maxLength={6}
+                  placeholder="Enter 4–6 digit PIN"
+                  value={pinInput}
+                  onChange={(e) => setPinInput(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                  onKeyDown={(e) => { if (e.key === 'Enter' && pinInput.length >= 4) { setPresenterPin(pinInput); setPinConfirmed(true); } }}
+                  style={{
+                    width: '100%', padding: '0.85rem 1rem', borderRadius: '12px',
+                    border: '2px solid var(--border-color)', fontSize: '1.5rem',
+                    fontWeight: 800, textAlign: 'center', letterSpacing: '0.5rem',
+                    color: 'var(--text-primary)', outline: 'none', marginBottom: '1rem',
+                    boxSizing: 'border-box'
+                  }}
                 />
-              ) : (
-                <div style={{ width: '200px', height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontWeight: 600 }}>
-                  Generating connection key...
-                </div>
-              )}
-            </div>
-
-            {/* Connection Status Badge */}
-            <div>
-              <div style={{
-                padding: '0.5rem 1.25rem',
-                borderRadius: '99px',
-                fontSize: '0.85rem',
-                fontWeight: 700,
-                display: 'inline-block',
-                background: peerConnected ? 'rgba(16, 185, 129, 0.12)' : '#f1f5f9',
-                color: peerConnected ? 'var(--success)' : '#475569',
-                border: `1px solid ${peerConnected ? 'var(--success)' : '#cbd5e1'}`
-              }}>
-                {peerConnected ? 'Connected' : 'Waiting for phone...'}
+                <button
+                  disabled={pinInput.length < 4}
+                  onClick={() => { setPresenterPin(pinInput); setPinConfirmed(true); }}
+                  style={{
+                    width: '100%', padding: '0.9rem', borderRadius: '12px',
+                    background: pinInput.length >= 4 ? 'var(--primary)' : '#e2e8f0',
+                    color: pinInput.length >= 4 ? '#fff' : '#94a3b8',
+                    border: 'none', fontWeight: 700, fontSize: '1rem', cursor: pinInput.length >= 4 ? 'pointer' : 'not-allowed'
+                  }}
+                >
+                  Generate Remote QR
+                </button>
               </div>
-            </div>
+            ) : (
+              <div>
+                {/* QR Code */}
+                <div style={{
+                  background: '#f8fafc', border: '1px solid var(--border-color)',
+                  padding: '1.25rem', borderRadius: '16px', display: 'inline-block', marginBottom: '1.25rem'
+                }}>
+                  {peerId ? (
+                    <img
+                      src={`https://api.qrserver.com/v1/create-qr-code/?size=190x190&data=${encodeURIComponent(
+                        window.location.origin + window.location.pathname + '#remote?peer=' + peerId + '&pin=' + presenterPin
+                      )}`}
+                      alt="Remote QR Code"
+                      style={{ display: 'block', width: '190px', height: '190px' }}
+                    />
+                  ) : (
+                    <div style={{ width: '190px', height: '190px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', fontWeight: 600 }}>
+                      Generating...
+                    </div>
+                  )}
+                </div>
+                {/* PIN reminder */}
+                <div style={{ marginBottom: '1rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                  Session PIN: <strong style={{ letterSpacing: '0.2rem', color: 'var(--text-primary)' }}>{presenterPin.split('').map(() => '•').join('')}</strong>
+                </div>
+                {/* Status badge */}
+                <div style={{
+                  padding: '0.45rem 1.1rem', borderRadius: '99px', fontSize: '0.82rem', fontWeight: 700, display: 'inline-block',
+                  background: peerConnected ? 'rgba(16,185,129,0.12)' : '#f1f5f9',
+                  color: peerConnected ? 'var(--success)' : '#475569',
+                  border: `1px solid ${peerConnected ? 'var(--success)' : '#cbd5e1'}`
+                }}>
+                  {peerConnected ? 'Connected' : 'Waiting for phone...'}
+                </div>
+                <div style={{ marginTop: '1rem' }}>
+                  <button onClick={() => { setPinConfirmed(false); setPinInput(''); setPresenterPin(''); setPeerConnected(false); }}
+                    style={{ background: 'none', border: 'none', color: 'var(--text-muted)', fontSize: '0.82rem', cursor: 'pointer', textDecoration: 'underline' }}>
+                    Change PIN
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -586,197 +630,305 @@ function App() {
 }
 
 function PhoneRemoteView() {
-  const [targetPeerId, setTargetPeerId] = useState(null);
   const [peerConnected, setPeerConnected] = useState(false);
-  const [connectionStatus, setConnectionStatus] = useState('Initializing...');
-  const [currentSlideInfo, setCurrentSlideInfo] = useState({ index: 0, title: 'Welcome & Introduction' });
+  const [authState, setAuthState] = useState('connecting'); // 'connecting' | 'ok' | 'fail'
+  const [statusMsg, setStatusMsg] = useState('Connecting...');
+  const [currentSlideInfo, setCurrentSlideInfo] = useState({ index: 0, title: '...' });
+  const [pressing, setPressing] = useState(null); // 'next' | 'prev'
   const connRef = useRef(null);
   const peerRef = useRef(null);
 
   useEffect(() => {
     const hash = window.location.hash;
-    const match = hash.match(/peer=([^&?]+)/);
-    const peerIdFromUrl = match ? match[1] : null;
-    setTargetPeerId(peerIdFromUrl);
+    const peerMatch = hash.match(/peer=([^&?#]+)/);
+    const pinMatch = hash.match(/pin=([^&?#]+)/);
+    const peerIdFromUrl = peerMatch ? peerMatch[1] : null;
+    const pinFromUrl = pinMatch ? pinMatch[1] : null;
 
-    if (!peerIdFromUrl) {
-      setConnectionStatus('No laptop Peer ID found in URL. Please scan the QR code again.');
+    if (!peerIdFromUrl || !pinFromUrl) {
+      setAuthState('fail');
+      setStatusMsg('Invalid remote link. Please scan the QR code again.');
       return;
     }
 
-    setConnectionStatus('Connecting to PeerJS Network...');
+    setStatusMsg('Connecting to presentation...');
     const peer = new window.Peer();
     peerRef.current = peer;
 
     peer.on('open', () => {
-      setConnectionStatus(`Connecting to laptop Presentation...`);
       const conn = peer.connect(peerIdFromUrl);
       connRef.current = conn;
 
       conn.on('open', () => {
-        setPeerConnected(true);
-        setConnectionStatus('Connected to Laptop!');
+        // Send PIN auth handshake
+        conn.send({ type: 'AUTH', pin: pinFromUrl });
+        setStatusMsg('Verifying PIN...');
       });
 
       conn.on('data', (data) => {
-        if (data && data.type === 'SYNC') {
+        if (data && data.type === 'AUTH_OK') {
+          setPeerConnected(true);
+          setAuthState('ok');
+          setStatusMsg('Connected');
+        } else if (data && data.type === 'AUTH_FAIL') {
+          setAuthState('fail');
+          setStatusMsg('Incorrect PIN. Access denied.');
+          conn.close();
+        } else if (data && data.type === 'SYNC') {
           setCurrentSlideInfo({ index: data.index, title: data.title });
         }
       });
 
       conn.on('close', () => {
         setPeerConnected(false);
-        setConnectionStatus('Connection lost. Reconnecting...');
+        if (authState === 'ok') setStatusMsg('Disconnected.');
       });
 
-      conn.on('error', (err) => {
-        console.error(err);
+      conn.on('error', () => {
         setPeerConnected(false);
-        setConnectionStatus('Connection error. Please try again.');
+        setStatusMsg('Connection error.');
       });
     });
 
-    peer.on('error', (err) => {
-      console.error(err);
-      setConnectionStatus('Failed to connect to signaling network.');
+    peer.on('error', () => {
+      setAuthState('fail');
+      setStatusMsg('Unable to reach the network.');
     });
 
-    return () => {
-      if (peer) peer.destroy();
-    };
+    return () => { if (peer) peer.destroy(); };
   }, []);
 
   const sendCommand = (cmd) => {
-    if (connRef.current && peerConnected) {
-      connRef.current.send(cmd);
-    }
+    if (connRef.current && peerConnected) connRef.current.send(cmd);
   };
 
   const handleSelectJump = (e) => {
-    const val = e.target.value;
-    const index = parseInt(val, 10);
-    if (!isNaN(index)) {
-      sendCommand(`JUMP:${index}`);
-    }
+    const idx = parseInt(e.target.value, 10);
+    if (!isNaN(idx)) sendCommand(`JUMP:${idx}`);
   };
 
+  const totalSlides = tocOptions.length;
+  const progress = totalSlides > 0 ? ((currentSlideInfo.index + 1) / totalSlides) * 100 : 0;
+
+  // ── Auth fail screen ──────────────────────────────────────────────
+  if (authState === 'fail') {
+    return (
+      <div style={{ minHeight: '100vh', background: '#0f172a', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem', fontFamily: 'sans-serif' }}>
+        <div style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>🔒</div>
+        <div style={{ color: '#f87171', fontWeight: 800, fontSize: '1.4rem', marginBottom: '0.5rem' }}>Access Denied</div>
+        <div style={{ color: '#94a3b8', fontSize: '0.95rem', textAlign: 'center' }}>{statusMsg}</div>
+      </div>
+    );
+  }
+
+  // ── Connecting screen ─────────────────────────────────────────────
+  if (!peerConnected) {
+    return (
+      <div style={{ minHeight: '100vh', background: '#0f172a', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem', fontFamily: 'sans-serif' }}>
+        <div style={{ width: '48px', height: '48px', border: '4px solid #334155', borderTopColor: '#F05032', borderRadius: '50%', animation: 'spin 0.9s linear infinite', marginBottom: '1.5rem' }} />
+        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        <div style={{ color: '#94a3b8', fontWeight: 600, fontSize: '1rem' }}>{statusMsg}</div>
+      </div>
+    );
+  }
+
+  // ── Physical Remote UI ────────────────────────────────────────────
   return (
     <div style={{
-      display: 'flex',
-      flexDirection: 'column',
       minHeight: '100vh',
-      background: '#0f172a',
-      color: '#ffffff',
-      padding: '2rem 1.5rem',
-      fontFamily: 'var(--font-sans)',
-      textAlign: 'center',
-      justifyContent: 'space-between'
+      background: 'linear-gradient(160deg, #0f172a 0%, #1e1b4b 100%)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '1.5rem 1rem',
+      fontFamily: 'var(--font-sans)'
     }}>
-      {/* Header */}
-      <div>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.75rem', marginBottom: '0.25rem', color: '#ff6b4a' }}>
-          Git Slides Remote
-        </h2>
-        <div style={{
-          fontSize: '0.85rem',
-          padding: '0.35rem 1rem',
-          borderRadius: '99px',
-          background: peerConnected ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)',
-          color: peerConnected ? '#10b981' : '#f87171',
-          display: 'inline-block',
-          fontWeight: 600,
-          border: `1px solid ${peerConnected ? '#10b981' : '#ef4444'}`,
-          marginBottom: '1.5rem'
-        }}>
-          {connectionStatus}
-        </div>
-      </div>
-
-      {/* Screen Status Info */}
+      {/* Remote Body */}
       <div style={{
-        background: 'rgba(30, 41, 59, 0.6)',
-        border: '1px solid rgba(255, 255, 255, 0.08)',
-        borderRadius: '16px',
-        padding: '1.5rem 1.25rem',
-        margin: '1.5rem 0',
-        flexGrow: 1,
+        width: '100%',
+        maxWidth: '320px',
+        background: 'linear-gradient(180deg, #1e293b 0%, #0f172a 100%)',
+        borderRadius: '48px',
+        padding: '2rem 1.75rem 2.5rem',
+        boxShadow: '0 30px 60px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.07), 0 0 0 1px rgba(255,255,255,0.05)',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center'
+        alignItems: 'center',
+        gap: '1.5rem'
       }}>
-        <div style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', color: '#94a3b8', marginBottom: '0.5rem', fontWeight: 700 }}>
-          Current Slide ({currentSlideInfo.index + 1} of {tocOptions.length})
+
+        {/* ── Top notch area ── */}
+        <div style={{ width: '50px', height: '5px', background: '#334155', borderRadius: '99px', marginBottom: '0.25rem' }} />
+
+        {/* ── Display Screen ── */}
+        <div style={{
+          width: '100%',
+          background: '#0a0f1e',
+          border: '2px solid #1e293b',
+          borderRadius: '20px',
+          padding: '1rem 1.25rem',
+          boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04)'
+        }}>
+          {/* Screen glow header */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
+            <span style={{ fontSize: '0.65rem', fontWeight: 700, color: '#F05032', textTransform: 'uppercase', letterSpacing: '0.08em' }}>GIT REMOTE</span>
+            <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 6px #10b981' }} />
+          </div>
+          {/* Slide counter */}
+          <div style={{ fontSize: '0.65rem', color: '#475569', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.3rem' }}>
+            SLIDE {currentSlideInfo.index + 1} / {totalSlides}
+          </div>
+          {/* Slide title */}
+          <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#e2e8f0', lineHeight: 1.4, minHeight: '2.5em' }}>
+            {currentSlideInfo.title}
+          </div>
+          {/* Progress bar */}
+          <div style={{ marginTop: '0.75rem', height: '3px', background: '#1e293b', borderRadius: '99px', overflow: 'hidden' }}>
+            <div style={{ height: '100%', width: `${progress}%`, background: 'linear-gradient(90deg, #F05032, #ff8c6b)', borderRadius: '99px', transition: 'width 0.4s ease' }} />
+          </div>
         </div>
-        <div style={{ fontSize: '1.35rem', fontWeight: 700, lineHeight: '1.4', color: '#ffffff' }}>
-          {currentSlideInfo.title}
-        </div>
-        
-        {/* Dropdown Jump list */}
-        {peerConnected && (
-          <select 
-            onChange={handleSelectJump}
-            value={currentSlideInfo.index}
+
+        {/* ── Slide Picker ── */}
+        <select
+          onChange={handleSelectJump}
+          value={currentSlideInfo.index}
+          style={{
+            width: '100%', padding: '0.65rem 1rem', borderRadius: '12px',
+            border: '1px solid #334155', background: '#1e293b', color: '#94a3b8',
+            fontSize: '0.82rem', fontWeight: 600, outline: 'none', cursor: 'pointer'
+          }}
+        >
+          {tocOptions.map((opt, idx) => (
+            <option key={opt.value} value={idx}>{opt.label}</option>
+          ))}
+        </select>
+
+        {/* ── D-Pad Navigation Area ── */}
+        <div style={{ position: 'relative', width: '180px', height: '180px' }}>
+          {/* D-pad center circle */}
+          <div style={{
+            position: 'absolute', top: '50%', left: '50%',
+            transform: 'translate(-50%,-50%)',
+            width: '60px', height: '60px', borderRadius: '50%',
+            background: '#1e293b',
+            border: '1px solid #334155',
+            boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.5)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            zIndex: 2
+          }}>
+            <svg width="20" height="20" viewBox="0 0 128 128" fill="#F05032">
+              <path d="M124.6 57.6L70.4 3.4c-4.5-4.5-11.8-4.5-16.3 0L39.8 17.7l20.6 20.6c3.2-1.1 6.9-.3 9.4 2.2 2.5 2.5 3.3 6.2 2.2 9.4l19.8 19.8c3.2-1.1 6.9-.3 9.4 2.2 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-2.6-2.6-3.3-6.4-2.2-9.6L67.6 56.6v23.2c.8.4 1.6 1 2.3 1.7 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-3.6-3.6-3.6-9.4 0-13 .7-.7 1.3-1.3 2.1-1.7V55.6c-.8-.4-1.4-1-2.1-1.7-2.6-2.6-3.3-6.4-2.2-9.6L34.1 23.5 3.4 54.2c-4.5 4.5-4.5 11.8 0 16.3l54.2 54.2c4.5 4.5 11.8 4.5 16.3 0l50.7-50.7c4.5-4.5 4.5-11.8 0-16.4z"/>
+            </svg>
+          </div>
+
+          {/* UP / PREV */}
+          <button
+            onPointerDown={() => setPressing('prev')}
+            onPointerUp={() => setPressing(null)}
+            onPointerLeave={() => setPressing(null)}
+            onClick={() => sendCommand('PREV')}
             style={{
-              marginTop: '1.5rem',
-              padding: '0.75rem 1rem',
-              borderRadius: '8px',
-              border: '1px solid rgba(255,255,255,0.15)',
-              background: '#1e293b',
-              color: '#ffffff',
-              fontSize: '0.95rem',
-              fontWeight: 600,
-              width: '100%',
-              outline: 'none'
+              position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
+              width: '60px', height: '68px', borderRadius: '16px 16px 4px 4px',
+              background: pressing === 'prev' ? '#F05032' : 'linear-gradient(180deg, #293548 0%, #1e293b 100%)',
+              border: 'none',
+              boxShadow: pressing === 'prev' ? 'inset 0 3px 6px rgba(0,0,0,0.4)' : '0 4px 0 #0d1526, inset 0 1px 0 rgba(255,255,255,0.08)',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '2px',
+              cursor: 'pointer', transition: 'all 0.1s ease', transform: `translateX(-50%) translateY(${pressing === 'prev' ? '4px' : '0px'})`,
+              color: pressing === 'prev' ? '#fff' : '#94a3b8'
             }}
           >
-            {tocOptions.map((opt, idx) => (
-              <option key={opt.value} value={idx}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
-        )}
-      </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="M18 15l-6-6-6 6"/>
+            </svg>
+            <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase' }}>PREV</span>
+          </button>
 
-      {/* Big Action Buttons */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%' }}>
-        <button 
-          onClick={() => sendCommand('NEXT')}
-          disabled={!peerConnected}
-          style={{
-            padding: '1.5rem',
-            borderRadius: '16px',
-            background: peerConnected ? 'var(--primary)' : '#1e293b',
-            color: '#ffffff',
-            border: 'none',
-            fontSize: '1.5rem',
-            fontWeight: 800,
-            cursor: 'pointer',
-            opacity: peerConnected ? 1 : 0.5,
-            boxShadow: peerConnected ? '0 10px 15px -3px rgba(79, 70, 229, 0.4)' : 'none',
-            transition: 'all 0.15s ease'
-          }}
-        >
-          Next Slide ➔
-        </button>
-        <button 
-          onClick={() => sendCommand('PREV')}
-          disabled={!peerConnected}
-          style={{
-            padding: '1.25rem',
-            borderRadius: '16px',
-            background: peerConnected ? 'rgba(255, 255, 255, 0.08)' : '#1e293b',
-            color: peerConnected ? '#ffffff' : '#94a3b8',
-            border: peerConnected ? '1px solid rgba(255, 255, 255, 0.15)' : 'none',
-            fontSize: '1.15rem',
-            fontWeight: 700,
-            cursor: 'pointer',
-            opacity: peerConnected ? 1 : 0.5,
-            transition: 'all 0.15s ease'
-          }}
-        >
-          Previous Slide
-        </button>
+          {/* DOWN / NEXT */}
+          <button
+            onPointerDown={() => setPressing('next')}
+            onPointerUp={() => setPressing(null)}
+            onPointerLeave={() => setPressing(null)}
+            onClick={() => sendCommand('NEXT')}
+            style={{
+              position: 'absolute', bottom: 0, left: '50%',
+              width: '60px', height: '68px', borderRadius: '4px 4px 16px 16px',
+              background: pressing === 'next' ? '#F05032' : 'linear-gradient(180deg, #293548 0%, #1e293b 100%)',
+              border: 'none',
+              boxShadow: pressing === 'next' ? 'inset 0 3px 6px rgba(0,0,0,0.4)' : '0 4px 0 #0d1526, inset 0 1px 0 rgba(255,255,255,0.08)',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '2px',
+              cursor: 'pointer', transition: 'all 0.1s ease', transform: `translateX(-50%) translateY(${pressing === 'next' ? '4px' : '0px'})`,
+              color: pressing === 'next' ? '#fff' : '#94a3b8'
+            }}
+          >
+            <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase' }}>NEXT</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </button>
+
+          {/* LEFT arm spacer */}
+          <div style={{
+            position: 'absolute', top: '50%', left: 0, transform: 'translateY(-50%)',
+            width: '60px', height: '52px', borderRadius: '16px 4px 4px 16px',
+            background: 'linear-gradient(90deg, #1a2235 0%, #1e293b 100%)',
+            boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.4), 0 4px 0 #0d1526'
+          }} />
+          {/* RIGHT arm spacer */}
+          <div style={{
+            position: 'absolute', top: '50%', right: 0, transform: 'translateY(-50%)',
+            width: '60px', height: '52px', borderRadius: '4px 16px 16px 4px',
+            background: 'linear-gradient(90deg, #1e293b 0%, #1a2235 100%)',
+            boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.4), 0 4px 0 #0d1526'
+          }} />
+        </div>
+
+        {/* ── Bottom indicator strip ── */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }} />
+          <span style={{ fontSize: '0.72rem', color: '#475569', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>Live Session</span>
+        </div>
+
+        {/* ── Bottom notch ── */}
+        <div style={{ width: '50px', height: '5px', background: '#334155', borderRadius: '99px', marginTop: '0.25rem' }} />
+      </div>
+    </div>
+  );
+}
+
+// ── Desktop-Only Gate shown to phone/tablet users ─────────────────────────
+function MobileBlockGate() {
+  return (
+    <div style={{
+      minHeight: '100vh',
+      background: 'linear-gradient(160deg, #0f172a 0%, #1e1b4b 100%)',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '2.5rem 2rem',
+      fontFamily: 'sans-serif',
+      textAlign: 'center'
+    }}>
+      {/* Git logo */}
+      <svg width="64" height="64" viewBox="0 0 128 128" fill="none" style={{ marginBottom: '1.5rem' }}>
+        <path d="M124.6 57.6L70.4 3.4c-4.5-4.5-11.8-4.5-16.3 0L39.8 17.7l20.6 20.6c3.2-1.1 6.9-.3 9.4 2.2 2.5 2.5 3.3 6.2 2.2 9.4l19.8 19.8c3.2-1.1 6.9-.3 9.4 2.2 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-2.6-2.6-3.3-6.4-2.2-9.6L67.6 56.6v23.2c.8.4 1.6 1 2.3 1.7 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-3.6-3.6-3.6-9.4 0-13 .7-.7 1.3-1.3 2.1-1.7V55.6c-.8-.4-1.4-1-2.1-1.7-2.6-2.6-3.3-6.4-2.2-9.6L34.1 23.5 3.4 54.2c-4.5 4.5-4.5 11.8 0 16.3l54.2 54.2c4.5 4.5 11.8 4.5 16.3 0l50.7-50.7c4.5-4.5 4.5-11.8 0-16.4z" fill="#F05032"/>
+      </svg>
+      {/* Monitor icon */}
+      <div style={{ marginBottom: '1.5rem' }}>
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <path d="M8 21h8M12 17v4"/>
+        </svg>
+      </div>
+      <h1 style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.5rem', marginBottom: '0.75rem', lineHeight: 1.3 }}>
+        Desktop Only
+      </h1>
+      <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: 1.6, maxWidth: '300px' }}>
+        This presentation is designed to be viewed on a laptop or desktop computer. Please open it on a bigger screen.
+      </p>
+      <div style={{ marginTop: '2rem', padding: '0.5rem 1.25rem', borderRadius: '99px', background: 'rgba(240,80,50,0.12)', border: '1px solid rgba(240,80,50,0.25)', color: '#F05032', fontSize: '0.82rem', fontWeight: 700 }}>
+        Getting Started With Git — Workshop Slides
       </div>
     </div>
   );
