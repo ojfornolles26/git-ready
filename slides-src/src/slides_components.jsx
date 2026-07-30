@@ -695,8 +695,8 @@ function Slide27() {
 function Slide28() {
   return (
     <section className="slide-card" id="slide-28" style={{"textAlign": "center", "justifyContent": "center", "alignItems": "center", "display": "flex", "flexDirection": "column"}}>
-      <span style={{"fontSize": "4rem", "lineHeight": "1", "marginBottom": "1.25rem", "display": "block"}}>🎉</span>
-      <h1 className="slide-heading congrats-heading" style={{"marginBottom": "0", "textAlign": "center"}}>
+      <h1 className="slide-heading congrats-heading" style={{"marginBottom": "0", "textAlign": "center", "display": "flex", "alignItems": "center", "justifyContent": "center", "gap": "0.5rem", "flexWrap": "wrap"}}>
+        <span style={{"fontSize": "1em", "lineHeight": "1"}}>🎉</span>
         Congratulations!
       </h1>
     </section>
