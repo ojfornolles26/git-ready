@@ -424,7 +424,9 @@ function Slide9() {
     <section className="slide-card qa-card" id="slide-9">
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
         <h1 className="qa-title" style={{ margin: 0, fontSize: 'clamp(2.5rem, 4.2vw, 4rem)' }}>
-          Live Hands-On Activity Starts Now<span className="playful-jumping-glyph" style={{ color: "var(--git-orange)", marginLeft: "0.35rem", fontSize: "0.95em", transform: "translateY(-0.04em)", fontFamily: "var(--font-mono)", fontWeight: 700 }}>&lt;/&gt;</span>
+          <span style={{ color: "var(--git-orange)", marginRight: "0.5rem", fontSize: "0.95em", fontFamily: "var(--font-mono)", fontWeight: 700, display: 'inline-block' }}>&lt;/&gt;</span>
+          Live Hands-On Activity Starts Now
+          <span className="playful-jumping-glyph" style={{ color: "var(--git-orange)", marginLeft: "0.5rem", fontSize: "0.95em", transform: "translateY(-0.04em)", fontFamily: "var(--font-mono)", fontWeight: 700 }}>&lt;/&gt;</span>
         </h1>
       </div>
       <p className="qa-subtitle" style={{ margin: "0 auto", maxWidth: "600px" }}>
