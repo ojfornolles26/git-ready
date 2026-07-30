@@ -312,6 +312,10 @@ body {
    Bumps up font sizes, padding, and key UI elements for back-of-room legibility.
 ──────────────────────────────────────────────────────────────────────────── */
 @media (min-width: 1600px) {
+  html {
+    zoom: 1.2;
+  }
+
   .slide-card {
     padding: clamp(3rem, 4vh, 6rem) clamp(5rem, 7vw, 10%) clamp(6rem, 9vh, 9rem) clamp(5rem, 7vw, 10%);
   }
