@@ -485,30 +485,6 @@ function Slide11() {
       <h2 className="slide-heading">Fork &amp; Clone Repository</h2>
       <p className="slide-lead">Fork the workshop repository on GitHub, then download your personal fork onto your laptop.</p>
 
-      {/* Repository URL Banner */}
-      <div style={{
-        background: '#f8fafc',
-        border: '1px solid var(--border-color)',
-        borderRadius: 'var(--radius-lg)',
-        padding: '1rem 1.25rem',
-        marginBottom: '1.25rem',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '0.75rem',
-        width: '100%',
-        boxSizing: 'border-box'
-      }}>
-        <span style={{ fontSize: '1.4rem', lineHeight: 1 }}>🍴</span>
-        <div>
-          <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: '0.05em', marginBottom: '0.15rem' }}>
-            Repository to Fork
-          </div>
-          <a href="https://github.com/ojfornolles26/git-ready" target="_blank" rel="noreferrer" style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--primary)', textDecoration: 'none', wordBreak: 'break-all' }}>
-            github.com/ojfornolles26/git-ready
-          </a>
-        </div>
-      </div>
-
       <div className="mac-window">
         <div className="mac-window-header">
           <div className="mac-dots">
@@ -521,8 +497,9 @@ function Slide11() {
         </div>
         <div className="mac-window-content">
           <div className="code-wrapper">
-            <code><span className="cmd-cmt"># 1. Click "Fork" button at top-right of GitHub repo page</span><br />
-<span className="cmd-cmt"># 2. Clone your personal fork to your laptop:</span><br />
+            <code><span className="cmd-cmt"># 1. Open browser to: https://github.com/ojfornolles26/git-ready</span><br />
+<span className="cmd-cmt"># 2. Click "Fork" at the top-right to create your copy</span><br />
+<span className="cmd-cmt"># 3. Clone your personal fork to your laptop:</span><br />
 <span className="cmd-kw">git</span> clone <span className="copyable-link">https://github.com/YOUR-GITHUB-USERNAME/git-ready.git</span><br />
 <span className="cmd-kw">cd</span> git-ready</code>
           </div>
