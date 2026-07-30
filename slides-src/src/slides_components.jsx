@@ -179,7 +179,7 @@ function Slide6() {
       <h2 className="slide-heading">The 3 Local Git Areas</h2>
       <p className="slide-lead">Understand how files move through Git's internal architecture on your machine.</p>
 
-      <div style={{"overflowX": "auto", "marginTop": "1.25rem", "WebkitOverflowScrolling": "touch"}}>
+      <div style={{"width": "100%", "maxWidth": "100%", "overflowX": "auto", "marginTop": "1.25rem", "WebkitOverflowScrolling": "touch"}}>
         <table style={{"width": "100%", "minWidth": "600px", "borderCollapse": "separate", "borderSpacing": "0", "border": "1px solid var(--border-color)", "borderRadius": "var(--radius-md)", "overflow": "hidden", "background": "#ffffff", "fontSize": "0.9rem"}}>
           <thead>
             <tr style={{"background": "#f8fafc", "borderBottom": "1px solid var(--border-color)", "textAlign": "left"}}>
