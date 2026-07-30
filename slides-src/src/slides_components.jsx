@@ -2,17 +2,17 @@ import React from 'react';
 
 function Slide1() {
   return (
-    <section className="slide-card slide-card-cover" id="slide-1" style={{ justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-      <div className="slide-cover-header">
-        <svg className="slide-cover-git-logo" viewBox="0 0 128 128" fill="none">
+    <section className="slide-card qa-card" id="slide-1">
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.25rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+        <svg className="slide-cover-git-logo" viewBox="0 0 128 128" fill="none" style={{ width: 'clamp(56px, 6.5vw, 90px)', height: 'clamp(56px, 6.5vw, 90px)' }}>
           <path d="M124.6 57.6L70.4 3.4c-4.5-4.5-11.8-4.5-16.3 0L39.8 17.7l20.6 20.6c3.2-1.1 6.9-.3 9.4 2.2 2.5 2.5 3.3 6.2 2.2 9.4l19.8 19.8c3.2-1.1 6.9-.3 9.4 2.2 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-2.6-2.6-3.3-6.4-2.2-9.6L67.6 56.6v23.2c.8.4 1.6 1 2.3 1.7 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-3.6-3.6-3.6-9.4 0-13 .7-.7 1.3-1.3 2.1-1.7V55.6c-.8-.4-1.4-1-2.1-1.7-2.6-2.6-3.3-6.4-2.2-9.6L34.1 23.5 3.4 54.2c-4.5 4.5-4.5 11.8 0 16.3l54.2 54.2c4.5 4.5 11.8 4.5 16.3 0l50.7-50.7c4.5-4.5 4.5-11.8 0-16.4z" fill="#F05032"/>
         </svg>
-        <h1 className="slide-heading" style={{ margin: 0 }}>Getting Started With Git</h1>
+        <h1 className="qa-title" style={{ margin: 0 }}>Getting Started With Git</h1>
       </div>
-      <p className="slide-lead" style={{ margin: "0 auto 1.5rem auto", maxWidth: "600px" }}>
+      <p className="qa-subtitle" style={{ margin: "0 auto 2rem auto", maxWidth: "680px" }}>
         Learn Git &amp; GitHub by doing! Together, we'll collaborate live and see everyone's contributions come to life on a shared website.
       </p>
-      <span className="slide-step-badge">Interactive Workshop</span>
+      <span className="slide-step-badge" style={{ display: 'inline-block' }}>Interactive Workshop</span>
     </section>
   );
 }
@@ -493,15 +493,72 @@ function Slide11() {
             <span className="mac-dot mac-dot-zoom"></span>
           </div>
           <span className="mac-window-title">Terminal</span>
-          <button className="btn-copy-url" onClick={(e) => { navigator.clipboard.writeText('https://github.com/ojfornolles26/git-ready.git'); e.target.innerText='Copied!'; setTimeout(() => e.target.innerText='Copy URL', 2000); }}>Copy URL</button>
         </div>
         <div className="mac-window-content">
           <div className="code-wrapper">
-            <code><span className="cmd-cmt"># 1. Open browser to: https://github.com/ojfornolles26/git-ready</span><br />
-<span className="cmd-cmt"># 2. Click "Fork" at the top-right to create your copy</span><br />
-<span className="cmd-cmt"># 3. Clone your personal fork to your laptop:</span><br />
-<span className="cmd-kw">git</span> clone <span className="copyable-link">https://github.com/YOUR-GITHUB-USERNAME/git-ready.git</span><br />
-<span className="cmd-kw">cd</span> git-ready</code>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', marginBottom: '0.45rem' }}>
+              <span className="cmd-cmt"># 1. Open browser to: https://github.com/ojfornolles26/git-ready</span>
+              <button 
+                onClick={(e) => {
+                  navigator.clipboard.writeText('https://github.com/ojfornolles26/git-ready');
+                  const orig = e.currentTarget.innerText;
+                  e.currentTarget.innerText = 'Copied!';
+                  setTimeout(() => { e.currentTarget.innerText = orig; }, 1500);
+                }}
+                style={{
+                  background: 'rgba(255,255,255,0.06)',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  color: '#cbd5e1',
+                  padding: '0.2rem 0.5rem',
+                  borderRadius: '4px',
+                  fontSize: '0.7rem',
+                  fontWeight: 650,
+                  cursor: 'pointer',
+                  userSelect: 'none',
+                  flexShrink: 0
+                }}
+              >
+                Copy Link
+              </button>
+            </div>
+            <div style={{ marginBottom: '0.45rem' }}>
+              <span className="cmd-cmt"># 2. Click \"Fork\" at the top-right to create your copy</span>
+            </div>
+            <div style={{ marginBottom: '0.45rem' }}>
+              <span className="cmd-cmt"># 3. Clone your personal fork to your laptop:</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', marginBottom: '0.45rem' }}>
+              <code>
+                <span className="cmd-kw">git</span> clone <span className="copyable-link">https://github.com/YOUR-GITHUB-USERNAME/git-ready.git</span>
+              </code>
+              <button 
+                onClick={(e) => {
+                  navigator.clipboard.writeText('git clone https://github.com/YOUR-GITHUB-USERNAME/git-ready.git');
+                  const orig = e.currentTarget.innerText;
+                  e.currentTarget.innerText = 'Copied!';
+                  setTimeout(() => { e.currentTarget.innerText = orig; }, 1500);
+                }}
+                style={{
+                  background: 'rgba(255,255,255,0.06)',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  color: '#cbd5e1',
+                  padding: '0.2rem 0.5rem',
+                  borderRadius: '4px',
+                  fontSize: '0.7rem',
+                  fontWeight: 650,
+                  cursor: 'pointer',
+                  userSelect: 'none',
+                  flexShrink: 0
+                }}
+              >
+                Copy Code
+              </button>
+            </div>
+            <div>
+              <code>
+                <span className="cmd-kw">cd</span> git-ready
+              </code>
+            </div>
           </div>
         </div>
       </div>
@@ -1076,19 +1133,19 @@ function Slide27() {
 
 function Slide28() {
   return (
-    <section className="slide-card congrats-card" id="slide-28">
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
-        <span style={{ fontSize: '2.8rem', lineHeight: 1 }}>🎉</span>
-        <h1 className="slide-heading" style={{ margin: 0 }}>
-          Congratulations<span className="playful-jumping-glyph" style={{ color: "var(--git-orange)", marginLeft: "0.25rem", fontSize: "1.2em", transform: "translateY(0.04em)" }}>!</span>
+    <section className="slide-card qa-card" id="slide-28">
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.25rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+        <span className="playful-jumping-glyph" style={{ fontSize: 'clamp(2.8rem, 5vw, 4.5rem)', lineHeight: 1 }}>🎉</span>
+        <h1 className="qa-title" style={{ margin: 0 }}>
+          Congratulations<span className="playful-jumping-glyph" style={{ color: "var(--git-orange)", marginLeft: "0.25rem", fontSize: "1.05em", transform: "translateY(0.04em)" }}>!</span>
         </h1>
       </div>
-      <p className="slide-lead" style={{ margin: "0 auto", maxWidth: "500px" }}>
+      <p className="qa-subtitle" style={{ margin: "0 auto", maxWidth: "600px" }}>
         You have successfully completed the workshop! You are officially Git Ready.
       </p>
       
-      <a href="../gallery/index.html" className="btn-launch-gallery">
-        <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <a href="../gallery/index.html" className="btn-launch-gallery" style={{ marginTop: '2.5rem' }}>
+        <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
         </svg>
         <span>Open Student Attendance Gallery</span>
