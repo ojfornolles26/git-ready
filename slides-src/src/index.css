@@ -245,7 +245,7 @@ body {
   flex-direction: column;
   justify-content: center;
   background: var(--bg-card);
-  padding: 4rem 10% 7rem 10%;
+  padding: clamp(2rem, 4vh, 5rem) clamp(3rem, 6vw, 8%) clamp(5rem, 8vh, 8rem) clamp(3rem, 6vw, 8%);
   overflow-y: auto;
   opacity: 0;
 }
@@ -279,16 +279,16 @@ body {
 
 .slide-heading {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: clamp(2.2rem, 3.5vw, 4rem);
   font-weight: 850;
   color: var(--text-primary);
   letter-spacing: -0.03em;
   margin-bottom: 0.85rem;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 
 .slide-lead {
-  font-size: 1.25rem;
+  font-size: clamp(1.1rem, 1.5vw, 1.6rem);
   color: var(--text-secondary);
   line-height: 1.55;
   margin-bottom: 1.75rem;
@@ -304,7 +304,89 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 4rem 10% 7rem 10% !important;
+  padding: clamp(2rem, 4vh, 5rem) clamp(3rem, 6vw, 8%) clamp(5rem, 8vh, 8rem) clamp(3rem, 6vw, 8%) !important;
+}
+
+/* ── Projector / Large-Screen Scale-Up ────────────────────────────────────
+   Activated when a projector or 1080p+ external display is being used.
+   Bumps up font sizes, padding, and key UI elements for back-of-room legibility.
+──────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 1600px) {
+  .slide-card {
+    padding: clamp(3rem, 4vh, 6rem) clamp(5rem, 7vw, 10%) clamp(6rem, 9vh, 9rem) clamp(5rem, 7vw, 10%);
+  }
+
+  .slide-card-cover {
+    padding: clamp(3rem, 4vh, 6rem) clamp(5rem, 7vw, 10%) clamp(6rem, 9vh, 9rem) clamp(5rem, 7vw, 10%) !important;
+  }
+
+  .slide-heading {
+    font-size: clamp(3rem, 4vw, 5.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .slide-lead {
+    font-size: clamp(1.35rem, 1.8vw, 2rem);
+    margin-bottom: 2rem;
+  }
+
+  .slide-step-tracker {
+    font-size: 0.9rem;
+  }
+
+  /* Feature / checklist cards */
+  .feature-block-card {
+    padding: 2.25rem;
+    gap: 1rem;
+  }
+
+  .feature-card-label {
+    font-size: 1.15rem !important;
+  }
+
+  .feature-card-desc {
+    font-size: 1.05rem !important;
+  }
+
+  /* List items */
+  .checklist-item,
+  .numbered-list-item {
+    font-size: 1.25rem !important;
+  }
+
+  /* Flow step descriptions */
+  .flow-step-desc {
+    font-size: 1.1rem !important;
+  }
+
+  /* Code blocks — bump mono font */
+  .code-wrapper pre,
+  .code-wrapper code,
+  code {
+    font-size: 1.05rem !important;
+    line-height: 1.7 !important;
+  }
+
+  /* Cover slide title */
+  .slide-cover-title {
+    font-size: clamp(3.5rem, 5vw, 6.5rem) !important;
+  }
+
+  .slide-cover-git-logo {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  /* Floating org logo */
+  .floating-logo-img {
+    height: 140px;
+  }
+
+  /* Floating tech icons */
+  .floating-tech-icon {
+    height: 56px;
+    width: auto;
+  }
 }
 
 .slide-cover-header {
