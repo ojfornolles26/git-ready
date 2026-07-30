@@ -428,8 +428,8 @@ function Slide9() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
           </svg>
         </span>
-        <h1 className="qa-title" style={{ margin: 0 }}>
-          Live Hands-On Activity Starts Now<span className="playful-jumping-glyph" style={{ color: "var(--git-orange)", marginLeft: "0.35rem", fontSize: "1.05em", transform: "translateY(0.04em)", fontFamily: "var(--font-mono)", fontWeight: 700 }}>&lt;/&gt;</span>
+        <h1 className="qa-title" style={{ margin: 0, fontSize: 'clamp(2.5rem, 4.2vw, 4rem)' }}>
+          Live Hands-On Activity Starts Now<span className="playful-jumping-glyph" style={{ color: "var(--git-orange)", marginLeft: "0.35rem", fontSize: "0.95em", transform: "translateY(-0.04em)", fontFamily: "var(--font-mono)", fontWeight: 700 }}>&lt;/&gt;</span>
         </h1>
       </div>
       <p className="qa-subtitle" style={{ margin: "0 auto", maxWidth: "600px" }}>
