@@ -419,23 +419,19 @@ function App() {
       </main>
 
       {/* Floating Bottom-Left Organization Logo FAB */}
-      {!isFullscreen && (
-        <div className="floating-logo-fab">
-          <img src="images/SwuDevs%20Logo%20Variations%201.png" alt="SwuDevs Logo" className="floating-logo-img" />
-        </div>
-      )}
+      <div className={`floating-logo-fab ${isFullscreen ? 'fullscreen-watermark' : ''}`}>
+        <img src="images/SwuDevs%20Logo%20Variations%201.png" alt="SwuDevs Logo" className="floating-logo-img" />
+      </div>
 
       {/* Floating Bottom-Right Official Git & GitHub Logos */}
-      {!isFullscreen && (
-        <div className="floating-tech-logos">
-          <svg className="floating-tech-icon" width="48" height="48" viewBox="0 0 128 128" fill="none" title="Git Version Control">
-            <path d="M124.6 57.6L70.4 3.4c-4.5-4.5-11.8-4.5-16.3 0L39.8 17.7l20.6 20.6c3.2-1.1 6.9-.3 9.4 2.2 2.5 2.5 3.3 6.2 2.2 9.4l19.8 19.8c3.2-1.1 6.9-.3 9.4 2.2 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-2.6-2.6-3.3-6.4-2.2-9.6L67.6 56.6v23.2c.8.4 1.6 1 2.3 1.7 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-3.6-3.6-3.6-9.4 0-13 .7-.7 1.3-1.3 2.1-1.7V55.6c-.8-.4-1.4-1-2.1-1.7-2.6-2.6-3.3-6.4-2.2-9.6L34.1 23.5 3.4 54.2c-4.5 4.5-4.5 11.8 0 16.3l54.2 54.2c4.5 4.5 11.8 4.5 16.3 0l50.7-50.7c4.5-4.5 4.5-11.8 0-16.4z" fill="#F05032"/>
-          </svg>
-          <svg className="floating-tech-icon" width="48" height="48" viewBox="0 0 24 24" fill="#0f172a" title="GitHub Collaboration Platform">
-            <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-          </svg>
-        </div>
-      )}
+      <div className={`floating-tech-logos ${isFullscreen ? 'fullscreen-watermark' : ''}`}>
+        <svg className="floating-tech-icon" width="48" height="48" viewBox="0 0 128 128" fill="none" title="Git Version Control">
+          <path d="M124.6 57.6L70.4 3.4c-4.5-4.5-11.8-4.5-16.3 0L39.8 17.7l20.6 20.6c3.2-1.1 6.9-.3 9.4 2.2 2.5 2.5 3.3 6.2 2.2 9.4l19.8 19.8c3.2-1.1 6.9-.3 9.4 2.2 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-2.6-2.6-3.3-6.4-2.2-9.6L67.6 56.6v23.2c.8.4 1.6 1 2.3 1.7 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-3.6-3.6-3.6-9.4 0-13 .7-.7 1.3-1.3 2.1-1.7V55.6c-.8-.4-1.4-1-2.1-1.7-2.6-2.6-3.3-6.4-2.2-9.6L34.1 23.5 3.4 54.2c-4.5 4.5-4.5 11.8 0 16.3l54.2 54.2c4.5 4.5 11.8 4.5 16.3 0l50.7-50.7c4.5-4.5 4.5-11.8 0-16.4z" fill="#F05032"/>
+        </svg>
+        <svg className="floating-tech-icon" width="48" height="48" viewBox="0 0 24 24" fill="#0f172a" title="GitHub Collaboration Platform">
+          <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+      </div>
 
       {/* Floating Sticky Bottom Navigation Bar */}
       <nav className={`bottom-nav ${isNavHidden ? 'nav-hidden' : ''}`}>
@@ -723,10 +719,20 @@ function PhoneRemoteView() {
   // ── Auth fail screen ──────────────────────────────────────────────
   if (authState === 'fail') {
     return (
-      <div style={{ minHeight: '100vh', background: '#0f172a', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem', fontFamily: 'sans-serif' }}>
-        <div style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>🔒</div>
-        <div style={{ color: '#f87171', fontWeight: 800, fontSize: '1.4rem', marginBottom: '0.5rem' }}>Access Denied</div>
-        <div style={{ color: '#94a3b8', fontSize: '0.95rem', textAlign: 'center' }}>{statusMsg}</div>
+      <div style={{
+        minHeight: '100svh',
+        background: '#05070c',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '2rem',
+        fontFamily: 'var(--font-sans)',
+        boxSizing: 'border-box'
+      }}>
+        <div style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}>🔒</div>
+        <div style={{ color: '#ef4444', fontWeight: 700, fontSize: '1.25rem', marginBottom: '0.5rem', fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>Access Denied</div>
+        <div style={{ color: '#64748b', fontSize: '0.85rem', textAlign: 'center', lineHeight: 1.5 }}>{statusMsg}</div>
       </div>
     );
   }
@@ -734,10 +740,39 @@ function PhoneRemoteView() {
   // ── Connecting screen ─────────────────────────────────────────────
   if (!peerConnected) {
     return (
-      <div style={{ minHeight: '100vh', background: '#0f172a', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem', fontFamily: 'sans-serif' }}>
-        <div style={{ width: '48px', height: '48px', border: '4px solid #334155', borderTopColor: '#F05032', borderRadius: '50%', animation: 'spin 0.9s linear infinite', marginBottom: '1.5rem' }} />
-        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-        <div style={{ color: '#94a3b8', fontWeight: 600, fontSize: '1rem' }}>{statusMsg}</div>
+      <div style={{
+        minHeight: '100svh',
+        background: '#05070c',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '2rem',
+        fontFamily: 'var(--font-sans)',
+        boxSizing: 'border-box'
+      }}>
+        <div style={{
+          width: '12px',
+          height: '12px',
+          borderRadius: '50%',
+          background: '#F05032',
+          boxShadow: '0 0 16px #F05032',
+          animation: 'pulse 1.5s ease-in-out infinite',
+          marginBottom: '1.5rem'
+        }} />
+        <style>{`
+          @keyframes pulse {
+            0%, 100% { transform: scale(0.8); opacity: 0.4; }
+            50% { transform: scale(1.3); opacity: 1; }
+          }
+        `}</style>
+        <div style={{
+          color: '#64748b',
+          fontWeight: 700,
+          fontSize: '0.72rem',
+          letterSpacing: '0.12em',
+          textTransform: 'uppercase'
+        }}>{statusMsg}</div>
       </div>
     );
   }
@@ -745,72 +780,71 @@ function PhoneRemoteView() {
   // ── Physical Remote UI ────────────────────────────────────────────
   return (
     <div style={{
-      minHeight: '100vh',
-      background: 'linear-gradient(160deg, #0f172a 0%, #1e1b4b 100%)',
+      minHeight: '100svh',
+      background: '#05070c',
       display: 'flex',
+      flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
       padding: '1.5rem 1rem',
-      fontFamily: 'var(--font-sans)'
+      fontFamily: 'var(--font-sans)',
+      boxSizing: 'border-box',
+      width: '100%'
     }}>
-      {/* Remote Body */}
+      {/* Remote Container - Clean & Borderless Dashboard style */}
       <div style={{
         width: '100%',
-        maxWidth: '320px',
-        background: 'linear-gradient(180deg, #1e293b 0%, #0f172a 100%)',
-        borderRadius: '48px',
-        padding: '2rem 1.75rem 2.5rem',
-        boxShadow: '0 30px 60px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.07), 0 0 0 1px rgba(255,255,255,0.05)',
+        maxWidth: '340px',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        gap: '1.5rem'
+        gap: '1.25rem'
       }}>
-
-        {/* ── Top notch area ── */}
-        <div style={{ width: '50px', height: '5px', background: '#334155', borderRadius: '99px', marginBottom: '0.25rem' }} />
 
         {/* ── Display Screen ── */}
         <div style={{
           width: '100%',
-          background: '#0a0f1e',
-          border: '2px solid #1e293b',
-          borderRadius: '20px',
-          padding: '1rem 1.25rem',
-          boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04)'
+          background: '#0a0f1d',
+          border: '1px solid #1e293b',
+          borderRadius: '16px',
+          padding: '1.25rem 1.5rem',
+          boxSizing: 'border-box'
         }}>
-          {/* Screen glow header */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
-            <span style={{ fontSize: '0.65rem', fontWeight: 700, color: '#F05032', textTransform: 'uppercase', letterSpacing: '0.08em' }}>GIT REMOTE</span>
-            <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 6px #10b981' }} />
+          {/* Screen Header */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+            <span style={{ fontSize: '0.625rem', fontWeight: 800, color: '#F05032', textTransform: 'uppercase', letterSpacing: '0.12em', fontFamily: 'var(--font-display)' }}>GIT REMOTE</span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 6px #10b981' }} />
+              <span style={{ fontSize: '0.625rem', color: '#10b981', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>LIVE</span>
+            </span>
           </div>
           {/* Slide counter */}
-          <div style={{ fontSize: '0.65rem', color: '#475569', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.3rem' }}>
+          <div style={{ fontSize: '0.625rem', color: '#475569', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem' }}>
             SLIDE {currentSlideInfo.index + 1} / {totalSlides}
           </div>
           {/* Slide title */}
           <div style={{
-            fontSize: '0.85rem',
+            fontSize: '0.875rem',
             fontWeight: 700,
-            color: '#e2e8f0',
-            lineHeight: 1.35,
-            height: '2.7em',
+            color: '#cbd5e1',
+            lineHeight: 1.4,
+            height: '2.8em',
             overflow: 'hidden',
             display: '-webkit-box',
             WebkitLineClamp: 2,
             WebkitBoxOrient: 'vertical',
-            wordBreak: 'break-word'
+            wordBreak: 'break-word',
+            fontFamily: 'var(--font-display)'
           }}>
             {currentSlideInfo.title}
           </div>
           {/* Progress bar */}
-          <div style={{ marginTop: '0.75rem', height: '3px', background: '#1e293b', borderRadius: '99px', overflow: 'hidden' }}>
+          <div style={{ marginTop: '1rem', height: '3px', background: '#1e293b', borderRadius: '99px', overflow: 'hidden' }}>
             <div style={{ height: '100%', width: `${progress}%`, background: 'linear-gradient(90deg, #F05032, #ff8c6b)', borderRadius: '99px', transition: 'width 0.4s ease' }} />
           </div>
         </div>
 
         {/* ── Screen Mode Controls (Fullscreen & Minimize) ── */}
-        <div style={{ display: 'flex', gap: '0.65rem', width: '100%' }}>
+        <div style={{ display: 'flex', gap: '0.75rem', width: '100%' }}>
           <button
             onClick={() => {
               if (!document.fullscreenElement) {
@@ -819,11 +853,11 @@ function PhoneRemoteView() {
             }}
             style={{
               flex: 1,
-              padding: '0.55rem 0.75rem',
+              padding: '0.65rem 0.75rem',
               borderRadius: '12px',
-              border: 'none',
-              background: 'linear-gradient(180deg, #2d3748 0%, #1a202c 100%)',
-              color: '#cbd5e1',
+              border: '1px solid #1e293b',
+              background: '#0a0f1d',
+              color: '#94a3b8',
               fontSize: '0.72rem',
               fontWeight: 700,
               cursor: 'pointer',
@@ -831,7 +865,7 @@ function PhoneRemoteView() {
               alignItems: 'center',
               justifyContent: 'center',
               gap: '0.35rem',
-              boxShadow: '0 2px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)'
+              transition: 'background 0.2s ease, color 0.2s ease, border-color 0.2s ease'
             }}
           >
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
@@ -848,11 +882,11 @@ function PhoneRemoteView() {
             }}
             style={{
               flex: 1,
-              padding: '0.55rem 0.75rem',
+              padding: '0.65rem 0.75rem',
               borderRadius: '12px',
-              border: 'none',
-              background: 'linear-gradient(180deg, #2d3748 0%, #1a202c 100%)',
-              color: '#cbd5e1',
+              border: '1px solid #1e293b',
+              background: '#0a0f1d',
+              color: '#94a3b8',
               fontSize: '0.72rem',
               fontWeight: 700,
               cursor: 'pointer',
@@ -860,7 +894,7 @@ function PhoneRemoteView() {
               alignItems: 'center',
               justifyContent: 'center',
               gap: '0.35rem',
-              boxShadow: '0 2px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)'
+              transition: 'background 0.2s ease, color 0.2s ease, border-color 0.2s ease'
             }}
           >
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
@@ -875,9 +909,21 @@ function PhoneRemoteView() {
           onChange={handleSelectJump}
           value={currentSlideInfo.index}
           style={{
-            width: '100%', padding: '0.65rem 1rem', borderRadius: '12px',
-            border: '1px solid #334155', background: '#1e293b', color: '#94a3b8',
-            fontSize: '0.82rem', fontWeight: 600, outline: 'none', cursor: 'pointer'
+            width: '100%',
+            padding: '0.65rem 1rem',
+            borderRadius: '12px',
+            border: '1px solid #1e293b',
+            background: '#0a0f1d',
+            color: '#cbd5e1',
+            fontSize: '0.8rem',
+            fontWeight: 600,
+            outline: 'none',
+            cursor: 'pointer',
+            WebkitAppearance: 'none',
+            backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='none' stroke='%2364748b' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5'></path></svg>")`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'right 1rem center',
+            backgroundSize: '12px'
           }}
         >
           {tocOptions.map((opt, idx) => (
@@ -885,94 +931,73 @@ function PhoneRemoteView() {
           ))}
         </select>
 
-        {/* ── D-Pad Navigation Area ── */}
-        <div style={{ position: 'relative', width: '180px', height: '180px' }}>
-          {/* D-pad center circle */}
-          <div style={{
-            position: 'absolute', top: '50%', left: '50%',
-            transform: 'translate(-50%,-50%)',
-            width: '60px', height: '60px', borderRadius: '50%',
-            background: '#1e293b',
-            border: '1px solid #334155',
-            boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.5)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            zIndex: 2
-          }}>
-            <svg width="20" height="20" viewBox="0 0 128 128" fill="#F05032">
-              <path d="M124.6 57.6L70.4 3.4c-4.5-4.5-11.8-4.5-16.3 0L39.8 17.7l20.6 20.6c3.2-1.1 6.9-.3 9.4 2.2 2.5 2.5 3.3 6.2 2.2 9.4l19.8 19.8c3.2-1.1 6.9-.3 9.4 2.2 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-2.6-2.6-3.3-6.4-2.2-9.6L67.6 56.6v23.2c.8.4 1.6 1 2.3 1.7 3.6 3.6 3.6 9.4 0 13-3.6 3.6-9.4 3.6-13 0-3.6-3.6-3.6-9.4 0-13 .7-.7 1.3-1.3 2.1-1.7V55.6c-.8-.4-1.4-1-2.1-1.7-2.6-2.6-3.3-6.4-2.2-9.6L34.1 23.5 3.4 54.2c-4.5 4.5-4.5 11.8 0 16.3l54.2 54.2c4.5 4.5 11.8 4.5 16.3 0l50.7-50.7c4.5-4.5 4.5-11.8 0-16.4z"/>
-            </svg>
-          </div>
-
-          {/* UP / PREV */}
+        {/* ── Redesigned Clean Navigation Buttons ── */}
+        <div style={{ display: 'flex', gap: '0.75rem', width: '100%', marginTop: '0.25rem' }}>
+          {/* PREV BUTTON */}
           <button
             onPointerDown={() => setPressing('prev')}
             onPointerUp={() => setPressing(null)}
             onPointerLeave={() => setPressing(null)}
             onClick={() => sendCommand('PREV')}
             style={{
-              position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
-              width: '60px', height: '68px', borderRadius: '16px 16px 4px 4px',
-              background: pressing === 'prev' ? '#F05032' : 'linear-gradient(180deg, #293548 0%, #1e293b 100%)',
-              border: 'none',
-              boxShadow: pressing === 'prev' ? 'inset 0 3px 6px rgba(0,0,0,0.4)' : '0 4px 0 #0d1526, inset 0 1px 0 rgba(255,255,255,0.08)',
-              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '2px',
-              cursor: 'pointer', transition: 'all 0.1s ease', transform: `translateX(-50%) translateY(${pressing === 'prev' ? '4px' : '0px'})`,
-              color: pressing === 'prev' ? '#fff' : '#94a3b8'
+              flex: 1,
+              height: '80px',
+              borderRadius: '16px',
+              border: '1px solid #1e293b',
+              background: pressing === 'prev' ? '#1e293b' : '#0a0f1d',
+              color: pressing === 'prev' ? '#ffffff' : '#94a3b8',
+              cursor: 'pointer',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.35rem',
+              transition: 'all 0.15s cubic-bezier(0.16, 1, 0.3, 1)',
+              transform: pressing === 'prev' ? 'scale(0.96)' : 'scale(1)'
             }}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M18 15l-6-6-6 6"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 19l-7-7 7-7"/>
             </svg>
-            <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase' }}>PREV</span>
+            <span style={{ fontSize: '0.625rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>PREVIOUS</span>
           </button>
 
-          {/* DOWN / NEXT */}
+          {/* NEXT BUTTON (Spacious & Dominant Git Orange) */}
           <button
             onPointerDown={() => setPressing('next')}
             onPointerUp={() => setPressing(null)}
             onPointerLeave={() => setPressing(null)}
             onClick={() => sendCommand('NEXT')}
             style={{
-              position: 'absolute', bottom: 0, left: '50%',
-              width: '60px', height: '68px', borderRadius: '4px 4px 16px 16px',
-              background: pressing === 'next' ? '#F05032' : 'linear-gradient(180deg, #293548 0%, #1e293b 100%)',
+              flex: 1.6,
+              height: '80px',
+              borderRadius: '16px',
               border: 'none',
-              boxShadow: pressing === 'next' ? 'inset 0 3px 6px rgba(0,0,0,0.4)' : '0 4px 0 #0d1526, inset 0 1px 0 rgba(255,255,255,0.08)',
-              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '2px',
-              cursor: 'pointer', transition: 'all 0.1s ease', transform: `translateX(-50%) translateY(${pressing === 'next' ? '4px' : '0px'})`,
-              color: pressing === 'next' ? '#fff' : '#94a3b8'
+              background: pressing === 'next' ? '#d93c1e' : 'linear-gradient(135deg, #F05032 0%, #ff6b4a 100%)',
+              color: '#ffffff',
+              cursor: 'pointer',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.35rem',
+              boxShadow: '0 4px 14px rgba(240, 80, 50, 0.25)',
+              transition: 'all 0.15s cubic-bezier(0.16, 1, 0.3, 1)',
+              transform: pressing === 'next' ? 'scale(0.96)' : 'scale(1)'
             }}
           >
-            <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase' }}>NEXT</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M6 9l6 6 6-6"/>
+            <span style={{ fontSize: '0.625rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase' }}>NEXT SLIDE</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 5l7 7-7 7"/>
             </svg>
           </button>
-
-          {/* LEFT arm spacer */}
-          <div style={{
-            position: 'absolute', top: '50%', left: 0, transform: 'translateY(-50%)',
-            width: '60px', height: '52px', borderRadius: '16px 4px 4px 16px',
-            background: 'linear-gradient(90deg, #1a2235 0%, #1e293b 100%)',
-            boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.4), 0 4px 0 #0d1526'
-          }} />
-          {/* RIGHT arm spacer */}
-          <div style={{
-            position: 'absolute', top: '50%', right: 0, transform: 'translateY(-50%)',
-            width: '60px', height: '52px', borderRadius: '4px 16px 16px 4px',
-            background: 'linear-gradient(90deg, #1e293b 0%, #1a2235 100%)',
-            boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.4), 0 4px 0 #0d1526'
-          }} />
         </div>
 
-        {/* ── Bottom indicator strip ── */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }} />
-          <span style={{ fontSize: '0.72rem', color: '#475569', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>Live Session</span>
+        {/* ── Footer Branding ── */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '0.5rem' }}>
+          <span style={{ fontSize: '0.65rem', color: '#475569', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>SWUDEVS PRESENTATION CONTROLLER</span>
         </div>
 
-        {/* ── Bottom notch ── */}
-        <div style={{ width: '50px', height: '5px', background: '#334155', borderRadius: '99px', marginTop: '0.25rem' }} />
       </div>
     </div>
   );
