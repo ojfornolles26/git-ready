@@ -403,8 +403,8 @@ body {
 }
 
 .slide-cover-git-logo {
-  width: 56px;
-  height: 56px;
+  width: clamp(52px, 5vw, 80px);
+  height: clamp(52px, 5vw, 80px);
   flex-shrink: 0;
   filter: drop-shadow(0 4px 8px rgba(240, 80, 50, 0.08));
   animation: playfulJump 2.2s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
@@ -1309,8 +1309,8 @@ body {
   text-decoration: none;
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.85rem 1.75rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+  padding: clamp(0.85rem, 1.2vh, 1.1rem) clamp(1.75rem, 2.5vw, 2.5rem);
   border-radius: 99px;
   margin-top: 2rem;
   box-shadow: none;
@@ -1363,7 +1363,7 @@ body {
 
 .qa-title {
   font-family: var(--font-display);
-  font-size: 4rem;
+  font-size: clamp(3.5rem, 6vw, 6rem);
   font-weight: 900;
   color: var(--text-primary);
   letter-spacing: -0.04em;
@@ -1371,10 +1371,10 @@ body {
 }
 
 .qa-subtitle {
-  font-size: 1.35rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
   color: var(--text-muted);
   font-weight: 500;
-  max-width: 550px;
+  max-width: 580px;
   line-height: 1.5;
 }
 
@@ -1390,13 +1390,10 @@ body {
    RESPONSIVE DESIGN SYSTEM
    ========================================================================== */
 
-/* 1. Large Screen Sizes / Projector scale */
+/* 1. Large Screen Sizes — removed: now handled by fluid clamp() + 1600px projector block */
 @media (min-width: 1400px) {
-  .slide-card {
-    padding: 5rem 12% 8rem 12%;
-  }
   .slide-heading {
-    font-size: 3rem;
+    font-size: clamp(2.8rem, 3.8vw, 4.5rem);
   }
 }
 
