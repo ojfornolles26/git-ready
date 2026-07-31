@@ -1,0 +1,1330 @@
+[33mcommit dec371288622bf174cf2e7937b2d9469df9f690f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 09:46:59 2026 +0800
+
+    style(slides): increase contrast of git merge conflict markers
+
+[33mcommit f3a8cc2eea63b53ce0a9b4b6b0fe1d4f4472ed3e[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 02:39:27 2026 +0800
+
+    fix: correct typo on Slide 8 description from 6-step to 4-step
+
+[33mcommit 5270cd4221ca76cead26b874562b61dfe79378a3[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 01:31:06 2026 +0800
+
+    feat: restrict mobile access to gallery using CSS, redesign remote fail screen to use minimalist WiFi icon, and add Go Back buttons
+
+[33mcommit c7367d2f4e3438ca5d1f27bb2ad3bb1eeb66910a[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 01:23:02 2026 +0800
+
+    style: update social sharing preview image title text color to Git Orange
+
+[33mcommit a48e39816b6e7ec840018b2e33cd0cd18edbdeca[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 01:13:18 2026 +0800
+
+    feat: add minimalist circular loading spinner for QR code generation and loading states
+
+[33mcommit 5602fc268d2ff35c6f63be85244ed0561223d6b4[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 01:12:19 2026 +0800
+
+    feat: redesign remote controller to light-mode minimalist capsule layout with stacked vertical keys
+
+[33mcommit b2a87e11faf9a7a3b98c0b2aba777644c3228a0f[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 01:08:29 2026 +0800
+
+    feat: unify presentation and gallery design systems, redesign mobile remote, and remove Mark profile card
+
+[33mcommit 6be69e25127e91fd21c38a2b6f370e1116de7bd8[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 00:42:14 2026 +0800
+
+    fix: correct relative gallery links in bottom nav and slide 28 launcher to handle dist subfolder pathing
+
+[33mcommit 82c82996a2ad1b768fbaa346a159894382806ee0[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 00:37:22 2026 +0800
+
+    fix: allow sliding up navigation bar when slides are in native fullscreen mode
+
+[33mcommit d7953fabd643ff36dead71876711f3476b3f3524[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 00:36:49 2026 +0800
+
+    feat: make remote fullscreen/minimize controls operate on phone screen only, removing desktop linking
+
+[33mcommit 95003a10989a6dfc09a680b26af1f72db4f08012[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 00:34:39 2026 +0800
+
+    design: retain native fullscreen on host slides when remote exits fullscreen layout
+
+[33mcommit 3c93a8f7c6fb26e4a33a8eb89bb6db05e7277ace[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 00:27:03 2026 +0800
+
+    fix: synchronize isNavHidden state in handleFullscreenChange to resolve desktop/remote layout sync issues
+
+[33mcommit c3e04481da0092e098a716ec11f7e2d4b1c5fae7[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 00:21:59 2026 +0800
+
+    feat: link remote fullscreen/minimize controls to host presentation layout
+
+[33mcommit 2f6391c233c0a97eaf1446de2ed7d52e91440147[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 00:16:49 2026 +0800
+
+    feat: fix remote layout shifting, add remote fullscreen/minimize presentation commands and phone fullscreen toggle
+
+[33mcommit f76555d58870de4a71c304d22b0e90fab34c8f08[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 00:13:59 2026 +0800
+
+    feat: add og and twitter metadata fallback tags directly to root index.html
+
+[33mcommit b5264207d4d3bca1046342cfbebc78994e51890e[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 00:12:23 2026 +0800
+
+    fix: correct og:image and twitter:image URL paths in slides metadata
+
+[33mcommit edab511494b30ebf7d14a3a0038ef8d95d5ee0fb[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 00:07:15 2026 +0800
+
+    design: add static </;gt; on left of Slide 9 heading and keep jumping on right
+
+[33mcommit fa7fe9f9a67f9ffe3dcdb3d149a774bd8113e8d4[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 31 00:00:24 2026 +0800
+
+    feat: add root index.html redirect to slides directory for direct homepage navigation
+
+[33mcommit 756ce2abd706132e808fa841980b2e30786173b2[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 23:57:14 2026 +0800
+
+    design: remove redundant code logo on Slide 9 so only </;gt; jumps
+
+[33mcommit e9b77a37422c9fb9eee77b0639e226e1010f536f[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 23:56:32 2026 +0800
+
+    feat: configure app.html as Vite input entrypoint and push compiled slides with new OG image
+
+[33mcommit 4cc146a663da0b4c23f25cf897a471257833c538[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 23:55:51 2026 +0800
+
+    feat: update social sharing preview image to clean light minimalistic style
+
+[33mcommit 155e93d27b2193591d0105ea497a485e466340b3[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 23:50:36 2026 +0800
+
+    refactor: rename slides-src to slides, set output folder to dist, and add redirection to preserve presentation url
+
+[33mcommit dc927044e748ef17899c6c9fa66c902fde261654[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 23:45:01 2026 +0800
+
+    design: slightly decrease Slide 9 title font size to fit inline </>
+
+[33mcommit 8a5582fb92d2c27e9ec97eecf9831412173b7548[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 23:43:00 2026 +0800
+
+    design: unify slide 9 heading and text style sizes to match other transition slides
+
+[33mcommit 89c6631dc351d8bdcb4e8901d1fd92c5f8c19d74[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 23:41:10 2026 +0800
+
+    design: unify slide 1 and slide 28 to use the premium, spacious qa-card layout and typography
+
+[33mcommit 43021739a06da0a4d9814d654873c476033990db[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 22:58:38 2026 +0800
+
+    feat: embed fork repository URL directly into Slide 11 terminal window
+
+[33mcommit ce26ef5e4c33d0ba00f86579bdc366eaddd04ed0[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 22:57:11 2026 +0800
+
+    feat: show prominent repository URL banner in Slide 11 for students to fork
+
+[33mcommit 6c2ce7f6f8b78bbc1ab392385a4dd0346f97dca6[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 22:47:53 2026 +0800
+
+    fix: fluid sizing for cover, QA, and congrats slides; fix 1400px padding override
+
+[33mcommit 78b048d2a00b5887d2492fb870a2532ee53c941e[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 22:46:07 2026 +0800
+
+    fix: replace ! with </> glyph on Live Hands-On label
+
+[33mcommit cae3fe560731154f06a20d2b25a3c62445e90658[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 22:45:30 2026 +0800
+
+    fix: increase base content font sizes across all slide components for projector legibility
+
+[33mcommit ede77f5421744c08f7a25ca518a637e7568f727b[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 22:43:28 2026 +0800
+
+    fix: minimalistic light mobile gate screen, responsive, no tagline
+
+[33mcommit 308e21835629520f4d11cce04b81813a594840a0[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 22:39:14 2026 +0800
+
+    fix: apply zoom: 1.2 on projector screens (1600px+) for uniform scale-up
+
+[33mcommit b856c91e641f8befd32e09304f148a4acb3e1fa9[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 22:37:20 2026 +0800
+
+    fix: scale up slides for projector screens using fluid clamp() and 1600px media query
+
+[33mcommit d23ff0785f428f60a72548c29db21aa0fcf5eeff[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 22:32:32 2026 +0800
+
+    feat: desktop-only gate, PIN-protected remote, physical remote control UI
+
+[33mcommit 47ef36964915f5da8425ecea148c3c8c331ddd07[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 19:59:33 2026 +0800
+
+    feat: implement WebRTC mobile remote, custom jumping glyphs, slide 9 redesign, and projector contrast optimizations
+
+[33mcommit d7bbffc6776aa6b5a152afd1b0dd271af6cc5fa6[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 19:02:28 2026 +0800
+
+    fix: restore horizontal scrolling table wrapper and center all slide card content vertically on mobile viewports
+
+[33mcommit 45dc8dd9f911e8733a9c4f89f396215b7baeb028[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 19:00:47 2026 +0800
+
+    fix: center short conceptual slides on mobile and top-align long instructions to resolve content positioning issues
+
+[33mcommit 86a9ec622ee078497996f6b74fd04132ef8afbdd[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 18:57:09 2026 +0800
+
+    fix: restore table display structure on Slide 6 with min-width and horizontal scrolling to prevent squishing
+
+[33mcommit ac8463367e87422acf9ffe009930d0909931c708[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 18:50:41 2026 +0800
+
+    fix: move 🎉 emoji inline before Congratulations text on Slide 28
+
+[33mcommit f1f02922d287b77f5b0cc8522ec8ff2d19bf8e04[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 18:47:48 2026 +0800
+
+    fix: restore 🎉 emoji on Slide 28, revert mobile scroll model to card-level overflow-y:auto so tables on Slide 4 and Slide 6 scroll cleanly inside their fixed-height cards
+
+[33mcommit 41622d0f10d36dabef72232319f0dcb457a183b5[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 18:42:07 2026 +0800
+
+    fix: make confetti SVG icon on Slide 28 horizontally symmetrical for perfect alignment with Congratulations label
+
+[33mcommit 32ad8710b47ef1df9be488e347623591686d5fba[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 18:39:34 2026 +0800
+
+    fix: make mobile slides container grow dynamically to prevent text squishing and cutoffs
+
+[33mcommit 0a9f64b57beacee92cf40843b4bcac14621615f5[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 18:31:02 2026 +0800
+
+    fix: improve slide mobile responsiveness (stack Slide 4 grid, style Slide 6 table as cards, reduce Slide 28 font size & use SVG popper)
+
+[33mcommit 5b7635920195e9c3f122fa9afe2777c9905cf05e[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 15:47:26 2026 +0800
+
+    fix: resolve React invalid child object console error on Slide 15 code preview
+
+[33mcommit 368c5edd4ff2894bde925cc03f67344d2749129f[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 15:43:20 2026 +0800
+
+    refactor: convert workshop slides to React.js single-page application built with Vite
+
+[33mcommit 450e2ff2e841791edb5d1f6107081e13993598ee[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 15:06:37 2026 +0800
+
+    fix: adjust mobile slide card alignment to prevent badge overlap and add cache-buster for css link
+
+[33mcommit 2647d291126f27ec3d35ab93bba5c0f0882f6ead[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 14:53:52 2026 +0800
+
+    fix: improve slide responsiveness on mobile view (Slide 4 grid, Slide 6 table stacking, Slide 28 congrats heading font size)
+
+[33mcommit 91c9a994f36e376d7f636d7e49cc01cfcfd63e82[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 14:28:27 2026 +0800
+
+    feat: change card role placeholder to BSIT1-C2 format and update remaining path references in slides
+
+[33mcommit 1fe916c1c6ff9d0f04b12508f487936a1ab96a62[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 14:19:09 2026 +0800
+
+    refactor: separate slides and student gallery into slides/ and gallery/ dedicated directories
+
+[33mcommit 71c12b27c35d6d3c3bb0e3cfb0885074fbaccee5[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Thu Jul 30 12:56:34 2026 +0800
+
+    feat: simplify congratulations slide layout, style changes, and guides
+
+[33mcommit 3fac63cb4f42b0b5abadbb23225b743a30cd0ecc[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 21:36:32 2026 +0800
+
+    feat: add official Git vector logo inline with Slide 1 main title
+
+[33mcommit 85d110ea3e754fa7ad28713030dd9cef07a23193[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 21:34:12 2026 +0800
+
+    style: remove 3D text shadow from Slide 1 main title for crisp flat typography
+
+[33mcommit 72d57c656c07a3168101d48455a934bc930ae5c0[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 21:32:44 2026 +0800
+
+    style: remove 3D text shadow from top-left slide step badges for clean flat typography
+
+[33mcommit 4ce9dec60371ac19ee89aa174aaaabcc63329c81[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 21:27:57 2026 +0800
+
+    style: elevate mobile slides container to create clean gap above bottom navigation bar
+
+[33mcommit 11d47336934db571a63418fcff6638bedcf24a54[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 21:22:21 2026 +0800
+
+    fix: resolve slide card HTML structure nesting and restore all 24 slides
+
+[33mcommit c98221f1fe0b9ee9d92431457995c1668ca9b0dc[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 21:19:44 2026 +0800
+
+    feat: split How Git & GitHub Work Together across 2 slides and optimize mobile bullet list spacing
+
+[33mcommit f21d1b0ac7d83344b0aaf62eee7a2b853fa550d6[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 21:13:49 2026 +0800
+
+    style: center slide content vertically on mobile while keeping step title at top-left corner
+
+[33mcommit 0eba68364d623360be3e45d17e982427978a8fe8[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 21:10:43 2026 +0800
+
+    fix: resolve mobile slide card title overlap by enforcing display:none on inactive slides
+
+[33mcommit 7eab2d498ff03ac55cd7fbbfee1f06fb58f56fb0[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 21:06:28 2026 +0800
+
+    style: position 3D step titles at top-left and optimize gallery card typography for projector readability
+
+[33mcommit 2ccf1123d3d46bb60e8435b00bc9416be6da506f[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 20:50:45 2026 +0800
+
+    fix: preserve student avatar image when filtering cards in gallery
+
+[33mcommit afc97ad132406576f7aafbe3b92e9586df82fa8c[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 20:48:14 2026 +0800
+
+    style: match github card link hover color to cover photo theme
+
+[33mcommit fe574b09ca565bc723cc1218d56a7b18fd019f58[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 20:46:15 2026 +0800
+
+    style: update gallery title grid icon color to match cover photo theme
+
+[33mcommit 31f273fff14ee6334927396dc441a689d4415b4c[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 20:42:46 2026 +0800
+
+    style: match slide nav step buttons hover color to cover photo gradient
+
+[33mcommit c0c6c4baaff03a0e1728c0bc4c293f9105508b53[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 20:40:36 2026 +0800
+
+    feat: split Step 5 hands-on instructions across 2 dedicated slides
+
+[33mcommit 9c84ad261acaa4db0a8284d4def982d873e57846[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 20:38:43 2026 +0800
+
+    style: match Presentation Slides button hover color to gallery cover photo
+
+[33mcommit e1f49042dc0d9ffef78029ec5a893d1587a9f70f[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 20:35:54 2026 +0800
+
+    style: optimize mobile responsiveness for slide cards and compact code blocks
+
+[33mcommit 6b0e044267f0a8fefacd3a81f10f2cac208bdd4e[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 20:19:41 2026 +0800
+
+    style: increase height of slides container and optimize Step 5 slide padding
+
+[33mcommit 22a5e520afd5e83b710a31df0130ec715653c1c4[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 20:17:37 2026 +0800
+
+    Revert "fix: prevent top flexbox choking on slide cards with auto margin fallback"
+    
+    This reverts commit 128548307b1669314c6539257a9c545a7d12a015.
+
+[33mcommit 128548307b1669314c6539257a9c545a7d12a015[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 20:15:24 2026 +0800
+
+    fix: prevent top flexbox choking on slide cards with auto margin fallback
+
+[33mcommit 64ce70e76afcf61005e7f550f739b47dba1da28d[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 20:11:02 2026 +0800
+
+    fix: compact Slide 10 code snippet & isolate code block scroll events
+
+[33mcommit 6fe48c9ac37465c8eb3d829ae0bcb92bad33ce38[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 19:52:32 2026 +0800
+
+    fix: add missing GitHub icon SVG to Mark Isaac Abangan card
+
+[33mcommit eaf2485a4072fa67f288d63e48ae52efd751a6f5[m
+Merge: b17dc15 520e0fb
+Author: Orlando Fornolles Jr. <orlandojr058@gmail.com>
+Date:   Sat Jul 25 19:47:59 2026 +0800
+
+    Merge pull request #1 from Miguma/main
+    
+    add Mark Isaac Abangan profile card
+
+[33mcommit 520e0fb1f6e07a47094cf8f309bf052b6425591a[m
+Author: Mark Isaac Abangan <markabangan212@gmail.com>
+Date:   Sat Jul 25 19:28:13 2026 +0800
+
+    feat: add Mark Isaac Abangan profile card
+
+[33mcommit b17dc153f98a05757f668c038f903669d50197c7[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 17:10:59 2026 +0800
+
+    style: remove top meta badge from Any Questions slide
+
+[33mcommit fb04f098a55b90a7cb7696db672460bdfd84350c[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 17:10:18 2026 +0800
+
+    style: update slide 20 heading to Any Questions?
+
+[33mcommit 8200b1d7b3c446ca04fe075fbdecc011538e0936[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 17:09:37 2026 +0800
+
+    feat: add dedicated Q&A slide before workshop wrap up
+
+[33mcommit cb5ebb06dc608d30291ea891715acb3a11ab494a[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 17:06:59 2026 +0800
+
+    docs: update workshop slides and guides for forking workflow
+
+[33mcommit e14b36e04e717194f1ce0e2c186f50f63a45e9bb[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 16:09:12 2026 +0800
+
+    fix: protect code-wrapper touch scrolling on mobile to prevent accidental slide switching when swiping inside code blocks
+
+[33mcommit 3fa1607232856be5afd6880ece2055c11f9f3813[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 15:57:08 2026 +0800
+
+    fix: refine mobile responsiveness for cover title, gallery header, and 52px profile avatar
+
+[33mcommit 8550bbfda2e294f4a1ab2dcb3bc9cfc56b86cac0[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 15:41:02 2026 +0800
+
+    feat: add Open Graph social card image preview (og_preview.jpg) for Facebook, Messenger, Discord & Twitter
+
+[33mcommit 67f0766ad5e1af81f0542007ecebb8b8706afc6c[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 15:37:21 2026 +0800
+
+    docs: simplify README.md for clean and emoji-free documentation
+
+[33mcommit 934ddf438537a4c12dc9c353f9935e6793cccaa9[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 15:36:08 2026 +0800
+
+    feat: update sample profile to Orlando Fornolles Jr., enlarge avatar, polish title & align Slide 10 code snippet
+
+[33mcommit ef090e94cc91287421d92a2c8573eabc375831a4[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 01:43:35 2026 +0800
+
+    style: significantly increase floating left (SwuDevs) and right (Git & GitHub) logo sizes when not in full screen
+
+[33mcommit 859a8f80833ad2303977f44184b40f02b073b7e4[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 01:42:13 2026 +0800
+
+    refactor: move SwuDevs logo into images/ directory
+
+[33mcommit 55c13143582524168ec438e025cda42b7c725957[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 01:41:29 2026 +0800
+
+    style: make student cards 100% static with no hover effects or transitions
+
+[33mcommit 4d6c7d1a7f78bbf2a1306024740c824b156a21c2[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 01:41:13 2026 +0800
+
+    feat: remove bottom sheet modal completely, display clean self-contained student cards only
+
+[33mcommit 6cb10793e12c7c64ff66502c8536f520ddf04afa[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 01:39:07 2026 +0800
+
+    feat: keep photo in dedicated images/IMG_2526.jpg folder and render on Workshop Lead sample card
+
+[33mcommit a5a55a248622304283568c386c48f2516b59fcd8[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 01:38:15 2026 +0800
+
+    security: remove personal photo from git tracking, add .gitignore, and restore generic avatar template
+
+[33mcommit e964c5a69654085cfd40208bc704816fbe3af03c[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 01:36:16 2026 +0800
+
+    feat: apply user photo IMG_2526.jpg to Workshop Lead sample card avatar in gallery.html
+
+[33mcommit 5305a03785a3b6b4b12e7fc80a0ee0c67340259b[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 00:43:02 2026 +0800
+
+    style: further expand student card width to 395px with 1120px container max-width
+
+[33mcommit b3125967c18ddf901097518f2c3226cfa8279f0d[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 00:42:10 2026 +0800
+
+    style: increase student card width to 360px+ with generous 1040px container max-width
+
+[33mcommit 129b1c1940dfcdd3913c563bcce57207a4546157[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 00:38:09 2026 +0800
+
+    feat: add optional hard-coded profile photo comment line in student card snippets & support custom avatar rendering in bottom sheet
+
+[33mcommit 44285e10c00f9e3ede27c7265f479045489dbdc7[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 00:27:28 2026 +0800
+
+    style: remove HTML comment snippet from gallery.html
+
+[33mcommit 87674a063b7fbcbf4745938ffd4a5d7870068e63[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 00:18:58 2026 +0800
+
+    feat: embed ready-to-copy HTML student card template block inside gallery.html and update README.md & Slide 10 snippets
+
+[33mcommit b5e6ec2f8dc7178fe6e92a286dd5047a489f9546[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 00:11:33 2026 +0800
+
+    docs: add clear HTML comment guide in gallery.html showing students exactly where to paste their profile card
+
+[33mcommit 56c3d87c7837039ece2d4fdf3e207553beefdd45[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Sat Jul 25 00:02:21 2026 +0800
+
+    style: optimize slide card spacing and hide scrollbars in non-fullscreen desktop mode
+
+[33mcommit 0cd46f371313cbd24cedbb473e60c464bca95633[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 23:56:35 2026 +0800
+
+    fix: resolve trackpad momentum infinite scrolling with inertia lock and internal content scroll protection
+
+[33mcommit c5668928f50164da29e880369d3504834dc1a8e2[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 23:50:21 2026 +0800
+
+    style: update website and bottom sheet custom scrollbars to ultra-lowkey, 4px-5px slim transparent track style
+
+[33mcommit 32c7a3a578b1f98088264f2d2df2b1280539d0b9[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 23:44:32 2026 +0800
+
+    style: custom sleek scrollbar for bottom sheet and increased student card width to prevent cramped details
+
+[33mcommit a83b6380f8fcb8f73afd816e9cfca0f4b4079682[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 23:37:37 2026 +0800
+
+    feat: add interactive fullscreen toggle button and dynamic SVG icon to bottom navigation bar
+
+[33mcommit deab056a62f0a4840cd00910f7226f70ca2b956a[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 23:34:33 2026 +0800
+
+    style: center slide container and card content vertically to remove excessive bottom whitespace gap
+
+[33mcommit c5b8ed1c75dba4ac32fa1dc5c3fc3f5249e84148[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 23:32:10 2026 +0800
+
+    style: comprehensive Windows laptop compatibility fixes (scrollbar gutters, 100% viewport width, DPI scaling & font smoothing)
+
+[33mcommit 560a59340a757d262003e9ca73b2d7df6250b26a[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 23:30:50 2026 +0800
+
+    style: restore compact card grid width (auto-fill) while preserving crisp header & badge layout fixes
+
+[33mcommit c36779361dec003c9b4ec54efc8571ea7a9e3950[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 23:30:07 2026 +0800
+
+    style: fix card grid sizing, header flex layout, white-space wrap on expand hint, and bio text reference in gallery.html
+
+[33mcommit 4ecac29a7ef408646b4c8202d1326bf5dfe3a7d9[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 23:19:25 2026 +0800
+
+    style: comprehensive cross-device responsiveness for 4K desktops, 13-15 inch laptops, tablets/iPads, and mobile phones
+
+[33mcommit f1dee67d31b38149e0a28e67f6302039ac26fa64[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 23:04:28 2026 +0800
+
+    fix: pass-through pointer events on floating logo, add iOS touch momentum scrolling to bottom sheet, and lock body scroll on open
+
+[33mcommit db61154d0d0f23f89a0d7abff7a026bd4c93ba4d[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:56:22 2026 +0800
+
+    style: comprehensive mobile responsiveness for bottom sheet drawer including full-width CTA buttons, compact avatar sizing, and dynamic viewport max-height
+
+[33mcommit 9dafd34fff0988c91b49c281a7fc4017503e2f3c[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:52:12 2026 +0800
+
+    style: ultra-responsive compact mobile bottom navigation bar with strict flex-shrink rules for 320px-420px viewports
+
+[33mcommit b501803545f156fec9dcf7db46398fdaa3081e3b[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:48:32 2026 +0800
+
+    style: remove heavy card drop-shadows, inset code shadows, and text drop-shadows on mobile screens
+
+[33mcommit d987edb32e6f6d131e18fb1115c1ae605a7c632c[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:47:12 2026 +0800
+
+    fix: preserve original 'Getting Started With Git' label on bottom navigation bar across all screen sizes
+
+[33mcommit 2c682e69a9cb999459438400722a30de3fc308cb[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:40:19 2026 +0800
+
+    fix: remove backdrop-filter blur and heavy drop-shadows to ensure Slide 1 renders 100% crisp and clear
+
+[33mcommit 46894a32811ef87a1cd9ee2914cd7d72b97930d4[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:36:26 2026 +0800
+
+    style: comprehensive mobile responsiveness for Student Gallery cards including footer stacking, quote wrapping, and full-width grid columns
+
+[33mcommit de56d562e993276a44b07466650227c4974a5b67[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:35:27 2026 +0800
+
+    style: center slide content vertically on mobile cards to eliminate top-stacking and bottom whitespace voids
+
+[33mcommit 6ac3ce3e437512e08ba79331ec1ad9185f5aad80[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:30:56 2026 +0800
+
+    style: fix mobile phone responsiveness using 100dvh dynamic viewports, scrolling slide cards, and strict viewport scaling
+
+[33mcommit 8aacdb1036d0542b6ab5ddffaa42f5c7d9c54821[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:28:07 2026 +0800
+
+    feat: set Presentation Slides as root home page (index.html) and Student Gallery as gallery.html
+
+[33mcommit 78f28b3e97ec955ee8bd4d9b4a085d58c47f0a4c[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:20:48 2026 +0800
+
+    docs: finalize exact GitHub repo URLs and copy permissions across all documentation and slide scripts
+
+[33mcommit 6e8db8ee7169e81ce71960bf48856bd84fdbd195[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:19:03 2026 +0800
+
+    style: comprehensive mobile responsive optimizations for both Student Gallery website and Presentation Slides deck
+
+[33mcommit 81fd9744e444214d2f0f4a0cc381e5d3c5e77bb9[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:17:24 2026 +0800
+
+    fix: ensure only 1 initial host card displays smoothly without re-rendering
+
+[33mcommit 28c284c66582e630743bd119d25b0b0d7bc62ec6[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:16:31 2026 +0800
+
+    fix: eliminate card blinking/flash by skipping DOM re-rendering when no new JSON files are loaded
+
+[33mcommit 4666fe61c739ae258ce5da3345ba756e2ffe7261[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:15:33 2026 +0800
+
+    fix: resolve DOM card wiping bug when students paste HTML directly in index.html, normalize GitHub handle extraction, and prevent event propagation duplication
+
+[33mcommit 9637e96563997f02e46abb8c7100f7915ebe52d4[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 22:13:08 2026 +0800
+
+    feat: add quick link button between Student Attendance Gallery and Presentation Slides
+
+[33mcommit 1476c8f2eac0db86795e082edd5e6879bd2f412f[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:55:03 2026 +0800
+
+    style: refine Slide 1 title and tagline formatting with high contrast typography and clean z-index separation
+
+[33mcommit 0cfd0ed4aae3fb05f88f3d6e30773b3ad13cb61e[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:54:25 2026 +0800
+
+    feat: add 3 distinct scattered SwuDevs logo watermarks across Slide 1 background
+
+[33mcommit 3132fcad1aabbf52a51ff22720f68900f477dfd0[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:54:00 2026 +0800
+
+    style: apply left-aligned and scattered SwuDevs logo watermark composition on Slide 1
+
+[33mcommit 53191f98d93d48746291677ee44375b64a7c29ce[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:52:25 2026 +0800
+
+    style: remove global body background logo; keep SwuDevs logo strictly isolated to Slide 1 card background
+
+[33mcommit d89c94d3b43cce7437f0ed7ab3cd5d978a755d00[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:51:42 2026 +0800
+
+    fix: correct relative image path to ../../SwuDevs Logo Variations 1.png for slide background
+
+[33mcommit f59c2cab8aa34e57306e59ce087b3b928ce1735f[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:51:04 2026 +0800
+
+    style: apply centered transparent SwuDevs logo watermark directly to Slide 1 white card background
+
+[33mcommit 2c8840a43216db6007bc56ffb687b53d42d88aef[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:50:22 2026 +0800
+
+    style: add SwuDevs logo watermark background specifically on Slide 1 title card
+
+[33mcommit 4dbf104ed8b61586da47af388235df6e8c2876a6[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:49:51 2026 +0800
+
+    style: remove top step badge from Slide 1 for ultra-clean title presentation
+
+[33mcommit 2a39159f4242415196c8463d509d6478db6c9124[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:49:04 2026 +0800
+
+    style: apply bold static 3D title text effect to Slide 1 and remove callout box
+
+[33mcommit d0e2793c254dc822968e804b8075853982a6501b[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:47:58 2026 +0800
+
+    docs: remove premature clone link from Slide 1 and replace with clean workshop overview callout
+
+[33mcommit a4741bcd2fd44debff6b9bafc91c3e854e111496[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:45:36 2026 +0800
+
+    style: split What is Git? and What is GitHub? into 2 spacious slides for maximum projector legibility
+
+[33mcommit 79e8db183fc0dc8593572e06b3a0feb19eca4b05[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:44:44 2026 +0800
+
+    docs: add foundational slides explaining What is Git?, What is GitHub?, and How They Work Together
+
+[33mcommit 50518abbd78e710cdfdd6cb9e40c7f0c8784c689[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:35:34 2026 +0800
+
+    style: set fixed min-width: 82px on .btn-copy-url to prevent layout width expansion when text changes to Copied!
+
+[33mcommit 469460d72340ffc48188ce56f1d66aef28285604[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:34:31 2026 +0800
+
+    feat: add small copy button next to repository URL on slides for instant 1-click copying
+
+[33mcommit 0867b967df6ad42a1bbb1fd9487834e14b021ca5[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:33:49 2026 +0800
+
+    feat: make repository URL copyable on presentation slides while keeping commands non-selectable
+
+[33mcommit 1cfd08316dd0474b8da33561b70b82c546215bf7[m
+Author: Orlando Fornolles Jr <orlandojr058@gmail.com>
+Date:   Fri Jul 24 21:31:32 2026 +0800
+
+    docs: update exact GitHub repo URL in presentation slides (Slide 1 & Slide 5)
+
+[33mcommit 481cd17566dcd67acf0f979b10cb3819082062c9[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 19:16:23 2026 +0800
+
+    style: remove colored border-left outline on quotes and replace with elegant quotation mark styling
+
+[33mcommit 684da007ab1f953fdf42cc25d8aa5298bc157c4d[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 19:15:14 2026 +0800
+
+    style: convert View GitHub Profile button in bottom sheet modal to a rounded pill shape
+
+[33mcommit 8c05f62c6ceffc32fe89149ce364f2e0856b3e45[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 19:14:15 2026 +0800
+
+    fix: move openBottomSheetModal to top-level global scope in js/app.js for immediate click readiness
+
+[33mcommit b93d6966a270d740153e5f4afc7a8728191f7a7b[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 19:12:34 2026 +0800
+
+    fix: apply direct inline style overrides for bottom sheet modal opening and closing
+
+[33mcommit 1e8e33f4b215a3b63fa84641898f7289e262951e[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 19:11:46 2026 +0800
+
+    fix: bind global window.openBottomSheetModal click handler for 100% click reliability
+
+[33mcommit eada11de4c3b61b5076f2ce7cb47d03e3bbd5441[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 19:10:31 2026 +0800
+
+    fix: resolve bottom sheet drawer display bug and add robust DOM extraction fallback
+
+[33mcommit c1872bae43bebbbd8b1686bf28b523936a808dfe[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 19:09:27 2026 +0800
+
+    feat: make student cards expandable with a smooth slide-up bottom sheet drawer to view long bios, quotes, and full tech stacks
+
+[33mcommit ca8180928a6085264dafbbca858a9e1084cddd96[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 19:05:43 2026 +0800
+
+    refactor: isolate presentation slides into a dedicated slides/ directory
+
+[33mcommit a34df2f2dc723c86f70f314c8f9cdaece239d763[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:48:28 2026 +0800
+
+    docs: update FACILITATOR_GUIDE.md schedule for 10:00 AM - 12:30 PM (2.5 hours) workshop duration
+
+[33mcommit 43376363baf9a68d2d4f25fbbd97765ad69869a9[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:45:02 2026 +0800
+
+    docs: align slides.html (Slide 8 & 9) with the copy-paste HTML card workflow in README.md
+
+[33mcommit 0d57dd2ba16512dec13531f583a58928a391b73d[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:33:21 2026 +0800
+
+    docs: simplify README.md for a clean, concise 3-step student guide
+
+[33mcommit 570a1b133526e3fb3337dbc7075ff568ee6e0d87[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:32:40 2026 +0800
+
+    style: style Student Attendance Gallery search bar into a rounded pill shape (border-radius: 9999px)
+
+[33mcommit 878431e7916452c6843fb7eec2ea4d9f5d57c3ed[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:32:22 2026 +0800
+
+    feat: add HTML card code snippet to README.md and STUDENT_GUIDE.md for copy-paste HTML workshop workflow
+
+[33mcommit 22f3417b1114122582ae26420b538123f764de33[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:28:42 2026 +0800
+
+    docs: add complete workshop flow guide for facilitators
+
+[33mcommit 2e6b7739dd75788c134d68a739038a5be3c6ac10[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:26:00 2026 +0800
+
+    feat: set initial gallery state to 1 Host card so students add their own cards live during the workshop
+
+[33mcommit 94ed4372da4cd2cdb083214b7aa5fbd77686ab1d[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:21:23 2026 +0800
+
+    style: convert Git and GitHub hero profile badges into clean circular avatar rings
+
+[33mcommit 0283776dd006ef6ae97a9c172f3bb00574ec689a[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:20:22 2026 +0800
+
+    feat: add real-time search bar so students can instantly find their card by name or GitHub handle
+
+[33mcommit 8894808406fb82b22454a4f18520d6bac6bc1001[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:19:16 2026 +0800
+
+    feat: sort student cards so newly merged student PRs and updates automatically float to the top
+
+[33mcommit c75276b3d5ddbcc35ed20ce11bb4abeaf6364f9f[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:17:35 2026 +0800
+
+    feat: scale Student Attendance Gallery to seamlessly load and render 30+ participant cards
+
+[33mcommit c6595d2bedd41c9ed765d92012d9f7decd06ed27[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:16:12 2026 +0800
+
+    style: optimize card typography contrast, weights, and sizes for maximum legibility
+
+[33mcommit 5a501bb5d943f0f5551ee2082808797ddd8598b2[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:13:59 2026 +0800
+
+    fix: prevent GitHub handle wrapping and strip leading '@' symbols in card links
+
+[33mcommit 6b11a2678135a83c715b534a68d51a49d32e7f5d[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:13:15 2026 +0800
+
+    style: remove bottom footer text from Student Attendance Gallery
+
+[33mcommit 95486659fb3745ef0e3625e60c375a52309eef94[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:12:34 2026 +0800
+
+    style: refine cover banner title 3D typography and overlay contrast for high visual elegance
+
+[33mcommit 957cba7e034db7dbcbd658438a1c1fcf484dba29[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:12:16 2026 +0800
+
+    style: apply multi-layered static 3D text shadow extrusion to cover photo title
+
+[33mcommit b54bc2707f4278c3ba010a9a5a540a69d747d9b3[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:11:53 2026 +0800
+
+    style: remove byline from cover banner for a clean title-only hero header
+
+[33mcommit c8b61b813eaa99b60d1aa00ac914803641ac53e0[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:11:26 2026 +0800
+
+    style: add crisp white pill container so Maroon SWU and Black devs are clearly readable over cover photo overlay
+
+[33mcommit f0a9b740d1802c54c449695b3091ee4af5984cc8[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:10:47 2026 +0800
+
+    style: set SWU to pure Maroon (#800000) and devs to pure Black (#000000) with no text shadows
+
+[33mcommit dda3b17e31ead2de897a0fb8f3f8de989a702fd2[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:10:33 2026 +0800
+
+    style: set SWU color to official Deep Maroon (#800000) and devs to official Black (#000000) with light text outline
+
+[33mcommit 734e28b7f4e3c3996f43d91a2afa17c3aed32085[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:10:16 2026 +0800
+
+    style: convert SWUdevs brand byline into pure plain text without background box
+
+[33mcommit 670f80f8092df2b2170b79d4199fb6dd0c77e686[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:09:58 2026 +0800
+
+    style: apply official Maroon SWU and Black devs brand colors on cover photo banner
+
+[33mcommit 8c8180da05a0ab57257820ef6a48bdc755494d69[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:09:18 2026 +0800
+
+    style: replace SwuDevs image logo with vibrant gradient text 'SWUdevs' on cover banner
+
+[33mcommit cc4577f665af8962c2b8c031ecfd78aef2cd900b[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:08:41 2026 +0800
+
+    feat: add 'By [SwuDevs Logo]' byline directly under workshop title on cover photo banner
+
+[33mcommit 9712c1e0dd8551a142cf80840ae7612c811a9e82[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:07:13 2026 +0800
+
+    feat: place workshop title directly inside cover photo banner with dark gradient overlay
+
+[33mcommit def7e0d0b015bdd50ef1eb23f51e60de5d3e2811[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:05:42 2026 +0800
+
+    feat: replace all emojis with clean vector SVG user avatar icons on student profile cards
+
+[33mcommit 53bfa329068817aed7da0b1d3b0b153e83b64024[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:04:49 2026 +0800
+
+    style: convert student cards into simple, flat, static Notion database gallery cards
+
+[33mcommit 9e71c293c7dc5ca5bdfcb3bcd845b163e7756a4f[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:04:13 2026 +0800
+
+    style: enhance student card visual hierarchy with strong typography levels, pill tags, and top border accents
+
+[33mcommit 220602b75ceae853a63931167e1505b588159b64[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:03:29 2026 +0800
+
+    feat: remove search bar and tech stack filter chips from Student Attendance Gallery
+
+[33mcommit 44724c31967ceb125c250ebb7f42a8f2a0b3412a[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:02:41 2026 +0800
+
+    style: apply eye-catching static 3D layered text shadow effect to 'Getting Started With Git' title
+
+[33mcommit 0ca2aa05d69699fd2962a5b4905299aac9e90c98[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:01:38 2026 +0800
+
+    docs: update Notion main title to official workshop title 'Getting Started With Git'
+
+[33mcommit 3adf3740c7fbb7b035e5cb86d5e87ccef40d8efd[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 18:00:35 2026 +0800
+
+    style: restore floating SwuDevs logo FAB at bottom-left corner on Student Attendance Gallery
+
+[33mcommit 93bd5155ee4f5a3cb6018c9a24ea4112bcb59854[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:59:36 2026 +0800
+
+    style: convert SwuDevs logo badge into wide landscape pill container (180px min-width) for clear logo text
+
+[33mcommit 4927d9cb9c12377deb8c3fc3745e254e0e6dad88[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:59:11 2026 +0800
+
+    style: enlarge SwuDevs logo inside Notion hero profile photo badge
+
+[33mcommit d7da3c03d622e8fe09767528257d4834835a16f5[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:58:39 2026 +0800
+
+    feat: add SwuDevs logo badge alongside Git and GitHub badges in hero profile group
+
+[33mcommit b887cf70788c73daa311a6b911226790f2b9c0d3[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:57:47 2026 +0800
+
+    feat: add side-by-side Git and GitHub profile badges to Student Attendance Gallery hero
+
+[33mcommit eaaf7b5a5a00dc5aba6c8cafc267661367fe2a4a[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:56:05 2026 +0800
+
+    feat: place official Git logo inside Notion hero profile photo badge
+
+[33mcommit 170b2c11ba084b49a608c5f2af222208eddfd1e5[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:54:16 2026 +0800
+
+    docs: rename Wall of Fame page title to 'Student Attendance Gallery'
+
+[33mcommit 091d6969033da68ace0703b65b8225d8dcae2efb[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:53:27 2026 +0800
+
+    style: restore classic left-aligned Notion layout for Wall of Fame page title and gallery view
+
+[33mcommit 35def1c7950cf7e5eadbaac5300e19fbeea6cfa1[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:52:58 2026 +0800
+
+    feat: center Student Wall of Fame title and icon, and remove buttons and tagline text
+
+[33mcommit 7c24e9e3c4b4f2aa5a0c7ae77e49330c086838eb[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:51:58 2026 +0800
+
+    style: remove logo background watermark from Wall of Fame web app
+
+[33mcommit 9bc2295af644121e78c54e728bbde91c76bbcbfd[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:51:36 2026 +0800
+
+    feat: simplify Wall of Fame into a clean Notion Gallery Database layout focusing on student cards
+
+[33mcommit dda2933e11eb5191cd3effb0810b8cd079e24373[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:49:13 2026 +0800
+
+    feat: redesign Wall of Fame website in Notion light theme with hero cover banner and gallery grid
+
+[33mcommit ab57776b4294f4871cb835d34460d71668eba1e6[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:47:14 2026 +0800
+
+    feat: remove top header navigation bar from Wall of Fame website
+
+[33mcommit 90ba28e9780ce22e7aae057f69c617bdc67bc70a[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:46:51 2026 +0800
+
+    feat: design unique, clean, and visually appealing dark-slate glassmorphism Wall of Fame showcase app
+
+[33mcommit 6d48c2b1f133eb47e8b96c52fd06474e83ac9e98[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:44:15 2026 +0800
+
+    style: align Wall of Fame web app with minimalist light theme, SwuDevs watermark, and SVG icons
+
+[33mcommit 4ae2f433953c41e41486fb3bcdaa4717c581d754[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:42:37 2026 +0800
+
+    feat: add official Git vector favicon to presentation slides and web application
+
+[33mcommit f57d023c9170ed184c2aa77e8803e636239573f3[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:41:49 2026 +0800
+
+    docs: update slides webpage title to 'Getting Started With Git | Slides'
+
+[33mcommit fcbe006d41d81c3b2d2c9876fbdd31200299c2ae[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:41:08 2026 +0800
+
+    docs: update workshop tagline across slides, web dashboard, and documentation
+
+[33mcommit 6c683d4ca98aff018cf8aecb7cfea8e0ef75f49e[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:36:46 2026 +0800
+
+    style: optimize font sizes, code block size (1.05rem), and card opacity for classroom projector visibility
+
+[33mcommit 5fff03309bca6b2a00e2450b4b69c91e1b632ce4[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:35:38 2026 +0800
+
+    style: color lightning icon in bottom navigation bar with official Git logo orange (#F05032)
+
+[33mcommit 743ad5138f2770b671ace5d847e63497b1ecf4d1[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:33:51 2026 +0800
+
+    style: optimize slide card height and spacing for perfect bottom navigation bar placement
+
+[33mcommit e7235340f7d938942246fa7b1e5456b590fb964c[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:33:03 2026 +0800
+
+    feat: remove scrolling completely and render 1 discrete slide at a time with keyboard and button controls
+
+[33mcommit 1c73722028d938900606582287b65f7d0ef55ec9[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:31:51 2026 +0800
+
+    style: remove scale/opacity transform animations for completely natural fluid scrolling
+
+[33mcommit a2bb4e3d96c2624f4d4457e3c808bec362b1c6af[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:30:06 2026 +0800
+
+    feat: add smooth cubic-bezier fade and scale transitions when scrolling between slides
+
+[33mcommit a660e1c3f682551e7b95fd0e17daf36e02b197b0[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:29:01 2026 +0800
+
+    feat: add CSS scroll snapping so each slide takes up 100vh focusing on 1 slide at a time
+
+[33mcommit a705f9e36fb68aaeac4de9d89f13cac2d7faa294[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:26:57 2026 +0800
+
+    feat: add fullscreen keyboard shortcuts (F key) and layout optimizations
+
+[33mcommit 93b218e2bfd8ea8c7bcbfac2d118b717cc03711f[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:25:52 2026 +0800
+
+    feat: add official floating Git and GitHub vector logos at bottom-right corner
+
+[33mcommit 1242235fafb6cd03c56f54227e076835eabf081a[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:25:09 2026 +0800
+
+    style: increase floating logo height to 140px for prominent visibility
+
+[33mcommit 67706cf5e7298d3d10d648c1f3ee85e8f117fc1b[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:24:48 2026 +0800
+
+    style: remove pill background from floating logo FAB and enlarge logo size to 64px
+
+[33mcommit a3b759de54b022250d33cfc74b98559a5700ce07[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:24:05 2026 +0800
+
+    feat: add fixed floating SwuDevs organization logo FAB at bottom-left corner
+
+[33mcommit a771063756262ab2f39a7f2a97e63586da306201[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:22:34 2026 +0800
+
+    style: remove wall of fame link from slide 18 wrap up
+
+[33mcommit 3e3e0d7a56f6c6a2a6b3732b93df8d8325b121c5[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:19:38 2026 +0800
+
+    style: increase slide card transparency so background logo shines through
+
+[33mcommit 1087b40f3e442dcfc482c714208c109e544bb6e3[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:18:36 2026 +0800
+
+    style: expand SwuDevs background logo size to 1600px and reduce blur to 5px for clear visibility
+
+[33mcommit fc66516dc987ef83403e8810456704cdb4c4b7ee[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:17:33 2026 +0800
+
+    style: increase SwuDevs background logo opacity and size for distinct visibility
+
+[33mcommit bbf654069d1a1fc1d843fc57158e8495df985e1b[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:16:28 2026 +0800
+
+    style: apply blurred SwuDevs organization logo as fixed background watermark
+
+[33mcommit 662bf95a2efd2c1ae0870b9b90487e746df7adcb[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:09:24 2026 +0800
+
+    style: remove footer text from slides page
+
+[33mcommit 190e05c789160aae86aac9878819000251ebabb6[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:08:32 2026 +0800
+
+    feat: disable copy-pasting on code blocks to enforce manual typing practice
+
+[33mcommit 994fd1e87e5130d5e8e1643c6806803d88c5b6bb[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:06:16 2026 +0800
+
+    style: remove student scroll note callout from Slide 1
+
+[33mcommit 7f7b63a6f9b47e9b883afdfca52e84894a29fff7[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:03:56 2026 +0800
+
+    docs: update official workshop title to Getting Started With Git
+
+[33mcommit 22427d2c19476a73b1e0e51dcf59907ba1a1b5c5[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:01:33 2026 +0800
+
+    feat: move slide counter label to bottom floating navigation bar
+
+[33mcommit 82b3d8dce5c74f392e1dccfa1c9f2159b358cb52[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 17:00:43 2026 +0800
+
+    style: remove background tint colors and shadows on badges and labels
+
+[33mcommit bee963293f3d82c8be1bfd0892c5694826bb15f4[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 16:59:20 2026 +0800
+
+    style: elevate slides to ultra-premium minimal light theme design
+
+[33mcommit 933c3297c57369899391584542f3b23469f6cef1[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 16:58:40 2026 +0800
+
+    feat: move slide navigation bar to fixed floating bottom bar
+
+[33mcommit f3b6b22fce7e93580932d25256e6456a28d14f50[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 16:57:15 2026 +0800
+
+    style: update slides to minimalist light theme single page scrollable layout
+
+[33mcommit f3661673da2a46dc1bdf6c00fb92fe4012f4304b[m
+Author: Orlando Fornolles Jr <ojfornolles@Orlandos-MacBook-Air.local>
+Date:   Fri Jul 24 16:44:28 2026 +0800
+
+    feat: initial commit for GitReady workshop app and slides
