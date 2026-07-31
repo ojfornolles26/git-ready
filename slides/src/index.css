@@ -1184,6 +1184,10 @@ body {
   color: #991b1b;
 }
 
+.conflict-current .cmd-cmt {
+  color: #b91c1c;
+}
+
 .conflict-divider {
   background: #f1f5f9;
   border-bottom: 1px solid #e2e8f0;
@@ -1197,6 +1201,10 @@ body {
 .conflict-incoming {
   background: #ecfdf5;
   color: #065f46;
+}
+
+.conflict-incoming .cmd-cmt {
+  color: #047857;
 }
 
 /* Practices Grid (Slide 25) */
